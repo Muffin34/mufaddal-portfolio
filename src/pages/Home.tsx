@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, ExternalLink, X, Send, Loader2, ChevronRight } from 'lucide-react'
+import { Mail, ExternalLink, X, Send, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const PROFILE_IMG = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp'
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_ID'
 
 const experiences = [
   {
@@ -127,9 +126,7 @@ export default function Home() {
   const [contactOpen, setContactOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({})
-  const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
-  const [sendError, setSendError] = useState('')
 
   function validate() {
     const errors: typeof formErrors = {}
@@ -142,29 +139,21 @@ export default function Home() {
     return Object.keys(errors).length === 0
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validate()) return
-    setSending(true)
-    setSendError('')
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(formData),
-      })
-      if (res.ok) {
-        setSent(true)
-        setFormData({ name: '', email: '', message: '' })
-        setTimeout(() => { setContactOpen(false); setSent(false) }, 2500)
-      } else {
-        setSendError('Something went wrong. Please try again.')
-      }
-    } catch {
-      setSendError('Network error. Please try again.')
-    } finally {
-      setSending(false)
-    }
+    // Open mailto with pre-filled subject and body
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`)
+    const body = encodeURIComponent(
+      `Hi Mufaddal,\n\nMy name is ${formData.name}.\n\n${formData.message}\n\nReply to: ${formData.email}`
+    )
+    window.open(`mailto:mufaddal244.mk@gmail.com?subject=${subject}&body=${body}`, '_blank')
+    setSent(true)
+    setTimeout(() => {
+      setContactOpen(false)
+      setSent(false)
+      setFormData({ name: '', email: '', message: '' })
+    }, 2500)
   }
 
   return (
@@ -462,16 +451,23 @@ export default function Home() {
 
       {/* ── CONTACT MODAL ── */}
       {contactOpen && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
+        <div
+          style={{ position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}
+          onClick={(e) => { if (e.target === e.currentTarget) setContactOpen(false) }}
+        >
           <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)' }} onClick={() => setContactOpen(false)} />
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.2 }}
-            style={{ position: 'relative', background: '#fff', borderRadius: 16, overflow: 'hidden', width: '100%', maxWidth: 440, boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}
+            style={{ position: 'relative', background: '#fff', borderRadius: 16, overflow: 'hidden', width: '100%', maxWidth: 440, boxShadow: '0 20px 60px rgba(0,0,0,0.2)', zIndex: 1 }}
+            onClick={(e) => e.stopPropagation()}
           >
             <div style={{ background: 'linear-gradient(135deg, #3c6e71, #284b63)', padding: '1.5rem 1.75rem', position: 'relative' }}>
-              <button onClick={() => setContactOpen(false)} style={{ position: 'absolute', top: '0.875rem', right: '0.875rem', background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '50%', width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff' }}>
+              <button
+                onClick={() => setContactOpen(false)}
+                style={{ position: 'absolute', top: '0.875rem', right: '0.875rem', background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '50%', width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff' }}
+              >
                 <X size={13} />
               </button>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff', marginBottom: '0.2rem' }}>Let's Work Together</h3>
@@ -481,29 +477,49 @@ export default function Home() {
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '1.75rem 0' }}>
                   <div style={{ fontSize: 40, marginBottom: '0.75rem' }}>✅</div>
-                  <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Message Sent!</h4>
-                  <p style={{ color: '#888884', fontSize: 13 }}>I'll get back to you as soon as possible.</p>
+                  <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Opening your email app...</h4>
+                  <p style={{ color: '#888884', fontSize: 13 }}>Your message is ready to send via email.</p>
                 </div>
               ) : (
                 <>
                   <div>
                     <label style={{ display: 'block', fontSize: 12.5, fontWeight: 600, color: '#353535', marginBottom: '0.35rem' }}>Your Name</label>
-                    <input type="text" placeholder="e.g. John Smith" value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.name ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }} />
+                    <input
+                      type="text"
+                      placeholder="e.g. John Smith"
+                      value={formData.name}
+                      onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+                      style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.name ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }}
+                    />
                     {formErrors.name && <p style={{ color: '#f44336', fontSize: 11.5, marginTop: '0.2rem' }}>{formErrors.name}</p>}
                   </div>
                   <div>
                     <label style={{ display: 'block', fontSize: 12.5, fontWeight: 600, color: '#353535', marginBottom: '0.35rem' }}>Your Email</label>
-                    <input type="email" placeholder="e.g. john@company.com" value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.email ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }} />
+                    <input
+                      type="email"
+                      placeholder="e.g. john@company.com"
+                      value={formData.email}
+                      onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+                      style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.email ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }}
+                    />
                     {formErrors.email && <p style={{ color: '#f44336', fontSize: 11.5, marginTop: '0.2rem' }}>{formErrors.email}</p>}
                   </div>
                   <div>
                     <label style={{ display: 'block', fontSize: 12.5, fontWeight: 600, color: '#353535', marginBottom: '0.35rem' }}>Your Message</label>
-                    <textarea rows={4} placeholder="Tell me about your project, timeline, or any questions..." value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.message ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', resize: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }} />
+                    <textarea
+                      rows={4}
+                      placeholder="Tell me about your project, timeline, or any questions..."
+                      value={formData.message}
+                      onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
+                      style={{ width: '100%', padding: '0.6rem 0.85rem', border: `1.5px solid ${formErrors.message ? '#f44336' : '#e4e4e1'}`, borderRadius: 8, fontSize: 13.5, color: '#353535', outline: 'none', resize: 'none', fontFamily: "'Inter', sans-serif", boxSizing: 'border-box', background: '#fafaf9' }}
+                    />
                     {formErrors.message && <p style={{ color: '#f44336', fontSize: 11.5, marginTop: '0.2rem' }}>{formErrors.message}</p>}
                   </div>
-                  {sendError && <p style={{ color: '#f44336', fontSize: 13 }}>{sendError}</p>}
-                  <button type="submit" disabled={sending} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem', padding: '0.7rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: sending ? 'not-allowed' : 'pointer', opacity: sending ? 0.7 : 1, fontFamily: "'Inter', sans-serif" }}>
-                    {sending ? <><Loader2 size={14} className="animate-spin" /> Sending...</> : <><Send size={14} /> Send Message</>}
+                  <button
+                    type="submit"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem', padding: '0.7rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
+                  >
+                    <Send size={14} /> Send Message
                   </button>
                 </>
               )}
