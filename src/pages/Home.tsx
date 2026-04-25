@@ -232,7 +232,7 @@ export default function Home() {
                 <Mail size={14} /> Get In Touch
               </button>
               <a
-                href="https://linktr.ee/MufaddaiKach"
+                href="https://linktr.ee/MufaddalKach"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 9, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
@@ -447,7 +447,7 @@ export default function Home() {
                 <Mail size={13} /> Get In Touch
               </button>
               <a
-                href="https://linktr.ee/MufaddaiKach"
+                href="https://linktr.ee/MufaddalKach"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
@@ -465,7 +465,7 @@ export default function Home() {
           <p>© 2026 Mufaddal Kachwala. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a href="mailto:mufaddal244.mk@gmail.com" style={{ color: '#999996', textDecoration: 'none' }}>Email</a>
-            <a href="https://linktr.ee/MufaddaiKach" target="_blank" rel="noopener noreferrer" style={{ color: '#999996', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <a href="https://linktr.ee/MufaddalKach" target="_blank" rel="noopener noreferrer" style={{ color: '#999996', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               Links <ExternalLink size={10} />
             </a>
           </div>
