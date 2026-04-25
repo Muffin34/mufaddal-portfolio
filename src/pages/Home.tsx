@@ -1,9 +1,17 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, ExternalLink, X, Send, ChevronRight } from 'lucide-react'
+import { Mail, ExternalLink, X, Send, Loader2, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 
 const PROFILE_IMG = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp'
+
+// ── EmailJS credentials ─────────────────────────────────────────────────────
+// Sign up free at https://www.emailjs.com, connect your Gmail,
+// create a template, then replace the three values below.
+const EMAILJS_SERVICE_ID  = 'REPLACE_SERVICE_ID'   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'REPLACE_TEMPLATE_ID'  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'REPLACE_PUBLIC_KEY'   // e.g. 'user_XXXXXXXXXXXXXXX'
 
 const experiences = [
   {
@@ -127,6 +135,8 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({})
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState('')
 
   function validate() {
     const errors: typeof formErrors = {}
@@ -139,21 +149,34 @@ export default function Home() {
     return Object.keys(errors).length === 0
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validate()) return
-    // Open mailto with pre-filled subject and body
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`)
-    const body = encodeURIComponent(
-      `Hi Mufaddal,\n\nMy name is ${formData.name}.\n\n${formData.message}\n\nReply to: ${formData.email}`
-    )
-    window.open(`mailto:mufaddal244.mk@gmail.com?subject=${subject}&body=${body}`, '_blank')
-    setSent(true)
-    setTimeout(() => {
-      setContactOpen(false)
-      setSent(false)
+    setSending(true)
+    setSendError('')
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'mufaddal244.mk@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      setSent(true)
       setFormData({ name: '', email: '', message: '' })
-    }, 2500)
+      setTimeout(() => {
+        setContactOpen(false)
+        setSent(false)
+      }, 3000)
+    } catch (err) {
+      setSendError('Failed to send message. Please email me directly at mufaddal244.mk@gmail.com')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -477,8 +500,8 @@ export default function Home() {
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '1.75rem 0' }}>
                   <div style={{ fontSize: 40, marginBottom: '0.75rem' }}>✅</div>
-                  <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Opening your email app...</h4>
-                  <p style={{ color: '#888884', fontSize: 13 }}>Your message is ready to send via email.</p>
+                  <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Message Sent!</h4>
+                  <p style={{ color: '#888884', fontSize: 13 }}>I'll get back to you as soon as possible.</p>
                 </div>
               ) : (
                 <>
@@ -515,11 +538,15 @@ export default function Home() {
                     />
                     {formErrors.message && <p style={{ color: '#f44336', fontSize: 11.5, marginTop: '0.2rem' }}>{formErrors.message}</p>}
                   </div>
+                  {sendError && (
+                    <p style={{ color: '#f44336', fontSize: 12.5, background: '#fff3f3', border: '1px solid #ffcdd2', borderRadius: 6, padding: '0.5rem 0.75rem' }}>{sendError}</p>
+                  )}
                   <button
                     type="submit"
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem', padding: '0.7rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
+                    disabled={sending}
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.45rem', padding: '0.7rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: sending ? 'not-allowed' : 'pointer', opacity: sending ? 0.75 : 1, fontFamily: "'Inter', sans-serif" }}
                   >
-                    <Send size={14} /> Send Message
+                    {sending ? <><Loader2 size={14} className="animate-spin" /> Sending...</> : <><Send size={14} /> Send Message</>}
                   </button>
                 </>
               )}
