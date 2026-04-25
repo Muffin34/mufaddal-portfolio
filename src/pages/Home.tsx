@@ -85,7 +85,7 @@ const softwareSkills = [
 const aiTools = ['Kling 3.0', 'Runway', 'Pika', 'MidJourney', 'Flux Pro', 'Speakerbox', 'Prompt Engineering']
 
 const keyMetrics = [
-  { value: '100M+', label: 'Views on YouTube' },
+  { value: '100M+', label: 'Views Across TV Broadcasts (UK, US & Germany)' },
   { value: '50%', label: 'Faster via AI pipelines' },
   { value: '300+', label: 'Videos delivered on time' },
   { value: '10', label: 'Person creative team led' },
