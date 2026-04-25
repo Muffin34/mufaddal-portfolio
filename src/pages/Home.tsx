@@ -10,7 +10,7 @@ const PROFILE_IMG = 'https://files.manuscdn.com/user_upload_by_module/session_fi
 // Sign up free at https://www.emailjs.com, connect your Gmail,
 // create a template, then replace the three values below.
 const EMAILJS_SERVICE_ID  = 'service_a207vhb'
-const EMAILJS_TEMPLATE_ID = 'template_4txd00b'
+const EMAILJS_TEMPLATE_ID = 'template_qf9rl2p'
 const EMAILJS_PUBLIC_KEY  = 'qB6pPJC1goNLaEeLb'
 
 const experiences = [
