@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, ExternalLink, X, Send, Loader2, ChevronRight } from 'lucide-react'
+import { Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 
@@ -91,6 +91,27 @@ const keyMetrics = [
   { value: '10', label: 'Person creative team led' },
 ]
 
+const selectedWorks = [
+  {
+    videoId: 'QYtqpC3wWi0',
+    title: 'AI E-Learning Platform',
+    result: '30+ modules produced with AI assets, motion design, sound design, and full delivery QA.',
+    tags: ['E-Learning', 'AI Video', 'After Effects'],
+  },
+  {
+    videoId: 'Aly-VuR2HVo',
+    title: 'Broadcast & Promo Reel',
+    result: 'High-impact campaign visuals shaped for social, broadcast, and brand communication.',
+    tags: ['Broadcast', 'Promo', 'Compositing'],
+  },
+  {
+    videoId: 'eFreA9l4aW8',
+    title: 'Campaign Motion Package',
+    result: 'Campaign-ready motion graphics built for clarity, pace, and retention across channels.',
+    tags: ['Campaign', 'Motion System', 'Editing'],
+  },
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -104,9 +125,9 @@ const stagger = {
 // Shared styles
 const card: React.CSSProperties = {
   background: '#fff',
-  borderRadius: 14,
+  borderRadius: 8,
   border: '1px solid #e4e4e1',
-  boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
+  boxShadow: '0 8px 24px rgba(26,26,26,0.06)',
 }
 
 const sectionLabel: React.CSSProperties = {
@@ -217,31 +238,37 @@ export default function Home() {
               Available for new projects
             </div>
             <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-              I think in motion,<br />
-              <span style={{ color: '#3c6e71' }}>lead with craft,</span><br />
-              deliver on time.
+              Senior Motion Designer<br />
+              for SaaS, e-learning,<br />
+              <span style={{ color: '#3c6e71' }}>broadcast and AI video.</span>
             </h1>
             <p style={{ color: '#666662', lineHeight: 1.7, fontSize: 15, maxWidth: 480, marginBottom: '2rem' }}>
-              Senior Motion Graphics Designer with 5+ years delivering broadcast-grade motion across SaaS, enterprise media, and digital marketing. Expert in After Effects and the full Adobe Creative Suite — led teams of 10+, cut production time by 50%, and shipped 300+ projects.
+              I help creative teams and employers turn complex ideas into polished videos, explainer systems, promos, and AI-assisted production workflows. 5+ years, 100M+ broadcast views, 300+ videos produced, and teams of 10+ led from brief to delivery.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => setContactOpen(true)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 9, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif", boxShadow: '0 2px 8px rgba(60,110,113,0.25)' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif", boxShadow: '0 2px 8px rgba(60,110,113,0.25)' }}
               >
-                <Mail size={14} /> Get In Touch
+                <Mail size={14} /> Hire Me
+              </button>
+              <button
+                onClick={() => setContactOpen(true)}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#fff', color: '#284b63', border: '1.5px solid #d7dddc', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
+              >
+                <FileText size={14} /> Request Resume
               </button>
               <a
                 href="https://linktr.ee/MufaddalKach"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 9, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
               >
                 Connect <ExternalLink size={12} />
               </a>
               <Link
                 to="/work"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.65rem 1.25rem', background: '#284b63', color: '#fff', borderRadius: 9, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.65rem 1.25rem', background: '#284b63', color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
               >
                 View Work <ChevronRight size={14} />
               </Link>
@@ -253,7 +280,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            style={{ borderRadius: 16, overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.1)', background: '#e8e8e6' }}
+            style={{ borderRadius: 8, overflow: 'hidden', boxShadow: '0 14px 34px rgba(26,26,26,0.12)', background: '#e8e8e6' }}
           >
             <img
               src={PROFILE_IMG}
@@ -261,7 +288,7 @@ export default function Home() {
               style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
             />
             <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#999996', background: '#fff', textAlign: 'right' }}>
-              Mufaddal Kachwala · Motion Graphics Designer
+              Mufaddal Kachwala - Motion Graphics Designer
             </div>
           </motion.div>
         </div>
@@ -289,7 +316,59 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── EXPERIENCE ── */}
+      {/* Selected work */}
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+            <div>
+              <div style={sectionLabel}>
+                <span style={accentBar} />
+                Selected Work
+              </div>
+              <p style={{ color: '#777772', fontSize: 14, lineHeight: 1.65, maxWidth: 560 }}>
+                A quick employer-friendly snapshot of the work I would want a hiring manager to see first.
+              </p>
+            </div>
+            <Link
+              to="/work"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1rem', background: '#1f2930', color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
+            >
+              View All Work <ChevronRight size={14} />
+            </Link>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(245px, 1fr))', gap: '1rem' }}>
+            {selectedWorks.map((work) => (
+              <motion.div key={work.videoId} variants={fadeUp} style={{ ...card, overflow: 'hidden', padding: 0 }}>
+                <Link to="/work" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
+                  <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
+                    <img
+                      src={`https://img.youtube.com/vi/${work.videoId}/hqdefault.jpg`}
+                      alt={work.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.42))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#284b63', boxShadow: '0 8px 18px rgba(0,0,0,0.2)' }}>
+                        <PlayCircle size={22} />
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ padding: '1rem' }}>
+                    <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 15, marginBottom: '0.5rem', lineHeight: 1.35 }}>{work.title}</h3>
+                    <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.875rem' }}>{work.result}</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                      {work.tags.map((tag) => (
+                        <span key={tag} style={{ background: '#f3f6f5', border: '1px solid #dce5e3', borderRadius: 6, padding: '0.22rem 0.5rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 600 }}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Experience */}
       <section id="experience" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div style={sectionLabel}>

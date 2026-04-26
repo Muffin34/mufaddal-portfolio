@@ -32,7 +32,7 @@ const workflowSteps = [
   {
     step: '01',
     title: 'Client Brief',
-    description: 'Received a comprehensive brief for a vast e-learning platform spanning 12–24 modules. Analysed scope, audience, and learning objectives to define the creative direction.',
+    description: 'Received a comprehensive brief for a vast e-learning platform spanning 30+ modules. Analysed scope, audience, and learning objectives to define the creative direction.',
     color: '#3c6e71',
   },
   {
@@ -152,7 +152,7 @@ export default function Work() {
             AI-Powered<br />E-Learning Platform
           </h1>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
-            A complete end-to-end production of an e-learning platform spanning 12–24 modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.
+            A complete end-to-end production of an e-learning platform spanning 30+ modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.
           </p>
 
           {/* Stats */}
