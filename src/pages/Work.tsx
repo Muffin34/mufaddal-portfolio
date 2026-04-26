@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen } from 'lucide-react'
@@ -81,6 +81,20 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 760px)')
+    const update = () => setIsMobile(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  return isMobile
+}
+
 // Thumbnail with fallback for unlisted YouTube videos
 function VideoThumbnail({ videoId, title }: { videoId: string; title: string }) {
   const [imgSrc, setImgSrc] = useState(`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`)
@@ -112,6 +126,7 @@ function VideoThumbnail({ videoId, title }: { videoId: string; title: string }) 
 }
 
 export default function Work() {
+  const isMobile = useIsMobile()
   const [activeCategory, setActiveCategory] = useState('All')
   // Separate lightbox state for each section
   const [elearningLightbox, setElearningLightbox] = useState<number | null>(null)
@@ -122,10 +137,10 @@ export default function Work() {
     : elearningVideos.filter(v => v.category === activeCategory)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f7f7f5', fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', background: '#f7f7f5', fontFamily: "'Inter', sans-serif" }}>
       {/* Header */}
       <header style={{ position: 'sticky', top: 0, zIndex: 40, background: 'rgba(247,247,245,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #e5e5e3' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '0.875rem 1rem' : '1rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#888884', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
             <ArrowLeft size={16} /> Back to Portfolio
           </Link>
@@ -136,7 +151,7 @@ export default function Work() {
         </div>
       </header>
 
-      <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '3rem 1.5rem' }}>
+      <main style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '2rem 1rem' : '3rem 1.5rem' }}>
 
         {/* ── SECTION 1: AI E-LEARNING ── */}
         <motion.section variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '5rem' }}>
@@ -156,14 +171,14 @@ export default function Work() {
           </p>
 
           {/* Stats */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3.5rem' }}>
             {[
               { value: '30+', label: 'Modules Delivered' },
               { value: '100%', label: 'AI-Generated Assets' },
               { value: '7', label: 'Production Stages' },
               { value: '5+', label: 'AI Tools Used' },
             ].map((s, i) => (
-              <div key={i} style={{ textAlign: 'center' }}>
+              <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
               </div>
@@ -174,7 +189,7 @@ export default function Work() {
           <div style={{ marginBottom: '3.5rem' }}>
             <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #3c6e71' }}>Production Workflow</h2>
             <p style={{ color: '#888884', fontSize: 14, marginBottom: '2rem', paddingLeft: '1rem' }}>A rigorous 7-stage process from brief to delivery.</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
               {workflowSteps.map((step, i) => (
                 <motion.div
                   key={i}
@@ -228,7 +243,7 @@ export default function Work() {
             </div>
 
             {/* Video Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
               {filteredElearning.map((video) => (
                 <motion.div
                   key={video.id}
@@ -280,14 +295,14 @@ export default function Work() {
           </p>
 
           {/* Stats */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3rem' }}>
             {[
               { value: '2.6M+', label: 'YouTube Subscribers Reached' },
               { value: '65%+', label: 'Average Viewer Retention' },
               { value: '300+', label: 'Promos & Broadcasts Delivered' },
               { value: '4+', label: 'Years in Broadcast Motion' },
             ].map((s, i) => (
-              <div key={i} style={{ textAlign: 'center' }}>
+              <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 28, fontWeight: 800, color: '#284b63' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
               </div>
@@ -298,7 +313,7 @@ export default function Work() {
           <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #284b63' }}>Promo Reel Gallery</h3>
           <p style={{ color: '#888884', fontSize: 14, marginBottom: '2rem', paddingLeft: '1rem' }}>Click any video to watch it in full screen.</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
             {promoVideos.map((video, idx) => (
               <motion.div
                 key={video.id}
@@ -331,7 +346,7 @@ export default function Work() {
         {/* ── TOOLS USED ── */}
         <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="card" style={{ marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#353535', marginBottom: '1.5rem' }}>Tools & Technologies</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
             {[
               { label: 'Motion & Compositing', tools: ['After Effects', 'Premiere Pro', 'Illustrator', 'Photoshop'] },
               { label: 'AI Generation', tools: ['Kling 3.0', 'Runway', 'Pika', 'MidJourney', 'Flux Pro'] },

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -152,7 +152,22 @@ const accentBar: React.CSSProperties = {
   flexShrink: 0,
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 760px)')
+    const update = () => setIsMobile(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  return isMobile
+}
+
 export default function Home() {
+  const isMobile = useIsMobile()
   const [contactOpen, setContactOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({})
@@ -202,7 +217,7 @@ export default function Home() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f5f5f3', fontFamily: "'Inter', sans-serif", color: '#353535' }}>
+    <div style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', background: '#f5f5f3', fontFamily: "'Inter', sans-serif", color: '#353535' }}>
 
       {/* ── HEADER ── */}
       <motion.header
@@ -215,12 +230,12 @@ export default function Home() {
           borderBottom: '1px solid #e4e4e1',
         }}
       >
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0.75rem 1rem' : '0 2rem', minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
             <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg,#3c6e71,#284b63)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Syne', sans-serif", letterSpacing: 0.5 }}>MK</div>
             <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 16, color: '#1a1a1a', letterSpacing: '-0.01em' }}>Mufaddal</span>
           </div>
-          <nav style={{ display: 'flex', gap: '1.75rem', fontSize: 13.5, fontWeight: 500 }}>
+          <nav style={{ display: 'flex', gap: isMobile ? '0.75rem' : '1.75rem', fontSize: isMobile ? 12.5 : 13.5, fontWeight: 500, flexWrap: 'wrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', minWidth: 0 }}>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
             <a href="#skills" style={{ color: '#666662', textDecoration: 'none' }}>Skills</a>
@@ -230,8 +245,8 @@ export default function Home() {
       </motion.header>
 
       {/* ── HERO ── */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '4rem 2rem 3rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '3.5rem', alignItems: 'center' }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '2.5rem 1rem 2rem' : '4rem 2rem 3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) 380px', gap: isMobile ? '2rem' : '3.5rem', alignItems: 'center' }}>
           {/* Left */}
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: '#edf7ed', border: '1px solid #c8e6c9', borderRadius: 20, padding: '0.25rem 0.75rem', fontSize: 12, color: '#2e7d32', fontWeight: 600, marginBottom: '1.25rem' }}>
@@ -298,13 +313,13 @@ export default function Home() {
       </section>
 
       {/* ── METRICS ── */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}
+          style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))', gap: '1rem' }}
         >
           {keyMetrics.map((m, i) => (
             <motion.div
@@ -320,7 +335,7 @@ export default function Home() {
       </section>
 
       {/* Selected work */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
             <div>
@@ -339,7 +354,7 @@ export default function Home() {
               View All Work <ChevronRight size={14} />
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(245px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(245px, 1fr))', gap: '1rem' }}>
             {selectedWorks.map((work) => (
               <motion.div key={work.videoId} variants={fadeUp} style={{ ...card, overflow: 'hidden', padding: 0 }}>
                 <Link to="/work" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
@@ -372,13 +387,13 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section id="experience" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+      <section id="experience" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div style={sectionLabel}>
             <span style={accentBar} />
             Experience
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
@@ -407,13 +422,13 @@ export default function Home() {
       </section>
 
       {/* ── SKILLS ── */}
-      <section id="skills" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+      <section id="skills" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div style={sectionLabel}>
             <span style={accentBar} />
             Skills & Expertise
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '1rem', alignItems: 'start' }}>
             {/* Core Skills */}
             <div style={{ ...card, padding: '1.5rem' }}>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Core Skills</h3>
@@ -460,13 +475,13 @@ export default function Home() {
       </section>
 
       {/* ── EDUCATION ── */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 3.5rem' }}>
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div style={sectionLabel}>
             <span style={accentBar} />
             Education
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
             <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #3c6e71' }}>
               <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#3c6e71', fontSize: 15, marginBottom: '0.3rem' }}>MAAC Institute</h3>
               <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>Diploma in 3D Design</p>
@@ -482,8 +497,8 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED WORK + CONTACT ── */}
-      <section id="contact" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 5rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+      <section id="contact" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 3rem' : '0 2rem 5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
           {/* Featured Work */}
           <motion.div
             variants={fadeUp}
