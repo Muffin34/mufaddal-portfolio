@@ -158,7 +158,7 @@ export default function Work() {
           {/* Stats */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3.5rem' }}>
             {[
-              { value: '12+', label: 'Modules Delivered' },
+              { value: '30+', label: 'Modules Delivered' },
               { value: '100%', label: 'AI-Generated Assets' },
               { value: '7', label: 'Production Stages' },
               { value: '5+', label: 'AI Tools Used' },

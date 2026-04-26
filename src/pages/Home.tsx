@@ -87,7 +87,7 @@ const aiTools = ['Kling 3.0', 'Runway', 'Pika', 'MidJourney', 'Flux Pro', 'Speak
 const keyMetrics = [
   { value: '100M+', label: 'Views Across TV Broadcasts (UK, US & Germany)' },
   { value: '50%', label: 'Faster via AI pipelines' },
-  { value: '300+', label: 'Videos delivered on time' },
+  { value: '300+', label: 'Videos Produced' },
   { value: '10', label: 'Person creative team led' },
 ]
 
