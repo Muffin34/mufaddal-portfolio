@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 
 const PROFILE_IMG = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp'
+const RESUME_URL = 'https://www.dropbox.com/scl/fi/zzd1m2u1hf30asxbekkoc/Mufaddal_Kachwala_Resume_V3-copy.pdf?rlkey=23bflykqtors7s7ugzl9p09bx&st=6pmg7wyk&dl=1'
 
 // ── EmailJS credentials ─────────────────────────────────────────────────────
 // Sign up free at https://www.emailjs.com, connect your Gmail,
@@ -252,12 +253,14 @@ export default function Home() {
               >
                 <Mail size={14} /> Hire Me
               </button>
-              <button
-                onClick={() => setContactOpen(true)}
+              <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#fff', color: '#284b63', border: '1.5px solid #d7dddc', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
               >
-                <FileText size={14} /> Request Resume
-              </button>
+                <FileText size={14} /> Download Resume
+              </a>
               <a
                 href="https://linktr.ee/MufaddalKach"
                 target="_blank"
