@@ -259,7 +259,7 @@ export default function Home() {
               <span style={{ color: '#3c6e71' }}>broadcast and AI video.</span>
             </h1>
             <p style={{ color: '#666662', lineHeight: 1.7, fontSize: 15, maxWidth: 480, marginBottom: '2rem' }}>
-              I help creative teams and employers turn complex ideas into polished videos, explainer systems, promos, and AI-assisted production workflows. 5+ years, 100M+ broadcast views, 300+ videos produced, and teams of 10+ led from brief to delivery.
+              I help creative teams and employers turn complex ideas into polished videos, explainer systems, promos, and AI-assisted production workflows. 6+ years, 100M+ broadcast views, 300+ videos produced, and teams of 10+ led from brief to delivery.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <button
