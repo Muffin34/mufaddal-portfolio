@@ -1,34 +1,388 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Mufaddal Portfolio Admin</title>
     <style>
-      .admin-guide-link {
-        position: fixed;
-        right: 18px;
-        bottom: 18px;
-        z-index: 9999;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 16px;
-        border-radius: 999px;
-        background: #284b63;
+      :root {
+        --ink: #172026;
+        --muted: #65717a;
+        --line: #dce5e7;
+        --teal: #3c6e71;
+        --blue: #284b63;
+        --paper: #ffffff;
+        --wash: #f4f7f7;
+        --dark: #172026;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--wash);
+      }
+
+      .shell {
+        min-height: 100vh;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--blue), var(--teal));
         color: #ffffff;
-        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+      }
+
+      .mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav a {
+        color: rgba(255, 255, 255, 0.86);
+        text-decoration: none;
         font-size: 14px;
         font-weight: 700;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 28px;
+        align-items: end;
+        padding: 54px 0 64px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 700px;
+        font-size: clamp(2.2rem, 6vw, 4.4rem);
+        line-height: 1.03;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        max-width: 680px;
+        margin-top: 18px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      .status {
+        padding: 18px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .status strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .status span {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 14px;
+      }
+
+      main {
+        padding: 34px 0 64px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        display: flex;
+        min-height: 210px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--paper);
+        box-shadow: 0 8px 24px rgba(23, 32, 38, 0.06);
+      }
+
+      .icon {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 10px;
+        background: #eef6f5;
+        color: var(--teal);
+        font-size: 22px;
+      }
+
+      .card h3 {
+        margin-top: 18px;
+        font-size: 20px;
+      }
+
+      .card p {
+        margin-top: 10px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: var(--dark);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 800;
         text-decoration: none;
-        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+      }
+
+      .button.secondary {
+        border: 1px solid var(--line);
+        background: #ffffff;
+        color: var(--blue);
+      }
+
+      .guide {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 18px;
+        margin-top: 36px;
+      }
+
+      .panel {
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+      }
+
+      .panel h2 {
+        font-size: 24px;
+      }
+
+      ol {
+        padding-left: 20px;
+        margin: 16px 0 0;
+        color: var(--muted);
+      }
+
+      li + li {
+        margin-top: 9px;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: #eef4f4;
+        color: var(--blue);
+        font-weight: 800;
+      }
+
+      .note {
+        margin-top: 18px;
+        padding: 14px 16px;
+        border-left: 4px solid var(--teal);
+        border-radius: 8px;
+        background: #eef7f6;
+        color: #345054;
+        line-height: 1.55;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .guide {
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar,
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
       }
     </style>
+    <script>
+      (function () {
+        var hash = window.location.hash || "";
+        var isIdentityToken =
+          hash.indexOf("invite_token=") !== -1 ||
+          hash.indexOf("recovery_token=") !== -1 ||
+          hash.indexOf("confirmation_token=") !== -1 ||
+          hash.indexOf("email_change_token=") !== -1;
+
+        if (isIdentityToken) {
+          window.location.replace("/admin/cms.html" + hash);
+        }
+      })();
+    </script>
   </head>
   <body>
-    <a class="admin-guide-link" href="/admin/help.html" target="_blank" rel="noopener noreferrer">Admin guide</a>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <div class="shell">
+      <header>
+        <div class="wrap">
+          <div class="topbar">
+            <div class="brand">
+              <div class="mark">MK</div>
+              <span>Mufaddal Portfolio Admin</span>
+            </div>
+            <nav class="nav">
+              <a href="/">Live site</a>
+              <a href="/work">Work page</a>
+              <a href="/admin/cms.html">CMS editor</a>
+            </nav>
+          </div>
+          <div class="hero">
+            <div>
+              <h1>Update your portfolio without touching code.</h1>
+              <p>Choose what you want to edit, publish the change, and Netlify will rebuild the live website automatically.</p>
+            </div>
+            <div class="status">
+              <strong>How publishing works</strong>
+              <span>Edits are saved to GitHub, then Netlify deploys the updated site. Most changes appear live in 1-3 minutes.</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Quick Actions</h2>
+            <p>Start with the task you want to complete.</p>
+          </div>
+          <a class="button secondary" href="/admin/help.html">Open full guide</a>
+        </div>
+
+        <section class="grid" aria-label="Admin quick actions">
+          <article class="card">
+            <div>
+              <div class="icon">✎</div>
+              <h3>Edit Home Page</h3>
+              <p>Change hero text, resume link, metrics, selected work, experience, skills, education, and contact copy.</p>
+            </div>
+            <div class="actions">
+              <a class="button" href="/admin/cms.html#/collections/home_page/entries/home">Edit home</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <div class="icon">▶</div>
+              <h3>Add YouTube Video</h3>
+              <p>Add a new e-learning, broadcast, promo, reel, or campaign video using only the YouTube video ID.</p>
+            </div>
+            <div class="actions">
+              <a class="button" href="/admin/cms.html#/collections/work_page/entries/work">Add video</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <div class="icon">▣</div>
+              <h3>Upload Media</h3>
+              <p>Upload images or files, then copy their path into image fields or links where needed.</p>
+            </div>
+            <div class="actions">
+              <a class="button" href="/admin/cms.html#/media">Open media</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="guide">
+          <div class="panel">
+            <h2>Best way to add a project</h2>
+            <ol>
+              <li>Upload the finished video to YouTube.</li>
+              <li>Copy the video ID from the URL.</li>
+              <li>Open <strong>Add YouTube Video</strong>.</li>
+              <li>Add the title, module/project code, and category or tag.</li>
+              <li>Save and Publish.</li>
+            </ol>
+          </div>
+
+          <div class="panel">
+            <h2>Finding the YouTube ID</h2>
+            <p>From this link:</p>
+            <p><code>https://www.youtube.com/watch?v=QYtqpC3wWi0</code></p>
+            <p style="margin-top: 14px;">Paste only this part into the admin:</p>
+            <p><code>QYtqpC3wWi0</code></p>
+            <div class="note">Do not paste the full YouTube link into the video ID field. The website builds the thumbnail and player from the ID automatically.</div>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
