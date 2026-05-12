@@ -6,66 +6,85 @@ backend:
 
 site_url: "https://mufaddalkachwala.netlify.app"
 display_url: "https://mufaddalkachwala.netlify.app"
+logo_url: "https://mufaddalkachwala.netlify.app/favicon.svg"
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "site_content"
-    label: "Website Content"
+  - name: "home_page"
+    label: "Home Page"
+    icon: "home"
     files:
       - name: "home"
-        label: "Home Page"
+        label: "Edit Home Page"
         file: "src/content/home.json"
         format: "json"
         fields:
-          - { label: "Profile Image URL", name: "profileImage", widget: "string" }
-          - { label: "Resume URL", name: "resumeUrl", widget: "string" }
+          - { label: "Profile Image URL", name: "profileImage", widget: "string", hint: "Paste an image URL. You can upload files from the Media tab and copy the uploaded path." }
+          - { label: "Resume URL", name: "resumeUrl", widget: "string", hint: "Dropbox links should usually end with dl=1 for direct download." }
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
           - { label: "Linktree URL", name: "linktreeUrl", widget: "string" }
-          - { label: "Availability Text", name: "availabilityText", widget: "string" }
-          - label: "Hero"
+          - { label: "Availability Badge Text", name: "availabilityText", widget: "string" }
+          - label: "Hero Section"
             name: "hero"
             widget: "object"
+            summary: "{{fields.line1}}"
             fields:
-              - { label: "Line 1", name: "line1", widget: "string" }
-              - { label: "Line 2", name: "line2", widget: "string" }
-              - { label: "Highlighted Line", name: "highlight", widget: "string" }
-              - { label: "Body", name: "body", widget: "text" }
-          - label: "Metrics"
+              - { label: "Headline Line 1", name: "line1", widget: "string" }
+              - { label: "Headline Line 2", name: "line2", widget: "string" }
+              - { label: "Highlighted Headline Line", name: "highlight", widget: "string" }
+              - { label: "Intro Paragraph", name: "body", widget: "text", hint: "This is the main employer-facing pitch below the headline." }
+          - label: "Quick Metrics"
             name: "metrics"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.value}} - {{fields.label}}"
             fields:
-              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Number / Value", name: "value", widget: "string", hint: "Example: 100M+, 50%, 300+" }
               - { label: "Label", name: "label", widget: "string" }
-          - label: "Selected Work"
+          - label: "Selected Work Cards"
             name: "selectedWorks"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.title}}"
+            hint: "These are the featured cards shown on the home page. Use only the YouTube video ID, not the full URL."
             fields:
-              - { label: "YouTube Video ID", name: "videoId", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Result", name: "result", widget: "text" }
-              - { label: "Tags", name: "tags", widget: "list", field: { label: "Tag", name: "tag", widget: "string" } }
+              - { label: "YouTube Video ID", name: "videoId", widget: "string", hint: "From youtube.com/watch?v=QYtqpC3wWi0, paste only QYtqpC3wWi0." }
+              - { label: "Card Title", name: "title", widget: "string" }
+              - { label: "Short Result / Description", name: "result", widget: "text" }
+              - { label: "Tags", name: "tags", widget: "list", collapsed: true, field: { label: "Tag", name: "tag", widget: "string" } }
           - label: "Experience"
             name: "experiences"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.company}} - {{fields.title}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Role / Title", name: "title", widget: "string" }
               - { label: "Company", name: "company", widget: "string" }
-              - { label: "Period", name: "period", widget: "string" }
+              - { label: "Period", name: "period", widget: "string", hint: "Example: 2024 - Present" }
               - { label: "Accent Color", name: "color", widget: "color", default: "#3c6e71" }
-              - { label: "Highlights", name: "highlights", widget: "list", field: { label: "Highlight", name: "highlight", widget: "string" } }
-          - { label: "Core Skills", name: "coreSkills", widget: "list", field: { label: "Skill", name: "skill", widget: "string" } }
+              - { label: "Highlights", name: "highlights", widget: "list", collapsed: true, field: { label: "Highlight", name: "highlight", widget: "string" } }
+          - { label: "Core Skills", name: "coreSkills", widget: "list", collapsed: true, field: { label: "Skill", name: "skill", widget: "string" } }
           - label: "Software Skills"
             name: "softwareSkills"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.name}} - {{fields.level}}%"
             fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Level", name: "level", widget: "number", value_type: "int", min: 0, max: 100 }
-          - { label: "AI Tools", name: "aiTools", widget: "list", field: { label: "Tool", name: "tool", widget: "string" } }
+              - { label: "Software Name", name: "name", widget: "string" }
+              - { label: "Skill Level", name: "level", widget: "number", value_type: "int", min: 0, max: 100 }
+          - { label: "AI & Creative Tools", name: "aiTools", widget: "list", collapsed: true, field: { label: "Tool", name: "tool", widget: "string" } }
           - label: "Education"
             name: "education"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.school}}"
             fields:
               - { label: "School", name: "school", widget: "string" }
               - { label: "Program", name: "program", widget: "string" }
@@ -74,66 +93,93 @@ collections:
           - label: "Case Study CTA"
             name: "caseStudy"
             widget: "object"
+            summary: "{{fields.title}}"
             fields:
-              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Small Label", name: "label", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
           - label: "Contact Card"
             name: "contactCard"
             widget: "object"
+            summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
+
+  - name: "work_page"
+    label: "Work Page + Videos"
+    icon: "video"
+    files:
       - name: "work"
-        label: "Work Page"
+        label: "Edit Work Page"
         file: "src/content/work.json"
         format: "json"
         fields:
-          - { label: "E-Learning Intro", name: "elearningIntro", widget: "text" }
-          - { label: "Promo Intro", name: "promoIntro", widget: "text" }
-          - { label: "E-Learning Categories", name: "elearningCategories", widget: "list", field: { label: "Category", name: "category", widget: "string" } }
+          - { label: "E-Learning Page Intro", name: "elearningIntro", widget: "text" }
+          - { label: "Broadcast / Promo Page Intro", name: "promoIntro", widget: "text" }
+          - { label: "E-Learning Filter Categories", name: "elearningCategories", widget: "list", collapsed: true, hint: "Categories here should match the Category field used on e-learning videos.", field: { label: "Category", name: "category", widget: "string" } }
           - label: "E-Learning Videos"
             name: "elearningVideos"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.title}}"
+            hint: "To add a new video: click Add, paste the YouTube ID, add a title, module, category, then Save and Publish."
             fields:
-              - { label: "YouTube ID", name: "id", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Module", name: "module", widget: "string" }
-              - { label: "Category", name: "category", widget: "string" }
-              - { label: "Featured", name: "featured", widget: "boolean", required: false }
-          - label: "Promo Videos"
+              - { label: "YouTube Video ID", name: "id", widget: "string", hint: "Paste only the ID. Example: for https://www.youtube.com/watch?v=QYtqpC3wWi0 paste QYtqpC3wWi0." }
+              - { label: "Video Title", name: "title", widget: "string" }
+              - { label: "Module / Project Code", name: "module", widget: "string", hint: "Example: JEDU-01294 or CLIENT-001." }
+              - { label: "Category", name: "category", widget: "string", hint: "Example: E-Learning or Communication." }
+              - { label: "Mark as Featured", name: "featured", widget: "boolean", required: false, default: false }
+          - label: "Broadcast / Promo Videos"
             name: "promoVideos"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Use this section for YouTube-hosted promo, broadcast, reel, or campaign videos."
             fields:
-              - { label: "YouTube ID", name: "id", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Module", name: "module", widget: "string" }
-              - { label: "Tag", name: "tag", widget: "string" }
-              - { label: "Featured", name: "featured", widget: "boolean", required: false }
-          - label: "Workflow Steps"
+              - { label: "YouTube Video ID", name: "id", widget: "string", hint: "Paste only the ID from the YouTube URL." }
+              - { label: "Video Title", name: "title", widget: "string" }
+              - { label: "Module / Project Code", name: "module", widget: "string" }
+              - { label: "Tag", name: "tag", widget: "string", hint: "Example: Promo, Campaign, Broadcast, Reel." }
+              - { label: "Mark as Featured", name: "featured", widget: "boolean", required: false, default: false }
+          - label: "Production Workflow Steps"
             name: "workflowSteps"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.step}} - {{fields.title}}"
             fields:
-              - { label: "Step", name: "step", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Step Number", name: "step", widget: "string", hint: "Example: 01" }
+              - { label: "Step Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Accent Color", name: "color", widget: "color", default: "#3c6e71" }
-              - { label: "Badge", name: "badge", widget: "string", required: false }
+              - { label: "Optional Badge", name: "badge", widget: "string", required: false }
           - label: "E-Learning Stats"
             name: "elearningStats"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.value}} - {{fields.label}}"
             fields:
               - { label: "Value", name: "value", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
-          - label: "Promo Stats"
+          - label: "Broadcast / Promo Stats"
             name: "promoStats"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.value}} - {{fields.label}}"
             fields:
               - { label: "Value", name: "value", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
-          - label: "Tool Groups"
+          - label: "Tools & Technologies"
             name: "toolGroups"
             widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.label}}"
             fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Tools", name: "tools", widget: "list", field: { label: "Tool", name: "tool", widget: "string" } }
+              - { label: "Group Label", name: "label", widget: "string" }
+              - { label: "Tools", name: "tools", widget: "list", collapsed: true, field: { label: "Tool", name: "tool", widget: "string" } }
