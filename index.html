@@ -14,6 +14,20 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var hash = window.location.hash || "";
+        var isIdentityToken =
+          hash.indexOf("invite_token=") !== -1 ||
+          hash.indexOf("recovery_token=") !== -1 ||
+          hash.indexOf("confirmation_token=") !== -1 ||
+          hash.indexOf("email_change_token=") !== -1;
+
+        if (isIdentityToken) {
+          window.location.replace("/admin/" + hash);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
