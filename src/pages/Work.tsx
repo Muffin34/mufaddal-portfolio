@@ -2,79 +2,12 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen } from 'lucide-react'
+import workContent from '../content/work.json'
 
-// ── AI E-LEARNING VIDEOS ────────────────────────────────────────────────────
-const elearningVideos = [
-  { id: 'QYtqpC3wWi0', title: 'Making the Syllabus Your Secret Weapon', module: 'JEDU-01294', category: 'E-Learning', featured: true },
-  { id: 'dD0TlmZ9UKU', title: 'Communication Fundamentals', module: 'JCOM-40237', category: 'Communication' },
-  { id: 'Ena5dp9hprE', title: 'Professional Communication Skills', module: 'JCOM-40246', category: 'Communication' },
-  { id: 'Ek1BW5xXv_I', title: 'E-Learning Module 006', module: 'JEDU-1280_006', category: 'E-Learning' },
-  { id: 'aYoBSNURPIU', title: 'E-Learning Module 010', module: 'JEDU-1297_010', category: 'E-Learning' },
-  { id: 'Toj1zjDnqng', title: 'E-Learning Module 003', module: 'JEDU-1300_003', category: 'E-Learning' },
-  { id: '--cSbAXg_zQ', title: 'E-Learning Module 007', module: 'JEDU-1300_007', category: 'E-Learning' },
-  { id: 'yguvMEBkhBo', title: 'Advanced Learning Module', module: 'JEDU-01290', category: 'E-Learning' },
-  { id: 'FP_-fHxqwRg', title: 'Core Curriculum Module', module: 'JEDU-01291', category: 'E-Learning' },
-  { id: '4xVNb6dyqAc', title: 'Learning Strategies Module', module: 'JEDU-01295', category: 'E-Learning' },
-  { id: 'mMzYTpS28TE', title: 'Study Skills & Retention', module: 'JEDU-01296', category: 'E-Learning' },
-  { id: 'LtEX2U0DSC4', title: 'Academic Excellence Module', module: 'JEDU-01298', category: 'E-Learning' },
-]
-
-// ── BROADCASTING & PROMOS VIDEOS ────────────────────────────────────────────
-// Add your broadcasting/promo YouTube video IDs here
-const promoVideos = [
-  { id: 'Aly-VuR2HVo', title: 'Promotional Showcase 003', module: 'PROMO-003', tag: 'Promo', featured: true },
-  { id: 'eFreA9l4aW8', title: 'VS School Kid Campaign', module: 'VS-School', tag: 'Campaign' },
-  // ── ADD MORE PROMO/BROADCAST VIDEOS BELOW ──
-  // { id: 'YOUR_YOUTUBE_ID', title: 'Your Video Title', module: 'PROMO-XXX', tag: 'Broadcast' },
-]
-
-const workflowSteps = [
-  {
-    step: '01',
-    title: 'Client Brief',
-    description: 'Received a comprehensive brief for a vast e-learning platform spanning 30+ modules. Analysed scope, audience, and learning objectives to define the creative direction.',
-    color: '#3c6e71',
-  },
-  {
-    step: '02',
-    title: 'Storyboard & Pre-Production',
-    description: 'Developed detailed storyboards with sketches, prepared audio mixes, and created character sheets and environment design documents to align the entire team.',
-    color: '#284b63',
-  },
-  {
-    step: '03',
-    title: 'AI-Powered Asset Generation',
-    description: 'Leveraged cutting-edge generative AI tools — Kling 3.0, Runway, Pika, MidJourney, and Flux Pro — to create production-grade, high-quality footage. Every visual asset you see is AI-generated.',
-    color: '#3c6e71',
-    badge: '100% AI Generated',
-  },
-  {
-    step: '04',
-    title: 'Motion Graphics & Animation',
-    description: 'Assembled and animated all assets using the Adobe Suite — After Effects for motion graphics, Illustrator for vector elements, and Photoshop for compositing.',
-    color: '#284b63',
-  },
-  {
-    step: '05',
-    title: 'Story Assembly',
-    description: 'Assembled all elements based on the story plot with deliberate creative decisions — pacing, transitions, visual hierarchy, and narrative flow were all carefully considered.',
-    color: '#3c6e71',
-  },
-  {
-    step: '06',
-    title: 'Sound Design & SFX',
-    description: 'Added a comprehensive layer of SFX with detailed sound design in Premiere Pro — ambient audio, motion sound effects, and voice-over sync were all carefully crafted.',
-    color: '#284b63',
-  },
-  {
-    step: '07',
-    title: 'QA & Client Delivery',
-    description: 'Conducted multiple rounds of quality assurance — reviewing pacing, audio sync, visual consistency, and client feedback loops — before final delivery.',
-    color: '#3c6e71',
-  },
-]
-
-const elearningCategories = ['All', 'E-Learning', 'Communication']
+const elearningVideos = workContent.elearningVideos
+const promoVideos = workContent.promoVideos
+const workflowSteps = workContent.workflowSteps
+const elearningCategories = workContent.elearningCategories
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -167,17 +100,12 @@ export default function Work() {
             AI-Powered<br />E-Learning Platform
           </h1>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
-            A complete end-to-end production of an e-learning platform spanning 30+ modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.
+            {workContent.elearningIntro}
           </p>
 
           {/* Stats */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3.5rem' }}>
-            {[
-              { value: '30+', label: 'Modules Delivered' },
-              { value: '100%', label: 'AI-Generated Assets' },
-              { value: '7', label: 'Production Stages' },
-              { value: '5+', label: 'AI Tools Used' },
-            ].map((s, i) => (
+            {workContent.elearningStats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
@@ -291,17 +219,12 @@ export default function Work() {
             Broadcasting &<br />Promotional Work
           </h2>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
-            High-impact broadcast visuals and promotional campaigns crafted for brands, media networks, and digital channels. From TV-grade motion graphics to social-first promo reels.
+            {workContent.promoIntro}
           </p>
 
           {/* Stats */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3rem' }}>
-            {[
-              { value: '2.6M+', label: 'YouTube Subscribers Reached' },
-              { value: '65%+', label: 'Average Viewer Retention' },
-              { value: '300+', label: 'Promos & Broadcasts Delivered' },
-              { value: '4+', label: 'Years in Broadcast Motion' },
-            ].map((s, i) => (
+            {workContent.promoStats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 28, fontWeight: 800, color: '#284b63' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
@@ -347,11 +270,7 @@ export default function Work() {
         <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="card" style={{ marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#353535', marginBottom: '1.5rem' }}>Tools & Technologies</h2>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-            {[
-              { label: 'Motion & Compositing', tools: ['After Effects', 'Premiere Pro', 'Illustrator', 'Photoshop'] },
-              { label: 'AI Generation', tools: ['Kling 3.0', 'Runway', 'Pika', 'MidJourney', 'Flux Pro'] },
-              { label: 'Audio & Delivery', tools: ['Premiere Pro Audio', 'Speakerbox', 'Custom SFX Library'] },
-            ].map((group, i) => (
+            {workContent.toolGroups.map((group, i) => (
               <div key={i}>
                 <h4 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, color: '#3c6e71', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{group.label}</h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>

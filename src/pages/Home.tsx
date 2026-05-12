@@ -3,9 +3,12 @@ import { motion } from 'framer-motion'
 import { Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
+import homeContent from '../content/home.json'
 
-const PROFILE_IMG = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp'
-const RESUME_URL = 'https://www.dropbox.com/scl/fi/zzd1m2u1hf30asxbekkoc/Mufaddal_Kachwala_Resume_V3-copy.pdf?rlkey=23bflykqtors7s7ugzl9p09bx&st=6pmg7wyk&dl=1'
+const PROFILE_IMG = homeContent.profileImage
+const RESUME_URL = homeContent.resumeUrl
+const CONTACT_EMAIL = homeContent.contactEmail
+const LINKTREE_URL = homeContent.linktreeUrl
 
 // ── EmailJS credentials ─────────────────────────────────────────────────────
 // Sign up free at https://www.emailjs.com, connect your Gmail,
@@ -14,104 +17,13 @@ const EMAILJS_SERVICE_ID  = 'service_a207vhb'
 const EMAILJS_TEMPLATE_ID = 'template_qf9rl2p'
 const EMAILJS_PUBLIC_KEY  = 'qB6pPJC1goNLaEeLb'
 
-const experiences = [
-  {
-    title: 'Sr. Motion Graphics Designer · Team Lead',
-    company: 'FireWalker Apps',
-    period: '2024 – Present',
-    color: '#3c6e71',
-    highlights: [
-      'Led a cross-functional team of 10 designers and animators',
-      'Built end-to-end workflow pipelines reducing production time by 40–50%',
-      'Designed motion graphics for SaaS and enterprise clients',
-      'Integrated AI tools (Kling 3.0, Runway, Pika) into team pipelines',
-    ],
-  },
-  {
-    title: 'Motion Graphics Lead · Head of Production',
-    company: 'Thinketh Media',
-    period: '2020 – 2024',
-    color: '#284b63',
-    highlights: [
-      'Led motion design for YouTube network with 2.6M+ subscribers',
-      'Delivered 300+ explainer videos with 65%+ viewer retention',
-      'Built internal motion pipelines and animation libraries',
-      'Developed proprietary prompt-engineering methodology',
-    ],
-  },
-  {
-    title: 'Associate Process Manager · AR Motion',
-    company: 'Eclerx Digital · CLX Europe',
-    period: '2021 – 2022',
-    color: '#3c6e71',
-    highlights: [
-      'Managed AR product animation pipeline from CAD to visualization',
-      'Handled global brand clients across broadcast and digital',
-    ],
-  },
-  {
-    title: 'Motion Graphics Designer',
-    company: 'NICE Software Solutions',
-    period: '2020 – 2021',
-    color: '#284b63',
-    highlights: [
-      'Designed animated sequences and UI elements for LMS modules',
-      'Developed reusable templates to accelerate production',
-    ],
-  },
-]
-
-const coreSkills = [
-  'Motion Graphics & Animation',
-  'Brand Motion Systems',
-  'Visual Storytelling',
-  'Typography in Motion',
-  'Color Theory & Grading',
-  'Social & Broadcast Formats',
-  'Product Explainer Videos',
-  '2D / 3D Animation',
-  'Character Animation',
-  'Compositing & VFX',
-]
-
-const softwareSkills = [
-  { name: 'After Effects', level: 95 },
-  { name: 'Premiere Pro', level: 90 },
-  { name: 'Illustrator', level: 85 },
-  { name: 'Photoshop', level: 85 },
-  { name: 'Blender', level: 80 },
-  { name: 'Figma', level: 85 },
-]
-
-const aiTools = ['Kling 3.0', 'Runway', 'Pika', 'MidJourney', 'Flux Pro', 'Speakerbox', 'Prompt Engineering']
-
-const keyMetrics = [
-  { value: '100M+', label: 'Views Across TV Broadcasts (UK, US & Germany)' },
-  { value: '50%', label: 'Faster via AI pipelines' },
-  { value: '300+', label: 'Videos Produced' },
-  { value: '10', label: 'Person creative team led' },
-]
-
-const selectedWorks = [
-  {
-    videoId: 'QYtqpC3wWi0',
-    title: 'AI E-Learning Platform',
-    result: '30+ modules produced with AI assets, motion design, sound design, and full delivery QA.',
-    tags: ['E-Learning', 'AI Video', 'After Effects'],
-  },
-  {
-    videoId: 'Aly-VuR2HVo',
-    title: 'Broadcast & Promo Reel',
-    result: 'High-impact campaign visuals shaped for social, broadcast, and brand communication.',
-    tags: ['Broadcast', 'Promo', 'Compositing'],
-  },
-  {
-    videoId: 'eFreA9l4aW8',
-    title: 'Campaign Motion Package',
-    result: 'Campaign-ready motion graphics built for clarity, pace, and retention across channels.',
-    tags: ['Campaign', 'Motion System', 'Editing'],
-  },
-]
+const experiences = homeContent.experiences
+const coreSkills = homeContent.coreSkills
+const softwareSkills = homeContent.softwareSkills
+const aiTools = homeContent.aiTools
+const keyMetrics = homeContent.metrics
+const selectedWorks = homeContent.selectedWorks
+const education = homeContent.education
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -199,7 +111,7 @@ export default function Home() {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'mufaddal244.mk@gmail.com',
+          to_email: CONTACT_EMAIL,
         },
         EMAILJS_PUBLIC_KEY
       )
@@ -210,7 +122,7 @@ export default function Home() {
         setSent(false)
       }, 3000)
     } catch (err) {
-      setSendError('Failed to send message. Please email me directly at mufaddal244.mk@gmail.com')
+      setSendError(`Failed to send message. Please email me directly at ${CONTACT_EMAIL}`)
     } finally {
       setSending(false)
     }
@@ -251,15 +163,15 @@ export default function Home() {
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: '#edf7ed', border: '1px solid #c8e6c9', borderRadius: 20, padding: '0.25rem 0.75rem', fontSize: 12, color: '#2e7d32', fontWeight: 600, marginBottom: '1.25rem' }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4caf50' }} />
-              Available for new projects
+              {homeContent.availabilityText}
             </div>
             <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: '1.25rem' }}>
-              Senior Motion Designer<br />
-              for SaaS, e-learning,<br />
-              <span style={{ color: '#3c6e71' }}>broadcast and AI video.</span>
+              {homeContent.hero.line1}<br />
+              {homeContent.hero.line2}<br />
+              <span style={{ color: '#3c6e71' }}>{homeContent.hero.highlight}</span>
             </h1>
             <p style={{ color: '#666662', lineHeight: 1.7, fontSize: 15, maxWidth: 480, marginBottom: '2rem' }}>
-              I help creative teams and employers turn complex ideas into polished videos, explainer systems, promos, and AI-assisted production workflows. 6+ years, 100M+ broadcast views, 300+ videos produced, and teams of 10+ led from brief to delivery.
+              {homeContent.hero.body}
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <button
@@ -277,7 +189,7 @@ export default function Home() {
                 <FileText size={14} /> Download Resume
               </a>
               <a
-                href="https://linktr.ee/MufaddalKach"
+                href={LINKTREE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
@@ -483,14 +395,14 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
             <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #3c6e71' }}>
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#3c6e71', fontSize: 15, marginBottom: '0.3rem' }}>MAAC Institute</h3>
-              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>Diploma in 3D Design</p>
-              <p style={{ color: '#999996', fontSize: 12.5 }}>2018 – 2020</p>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: education[0].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[0].school}</h3>
+              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[0].program}</p>
+              <p style={{ color: '#999996', fontSize: 12.5 }}>{education[0].period}</p>
             </div>
             <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #284b63' }}>
-              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: '#284b63', fontSize: 15, marginBottom: '0.3rem' }}>RCOEM</h3>
-              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>Industrial Engineering</p>
-              <p style={{ color: '#999996', fontSize: 12.5 }}>2017 – 2018</p>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: education[1].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[1].school}</h3>
+              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[1].program}</p>
+              <p style={{ color: '#999996', fontSize: 12.5 }}>{education[1].period}</p>
             </div>
           </div>
         </motion.div>
@@ -508,10 +420,10 @@ export default function Home() {
             style={{ background: 'linear-gradient(145deg,#284b63,#1e3a4f)', borderRadius: 14, padding: '2rem', boxShadow: '0 6px 24px rgba(40,75,99,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
           >
             <div>
-              <span style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '0.2rem 0.65rem', fontSize: 10.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Case Study</span>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', marginTop: '0.875rem', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>E-Learning Platform Production</h2>
+              <span style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '0.2rem 0.65rem', fontSize: 10.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{homeContent.caseStudy.label}</span>
+              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', marginTop: '0.875rem', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>{homeContent.caseStudy.title}</h2>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, lineHeight: 1.65 }}>
-                14 production-grade modules with AI-generated assets, advanced motion graphics, and professional sound design.
+                {homeContent.caseStudy.description}
               </p>
             </div>
             <Link
@@ -531,9 +443,9 @@ export default function Home() {
             style={{ ...card, padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
           >
             <div>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>Let's Create Something Amazing</h2>
+              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}>{homeContent.contactCard.title}</h2>
               <p style={{ color: '#888884', fontSize: 13, lineHeight: 1.65 }}>
-                I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+                {homeContent.contactCard.description}
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
@@ -544,7 +456,7 @@ export default function Home() {
                 <Mail size={13} /> Get In Touch
               </button>
               <a
-                href="https://linktr.ee/MufaddalKach"
+                href={LINKTREE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
@@ -561,8 +473,8 @@ export default function Home() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '1.5rem 2rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', fontSize: 12.5, color: '#999996' }}>
           <p>© 2026 Mufaddal Kachwala. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="mailto:mufaddal244.mk@gmail.com" style={{ color: '#999996', textDecoration: 'none' }}>Email</a>
-            <a href="https://linktr.ee/MufaddalKach" target="_blank" rel="noopener noreferrer" style={{ color: '#999996', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#999996', textDecoration: 'none' }}>Email</a>
+            <a href={LINKTREE_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#999996', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               Links <ExternalLink size={10} />
             </a>
           </div>

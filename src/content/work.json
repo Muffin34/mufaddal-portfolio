@@ -1,0 +1,85 @@
+{
+  "elearningVideos": [
+    { "id": "QYtqpC3wWi0", "title": "Making the Syllabus Your Secret Weapon", "module": "JEDU-01294", "category": "E-Learning", "featured": true },
+    { "id": "dD0TlmZ9UKU", "title": "Communication Fundamentals", "module": "JCOM-40237", "category": "Communication" },
+    { "id": "Ena5dp9hprE", "title": "Professional Communication Skills", "module": "JCOM-40246", "category": "Communication" },
+    { "id": "Ek1BW5xXv_I", "title": "E-Learning Module 006", "module": "JEDU-1280_006", "category": "E-Learning" },
+    { "id": "aYoBSNURPIU", "title": "E-Learning Module 010", "module": "JEDU-1297_010", "category": "E-Learning" },
+    { "id": "Toj1zjDnqng", "title": "E-Learning Module 003", "module": "JEDU-1300_003", "category": "E-Learning" },
+    { "id": "--cSbAXg_zQ", "title": "E-Learning Module 007", "module": "JEDU-1300_007", "category": "E-Learning" },
+    { "id": "yguvMEBkhBo", "title": "Advanced Learning Module", "module": "JEDU-01290", "category": "E-Learning" },
+    { "id": "FP_-fHxqwRg", "title": "Core Curriculum Module", "module": "JEDU-01291", "category": "E-Learning" },
+    { "id": "4xVNb6dyqAc", "title": "Learning Strategies Module", "module": "JEDU-01295", "category": "E-Learning" },
+    { "id": "mMzYTpS28TE", "title": "Study Skills & Retention", "module": "JEDU-01296", "category": "E-Learning" },
+    { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" }
+  ],
+  "promoVideos": [
+    { "id": "Aly-VuR2HVo", "title": "Promotional Showcase 003", "module": "PROMO-003", "tag": "Promo", "featured": true },
+    { "id": "eFreA9l4aW8", "title": "VS School Kid Campaign", "module": "VS-School", "tag": "Campaign" }
+  ],
+  "workflowSteps": [
+    {
+      "step": "01",
+      "title": "Client Brief",
+      "description": "Received a comprehensive brief for a vast e-learning platform spanning 30+ modules. Analysed scope, audience, and learning objectives to define the creative direction.",
+      "color": "#3c6e71"
+    },
+    {
+      "step": "02",
+      "title": "Storyboard & Pre-Production",
+      "description": "Developed detailed storyboards with sketches, prepared audio mixes, and created character sheets and environment design documents to align the entire team.",
+      "color": "#284b63"
+    },
+    {
+      "step": "03",
+      "title": "AI-Powered Asset Generation",
+      "description": "Leveraged cutting-edge generative AI tools - Kling 3.0, Runway, Pika, MidJourney, and Flux Pro - to create production-grade, high-quality footage. Every visual asset you see is AI-generated.",
+      "color": "#3c6e71",
+      "badge": "100% AI Generated"
+    },
+    {
+      "step": "04",
+      "title": "Motion Graphics & Animation",
+      "description": "Assembled and animated all assets using the Adobe Suite - After Effects for motion graphics, Illustrator for vector elements, and Photoshop for compositing.",
+      "color": "#284b63"
+    },
+    {
+      "step": "05",
+      "title": "Story Assembly",
+      "description": "Assembled all elements based on the story plot with deliberate creative decisions - pacing, transitions, visual hierarchy, and narrative flow were all carefully considered.",
+      "color": "#3c6e71"
+    },
+    {
+      "step": "06",
+      "title": "Sound Design & SFX",
+      "description": "Added a comprehensive layer of SFX with detailed sound design in Premiere Pro - ambient audio, motion sound effects, and voice-over sync were all carefully crafted.",
+      "color": "#284b63"
+    },
+    {
+      "step": "07",
+      "title": "QA & Client Delivery",
+      "description": "Conducted multiple rounds of quality assurance - reviewing pacing, audio sync, visual consistency, and client feedback loops - before final delivery.",
+      "color": "#3c6e71"
+    }
+  ],
+  "elearningCategories": ["All", "E-Learning", "Communication"],
+  "elearningIntro": "A complete end-to-end production of an e-learning platform spanning 30+ modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.",
+  "promoIntro": "High-impact broadcast visuals and promotional campaigns crafted for brands, media networks, and digital channels. From TV-grade motion graphics to social-first promo reels.",
+  "elearningStats": [
+    { "value": "30+", "label": "Modules Delivered" },
+    { "value": "100%", "label": "AI-Generated Assets" },
+    { "value": "7", "label": "Production Stages" },
+    { "value": "5+", "label": "AI Tools Used" }
+  ],
+  "promoStats": [
+    { "value": "2.6M+", "label": "YouTube Subscribers Reached" },
+    { "value": "65%+", "label": "Average Viewer Retention" },
+    { "value": "300+", "label": "Promos & Broadcasts Delivered" },
+    { "value": "4+", "label": "Years in Broadcast Motion" }
+  ],
+  "toolGroups": [
+    { "label": "Motion & Compositing", "tools": ["After Effects", "Premiere Pro", "Illustrator", "Photoshop"] },
+    { "label": "AI Generation", "tools": ["Kling 3.0", "Runway", "Pika", "MidJourney", "Flux Pro"] },
+    { "label": "Audio & Delivery", "tools": ["Premiere Pro Audio", "Speakerbox", "Custom SFX Library"] }
+  ]
+}
