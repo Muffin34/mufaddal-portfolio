@@ -1,8 +1,11 @@
 backend:
   name: git-gateway
   branch: main
+  identity_url: "https://mufaddalkachwala.netlify.app/.netlify/identity"
+  gateway_url: "https://mufaddalkachwala.netlify.app/.netlify/git"
 
-local_backend: true
+site_url: "https://mufaddalkachwala.netlify.app"
+display_url: "https://mufaddalkachwala.netlify.app"
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
