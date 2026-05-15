@@ -44,6 +44,25 @@ collections:
             fields:
               - { label: "Number / Value", name: "value", widget: "string", hint: "Example: 100M+, 50%, 300+" }
               - { label: "Label", name: "label", widget: "string" }
+          - label: "Client Logo Marquee"
+            name: "clientsSection"
+            widget: "object"
+            summary: "{{fields.title}}"
+            hint: "This controls the animated client logo section on the home page."
+            fields:
+              - { label: "Small Label", name: "eyebrow", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Client Logos"
+                name: "clients"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.name}}"
+                hint: "Upload a logo from Media or choose an existing file, then add the brand name."
+                fields:
+                  - { label: "Brand / Client Name", name: "name", widget: "string" }
+                  - { label: "Logo Image", name: "logo", widget: "image", choose_url: true }
           - label: "Selected Work Cards"
             name: "selectedWorks"
             widget: "list"

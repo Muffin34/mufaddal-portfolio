@@ -22,6 +22,8 @@ const coreSkills = homeContent.coreSkills
 const softwareSkills = homeContent.softwareSkills
 const aiTools = homeContent.aiTools
 const keyMetrics = homeContent.metrics
+const clientsSection = homeContent.clientsSection
+const clientLogos = clientsSection.clients
 const selectedWorks = homeContent.selectedWorks
 const education = homeContent.education
 
@@ -80,6 +82,10 @@ function useIsMobile() {
 
 export default function Home() {
   const isMobile = useIsMobile()
+  const clientRows = [
+    clientLogos.filter((_, index) => index % 2 === 0),
+    clientLogos.filter((_, index) => index % 2 !== 0),
+  ]
   const [contactOpen, setContactOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({})
@@ -121,7 +127,7 @@ export default function Home() {
         setContactOpen(false)
         setSent(false)
       }, 3000)
-    } catch (err) {
+    } catch {
       setSendError(`Failed to send message. Please email me directly at ${CONTACT_EMAIL}`)
     } finally {
       setSending(false)
@@ -243,6 +249,38 @@ export default function Home() {
               <p style={{ color: '#888884', fontSize: 12.5, lineHeight: 1.45 }}>{m.label}</p>
             </motion.div>
           ))}
+        </motion.div>
+      </section>
+
+      {/* Client logos */}
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="client-showcase"
+        >
+          <div className="client-showcase-heading">
+            <div>
+              <span className="client-eyebrow">{clientsSection.eyebrow}</span>
+              <h2>{clientsSection.title}</h2>
+            </div>
+            <p>{clientsSection.description}</p>
+          </div>
+          <div className="client-marquee-shell" aria-label="Client logos">
+            {clientRows.map((row, rowIndex) => (
+              <div className="client-marquee-row" key={rowIndex}>
+                <div className={`client-marquee-track ${rowIndex === 1 ? 'reverse' : ''}`}>
+                  {[...row, ...row].map((client, index) => (
+                    <div className="client-logo-card" key={`${client.name}-${rowIndex}-${index}`}>
+                      <img src={client.logo} alt={`${client.name} logo`} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </section>
 

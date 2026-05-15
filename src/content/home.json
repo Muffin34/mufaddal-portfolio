@@ -16,6 +16,33 @@
     { "value": "300+", "label": "Videos Produced" },
     { "value": "10", "label": "Person creative team led" }
   ],
+  "clientsSection": {
+    "eyebrow": "Client work",
+    "title": "Brand motion built for teams people already trust.",
+    "description": "A selection of client and brand work across fintech, consumer products, learning, commerce, SaaS, and broadcast-ready campaigns.",
+    "clients": [
+      { "name": "Troovy", "logo": "/uploads/clients/troovy-logo.webp" },
+      { "name": "Dubai Government", "logo": "/uploads/clients/client-logo-a19bfd5c.jpeg" },
+      { "name": "Shop LC", "logo": "/uploads/clients/channels4-profile.jpg" },
+      { "name": "Apsara", "logo": "/uploads/clients/apsara-logo.avif" },
+      { "name": "Duolingo", "logo": "/uploads/clients/duolingo-logo.webp" },
+      { "name": "Groww", "logo": "/uploads/clients/groww-logo.png" },
+      { "name": "Hindustan Pencils", "logo": "/uploads/clients/hindustan-pencils-logo.jpeg" },
+      { "name": "HPPL", "logo": "/uploads/clients/hppl-logo.jpg" },
+      { "name": "Adani", "logo": "/uploads/clients/client-logo-images-1.jpg" },
+      { "name": "Ditto", "logo": "/uploads/clients/client-logo-images-1.png" },
+      { "name": "Osdire", "logo": "/uploads/clients/client-logo-images.png" },
+      { "name": "INDmoney", "logo": "/uploads/clients/indmoney-logo.png" },
+      { "name": "Moneyview", "logo": "/uploads/clients/moneyview-logo.jpg" },
+      { "name": "Odoo", "logo": "/uploads/clients/odoo-logo.png" },
+      { "name": "Parle", "logo": "/uploads/clients/parle-logo.jpg" },
+      { "name": "Pintola", "logo": "/uploads/clients/pintola-logo.webp" },
+      { "name": "Featured Client", "logo": "/uploads/clients/client-logo-pjgljztumsszhsvcgkvk.avif" },
+      { "name": "TJC", "logo": "/uploads/clients/tjc-logo.jpg" },
+      { "name": "Wondershare Filmora", "logo": "/uploads/clients/wondershare-filmora-logo.webp" },
+      { "name": "Zepto", "logo": "/uploads/clients/zepto-logo.png" }
+    ]
+  },
   "selectedWorks": [
     {
       "videoId": "QYtqpC3wWi0",
