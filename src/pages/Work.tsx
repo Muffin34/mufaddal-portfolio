@@ -8,6 +8,7 @@ const elearningVideos = workContent.elearningVideos
 const promoVideos = workContent.promoVideos
 const workflowSteps = workContent.workflowSteps
 const elearningCategories = workContent.elearningCategories
+const caseStudies = workContent.caseStudies
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -85,6 +86,54 @@ export default function Work() {
       </header>
 
       <main style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '2rem 1rem' : '3rem 1.5rem' }}>
+
+        {/* Featured case studies */}
+        <motion.section variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '4rem' }}>
+          <div style={{ marginBottom: '1.75rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(40,75,99,0.1)', border: '1px solid rgba(40,75,99,0.2)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#284b63', fontWeight: 700, marginBottom: '1rem' }}>
+              Employer snapshot
+            </div>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 5vw, 3.25rem)', fontWeight: 800, color: '#353535', lineHeight: 1.08, marginBottom: '1rem' }}>
+              Work that shows the brief, process, and result.
+            </h1>
+            <p style={{ color: '#777772', fontSize: 15, lineHeight: 1.75, maxWidth: 680 }}>
+              A faster hiring-manager view of selected projects. Exact client metrics can be added here as soon as they are approved for public use.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1.25rem' }}>
+            {caseStudies.map((study) => (
+              <motion.article key={study.title} variants={fadeUp} className="card" style={{ padding: 0, overflow: 'hidden' }}>
+                <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a' }}>
+                  <VideoThumbnail videoId={study.videoId} title={study.title} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62))', display: 'flex', alignItems: 'flex-end', padding: '1rem' }}>
+                    <div>
+                      <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 11.5, fontWeight: 700, marginBottom: '0.35rem' }}>{study.label}</p>
+                      <h2 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontSize: 21, fontWeight: 800, lineHeight: 1.2 }}>{study.title}</h2>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ padding: '1.25rem', display: 'grid', gap: '1rem' }}>
+                  {[
+                    ['Problem', study.problem],
+                    ['Role', study.role],
+                    ['Process', study.process],
+                    ['Result', study.result],
+                  ].map(([label, value]) => (
+                    <div key={label}>
+                      <p style={{ color: '#3c6e71', fontSize: 11.5, fontWeight: 800, marginBottom: '0.25rem' }}>{label}</p>
+                      <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.65 }}>{value}</p>
+                    </div>
+                  ))}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                    {study.tools.map((tool) => (
+                      <span key={tool} style={{ background: '#f3f6f5', border: '1px solid #dce5e3', borderRadius: 6, color: '#3c6e71', fontSize: 11.5, fontWeight: 700, padding: '0.24rem 0.55rem' }}>{tool}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </motion.section>
 
         {/* ── SECTION 1: AI E-LEARNING ── */}
         <motion.section variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '5rem' }}>

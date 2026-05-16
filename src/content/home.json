@@ -6,15 +6,17 @@
   "availabilityText": "Available for new projects",
   "hero": {
     "line1": "Senior Motion Designer",
-    "line2": "for SaaS, e-learning,",
-    "highlight": "broadcast and AI video.",
-    "body": "I help creative teams and employers turn complex ideas into polished videos, explainer systems, promos, and AI-assisted production workflows. 6+ years, 100M+ broadcast views, 300+ videos produced, and teams of 10+ led from brief to delivery."
+    "line2": "building AI-assisted",
+    "highlight": "video systems for brands.",
+    "body": "I help employers and creative teams turn complex products, courses, and campaigns into polished motion systems. 6+ years across e-learning, broadcast, SaaS, and AI video with 300+ videos produced, 100M+ broadcast views, and teams of 10+ led from brief to delivery."
   },
+  "showreelVideoId": "Aly-VuR2HVo",
+  "availabilityFor": ["Full-time roles", "Contract projects", "Remote or hybrid teams"],
   "metrics": [
-    { "value": "100M+", "label": "Views Across TV Broadcasts (UK, US & Germany)" },
-    { "value": "50%", "label": "Faster via AI pipelines" },
+    { "value": "100M+", "label": "Broadcast views across UK, US and Germany" },
+    { "value": "50%", "label": "Faster production with AI workflows" },
     { "value": "300+", "label": "Videos Produced" },
-    { "value": "10", "label": "Person creative team led" }
+    { "value": "10+", "label": "Creative team members led" }
   ],
   "clientsSection": {
     "eyebrow": "Client work",
@@ -48,18 +50,27 @@
       "videoId": "QYtqpC3wWi0",
       "title": "AI E-Learning Platform",
       "result": "30+ modules produced with AI assets, motion design, sound design, and full delivery QA.",
+      "client": "E-learning platform",
+      "role": "Lead motion designer",
+      "tools": "After Effects, Premiere Pro, Kling, Runway",
       "tags": ["E-Learning", "AI Video", "After Effects"]
     },
     {
       "videoId": "Aly-VuR2HVo",
       "title": "Broadcast & Promo Reel",
       "result": "High-impact campaign visuals shaped for social, broadcast, and brand communication.",
+      "client": "Broadcast and digital brands",
+      "role": "Motion designer and editor",
+      "tools": "After Effects, Premiere Pro, Photoshop",
       "tags": ["Broadcast", "Promo", "Compositing"]
     },
     {
       "videoId": "eFreA9l4aW8",
       "title": "Campaign Motion Package",
       "result": "Campaign-ready motion graphics built for clarity, pace, and retention across channels.",
+      "client": "Campaign and social teams",
+      "role": "Motion graphics designer",
+      "tools": "After Effects, Illustrator, Premiere Pro",
       "tags": ["Campaign", "Motion System", "Editing"]
     }
   ],

@@ -65,6 +65,28 @@
   "elearningCategories": ["All", "E-Learning", "Communication"],
   "elearningIntro": "A complete end-to-end production of an e-learning platform spanning 30+ modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.",
   "promoIntro": "High-impact broadcast visuals and promotional campaigns crafted for brands, media networks, and digital channels. From TV-grade motion graphics to social-first promo reels.",
+  "caseStudies": [
+    {
+      "label": "Case Study 01",
+      "title": "AI E-Learning Platform",
+      "videoId": "QYtqpC3wWi0",
+      "problem": "A learning team needed a scalable production system for 30+ modules with consistent visual quality, clear pacing, and fast delivery.",
+      "role": "Led motion design, AI-assisted asset production, animation, sound design, and final delivery QA.",
+      "process": "Built a repeatable pipeline from storyboard and prompt direction to AI footage generation, compositing, motion design, audio polish, and final review.",
+      "result": "30+ production-grade modules delivered. Add final employer-approved impact metric here when available.",
+      "tools": ["After Effects", "Premiere Pro", "Kling", "Runway", "MidJourney", "Flux Pro"]
+    },
+    {
+      "label": "Case Study 02",
+      "title": "Broadcast & Promo Motion",
+      "videoId": "Aly-VuR2HVo",
+      "problem": "Brand and media teams needed promotional visuals that could hold attention across broadcast, YouTube, and social placements.",
+      "role": "Designed motion graphics, edited campaign sequences, refined pacing, and prepared final delivery formats.",
+      "process": "Combined brand-led visual direction, high-energy editing, compositing, title animation, and platform-ready exports.",
+      "result": "Campaign-ready motion assets delivered for multi-channel use. Add campaign-specific result here when available.",
+      "tools": ["After Effects", "Premiere Pro", "Photoshop", "Illustrator"]
+    }
+  ],
   "elearningStats": [
     { "value": "30+", "label": "Modules Delivered" },
     { "value": "100%", "label": "AI-Generated Assets" },

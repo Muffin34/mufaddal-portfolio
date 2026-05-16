@@ -9,6 +9,7 @@ const PROFILE_IMG = homeContent.profileImage
 const RESUME_URL = homeContent.resumeUrl
 const CONTACT_EMAIL = homeContent.contactEmail
 const LINKTREE_URL = homeContent.linktreeUrl
+const SHOWREEL_VIDEO_ID = homeContent.showreelVideoId
 
 // ── EmailJS credentials ─────────────────────────────────────────────────────
 // Sign up free at https://www.emailjs.com, connect your Gmail,
@@ -24,6 +25,7 @@ const aiTools = homeContent.aiTools
 const keyMetrics = homeContent.metrics
 const clientsSection = homeContent.clientsSection
 const clientLogos = clientsSection.clients
+const availabilityFor = homeContent.availabilityFor
 const selectedWorks = homeContent.selectedWorks
 const education = homeContent.education
 
@@ -157,6 +159,7 @@ export default function Home() {
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
             <a href="#skills" style={{ color: '#666662', textDecoration: 'none' }}>Skills</a>
+            <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#666662', textDecoration: 'none' }}>Resume</a>
             <a href="#contact" style={{ color: '#666662', textDecoration: 'none' }}>Contact</a>
           </nav>
         </div>
@@ -180,12 +183,12 @@ export default function Home() {
               {homeContent.hero.body}
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => setContactOpen(true)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif", boxShadow: '0 2px 8px rgba(60,110,113,0.25)' }}
+              <Link
+                to="/work"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#284b63', color: '#fff', borderRadius: 8, fontWeight: 700, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif", boxShadow: '0 2px 8px rgba(40,75,99,0.25)' }}
               >
-                <Mail size={14} /> Hire Me
-              </button>
+                <PlayCircle size={15} /> Watch Reel
+              </Link>
               <a
                 href={RESUME_URL}
                 target="_blank"
@@ -194,39 +197,55 @@ export default function Home() {
               >
                 <FileText size={14} /> Download Resume
               </a>
-              <a
-                href={LINKTREE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
+              <button
+                onClick={() => setContactOpen(true)}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13.5, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
               >
-                Connect <ExternalLink size={12} />
-              </a>
-              <Link
-                to="/work"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.65rem 1.25rem', background: '#284b63', color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
-              >
-                View Work <ChevronRight size={14} />
-              </Link>
+                <Mail size={14} /> Contact
+              </button>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginTop: '1.25rem' }}>
+              {availabilityFor.map((item) => (
+                <span key={item} style={{ background: 'rgba(255,255,255,0.72)', border: '1px solid #e4e4e1', borderRadius: 6, padding: '0.32rem 0.55rem', color: '#5f6560', fontSize: 12, fontWeight: 600 }}>
+                  {item}
+                </span>
+              ))}
             </div>
           </motion.div>
 
           {/* Right: photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            style={{ borderRadius: 8, overflow: 'hidden', boxShadow: '0 14px 34px rgba(26,26,26,0.12)', background: '#e8e8e6' }}
-          >
-            <img
-              src={PROFILE_IMG}
-              alt="Mufaddal Kachwala"
-              style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
-            />
-            <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#999996', background: '#fff', textAlign: 'right' }}>
-              Mufaddal Kachwala - Motion Graphics Designer
-            </div>
-          </motion.div>
+          <div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+              style={{ borderRadius: 8, overflow: 'hidden', boxShadow: '0 14px 34px rgba(26,26,26,0.12)', background: '#e8e8e6' }}
+            >
+              <img
+                src={PROFILE_IMG}
+                alt="Mufaddal Kachwala"
+                style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
+              />
+              <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#999996', background: '#fff', textAlign: 'right' }}>
+                Senior Motion Designer | AI Video | Broadcast
+              </div>
+            </motion.div>
+            <Link
+              to="/work"
+              style={{ display: isMobile ? 'none' : 'grid', gridTemplateColumns: '92px minmax(0, 1fr)', gap: '0.85rem', alignItems: 'center', marginTop: '1rem', padding: '0.75rem', background: '#fff', border: '1px solid #e4e4e1', borderRadius: 8, color: 'inherit', textDecoration: 'none', boxShadow: '0 8px 22px rgba(26,26,26,0.06)' }}
+            >
+              <div style={{ position: 'relative', aspectRatio: '16/9', borderRadius: 6, overflow: 'hidden', background: '#1a1a1a' }}>
+                <img src={`https://img.youtube.com/vi/${SHOWREEL_VIDEO_ID}/hqdefault.jpg`} alt="Motion design reel thumbnail" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', background: 'rgba(0,0,0,0.22)', color: '#fff' }}>
+                  <PlayCircle size={24} />
+                </div>
+              </div>
+              <div>
+                <p style={{ fontSize: 11.5, color: '#3c6e71', fontWeight: 700, marginBottom: '0.2rem' }}>Showreel</p>
+                <p style={{ fontSize: 13, color: '#353535', fontWeight: 700, lineHeight: 1.35 }}>Watch a quick reel before reviewing the full work page.</p>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -322,6 +341,11 @@ export default function Home() {
                   </div>
                   <div style={{ padding: '1rem' }}>
                     <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 15, marginBottom: '0.5rem', lineHeight: 1.35 }}>{work.title}</h3>
+                    <div style={{ display: 'grid', gap: '0.25rem', marginBottom: '0.75rem', color: '#777772', fontSize: 12.5, lineHeight: 1.45 }}>
+                      <span><strong style={{ color: '#353535' }}>Client:</strong> {work.client}</span>
+                      <span><strong style={{ color: '#353535' }}>Role:</strong> {work.role}</span>
+                      <span><strong style={{ color: '#353535' }}>Tools:</strong> {work.tools}</span>
+                    </div>
                     <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.875rem' }}>{work.result}</p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                       {work.tags.map((tag) => (

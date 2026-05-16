@@ -26,6 +26,8 @@ collections:
           - { label: "Contact Email", name: "contactEmail", widget: "string" }
           - { label: "Linktree URL", name: "linktreeUrl", widget: "string" }
           - { label: "Availability Badge Text", name: "availabilityText", widget: "string" }
+          - { label: "Showreel YouTube Video ID", name: "showreelVideoId", widget: "string", hint: "Use the YouTube ID for the hero showreel thumbnail." }
+          - { label: "Available For Chips", name: "availabilityFor", widget: "list", collapsed: true, field: { label: "Availability Item", name: "item", widget: "string" } }
           - label: "Hero Section"
             name: "hero"
             widget: "object"
@@ -74,6 +76,9 @@ collections:
               - { label: "YouTube Video ID", name: "videoId", widget: "string", hint: "From youtube.com/watch?v=QYtqpC3wWi0, paste only QYtqpC3wWi0." }
               - { label: "Card Title", name: "title", widget: "string" }
               - { label: "Short Result / Description", name: "result", widget: "text" }
+              - { label: "Client / Project Type", name: "client", widget: "string" }
+              - { label: "Your Role", name: "role", widget: "string" }
+              - { label: "Tools Used", name: "tools", widget: "string" }
               - { label: "Tags", name: "tags", widget: "list", collapsed: true, field: { label: "Tag", name: "tag", widget: "string" } }
           - label: "Experience"
             name: "experiences"
@@ -136,6 +141,22 @@ collections:
         fields:
           - { label: "E-Learning Page Intro", name: "elearningIntro", widget: "text" }
           - { label: "Broadcast / Promo Page Intro", name: "promoIntro", widget: "text" }
+          - label: "Featured Case Studies"
+            name: "caseStudies"
+            widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Use placeholders only when the exact client-approved metric is not available yet."
+            fields:
+              - { label: "Small Label", name: "label", widget: "string" }
+              - { label: "Case Study Title", name: "title", widget: "string" }
+              - { label: "YouTube Video ID", name: "videoId", widget: "string" }
+              - { label: "Problem", name: "problem", widget: "text" }
+              - { label: "Your Role", name: "role", widget: "text" }
+              - { label: "Process", name: "process", widget: "text" }
+              - { label: "Result", name: "result", widget: "text" }
+              - { label: "Tools", name: "tools", widget: "list", collapsed: true, field: { label: "Tool", name: "tool", widget: "string" } }
           - { label: "E-Learning Filter Categories", name: "elearningCategories", widget: "list", collapsed: true, hint: "Categories here should match the Category field used on e-learning videos.", field: { label: "Category", name: "category", widget: "string" } }
           - label: "E-Learning Videos"
             name: "elearningVideos"
