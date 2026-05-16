@@ -5,7 +5,7 @@
     "Visual Storytelling",
     "Typography in Motion",
     "Color Theory & Grading",
-    "Social & Broadcast Formats",
+    "Course & Social Formats",
     "Product Explainer Videos",
     "2D / 3D Animation",
     "Character Animation",
@@ -14,8 +14,8 @@
   "resumeUrl": "https://www.dropbox.com/scl/fi/zzd1m2u1hf30asxbekkoc/Mufaddal_Kachwala_Resume_V3-copy.pdf?rlkey=23bflykqtors7s7ugzl9p09bx&st=6pmg7wyk&dl=1",
   "metrics": [
     {
-      "value": "100M+",
-      "label": "Broadcast views across UK, US and Germany"
+      "value": "6+",
+      "label": "Years leading motion and video production"
     },
     {
       "value": "50%",
@@ -23,7 +23,7 @@
     },
     {
       "value": "300+",
-      "label": "Videos Produced"
+      "label": "Videos and course assets produced"
     },
     {
       "value": "10+",
@@ -33,45 +33,68 @@
   "selectedWorks": [
     {
       "videoId": "QYtqpC3wWi0",
-      "title": "AI E-Learning Platform",
-      "result": "Course intro and module videos produced with Gen AI visuals, motion design, sound design, and full delivery QA.",
-      "client": "E-learning platform",
-      "role": "Lead motion designer",
-      "tools": "After Effects, Premiere Pro, Gen AI workflow",
+      "title": "AI E-Learning Course System",
+      "result": "30+ module course ecosystem delivered with Gen AI visuals, motion design, audio treatment, SFX, and QA-ready final delivery.",
+      "client": "AI e-learning course",
+      "role": "Creative lead and production owner",
+      "tools": "After Effects, Premiere Pro, Gen AI workflow, QA",
       "tags": [
         "E-Learning",
-        "AI Video",
-        "After Effects"
+        "Creative Lead",
+        "Production Pipeline"
       ]
     },
     {
       "videoId": "Aly-VuR2HVo",
-      "title": "AI Course Promo Module",
+      "title": "AI Course Intro Module",
       "result": "Intro-style learning video shaped to preview the course story, pacing, and learner value.",
       "client": "AI e-learning course",
-      "role": "Motion designer and editor",
-      "tools": "After Effects, Premiere Pro, Gen AI workflow",
+      "role": "Motion lead and project owner",
+      "tools": "After Effects, Premiere Pro, Gen AI workflow, SFX",
       "tags": [
-        "Broadcast",
-        "Promo",
-        "Compositing"
+        "Course Intro",
+        "Motion Lead",
+        "Project Management"
       ]
     },
     {
       "videoId": "eFreA9l4aW8",
-      "title": "Campaign Motion Package",
-      "result": "Campaign-ready motion graphics built for clarity, pace, and retention across channels.",
-      "client": "Campaign and social teams",
-      "role": "Motion graphics designer",
-      "tools": "After Effects, Illustrator, Premiere Pro",
+      "title": "AI Learning Playbook Preview",
+      "result": "Preview module created to introduce a larger six-hour learning experience with clear story, pacing, audio, and final QA.",
+      "client": "AI e-learning course",
+      "role": "Production pipeline owner",
+      "tools": "After Effects, Premiere Pro, Gen AI workflow, Audio Mix",
       "tags": [
-        "Campaign",
-        "Motion System",
-        "Editing"
+        "Course Preview",
+        "Delivery QA",
+        "Workflow Systems"
       ]
     }
   ],
   "availabilityText": "Available for new projects",
+  "leadershipSection": {
+    "eyebrow": "Leadership value",
+    "title": "More than motion execution: production leadership from brief to final delivery.",
+    "description": "I help teams turn complex learning briefs into structured production plans, align the creative workflow, guide designers and animators, manage quality, and deliver stakeholder-ready video systems.",
+    "strengths": [
+      {
+        "title": "Team Leadership",
+        "description": "Led and coordinated a 10+ person creative team across design, animation, motion, audio, and delivery tasks."
+      },
+      {
+        "title": "Project Planning",
+        "description": "Converted briefs into story, storyboard, production milestones, review points, and delivery-ready execution plans."
+      },
+      {
+        "title": "Pipeline Ownership",
+        "description": "Built repeatable workflows for Gen AI visuals, motion graphics, audio prep, SFX, final edit, QA, and handoff."
+      },
+      {
+        "title": "Stakeholder Delivery",
+        "description": "Managed feedback loops, quality checks, consistency standards, and final output so teams could ship reliably."
+      }
+    ]
+  },
   "education": [
     {
       "school": "MAAC Institute",
@@ -179,14 +202,14 @@
   "linktreeUrl": "https://linktr.ee/MufaddalKach",
   "caseStudy": {
     "label": "Case Study",
-    "title": "E-Learning Platform Production",
-    "description": "30+ production-grade modules with AI-generated assets, advanced motion graphics, and professional sound design."
+    "title": "AI E-Learning Production Leadership",
+    "description": "30+ production-grade modules and intro assets led through story, storyboard, Gen AI workflow, motion graphics, SFX, QA, and delivery."
   },
   "hero": {
-    "line1": "Senior Motion Designer",
-    "line2": "building AI-assisted",
-    "highlight": "video systems for brands.",
-    "body": "I help employers and creative teams turn complex products, courses, and campaigns into polished motion systems. 6+ years across e-learning, broadcast, SaaS, and AI video with 300+ videos produced, 100M+ broadcast views, and teams of 10+ led from brief to delivery."
+    "line1": "Senior Motion Lead",
+    "line2": "owning AI e-learning",
+    "highlight": "production systems.",
+    "body": "I help employers and creative teams turn complex learning briefs into structured video systems. 6+ years of motion leadership, 10+ person team leadership, 300+ videos produced, and end-to-end ownership across story, storyboard, Gen AI workflows, motion graphics, audio, SFX, QA, and stakeholder-ready delivery."
   },
   "contactEmail": "mufaddal244.mk@gmail.com",
   "clientsSection": {

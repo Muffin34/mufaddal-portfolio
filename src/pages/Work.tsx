@@ -5,7 +5,6 @@ import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen } from 'luc
 import workContent from '../content/work.json'
 
 const elearningVideos = workContent.elearningVideos
-const promoVideos = workContent.promoVideos
 const workflowSteps = workContent.workflowSteps
 const elearningCategories = workContent.elearningCategories
 const caseStudies = workContent.caseStudies
@@ -62,9 +61,7 @@ function VideoThumbnail({ videoId, title }: { videoId: string; title: string }) 
 export default function Work() {
   const isMobile = useIsMobile()
   const [activeCategory, setActiveCategory] = useState('All')
-  // Separate lightbox state for each section
   const [elearningLightbox, setElearningLightbox] = useState<number | null>(null)
-  const [promoLightbox, setPromoLightbox] = useState<number | null>(null)
   const [caseStudyLightbox, setCaseStudyLightbox] = useState<number | null>(null)
 
   const filteredElearning = activeCategory === 'All'
@@ -156,12 +153,12 @@ export default function Work() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(60,110,113,0.1)', border: '1px solid rgba(60,110,113,0.25)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#3c6e71', fontWeight: 600 }}>
               <BookOpen size={12} />
-              AI E-Learning Platform
+              AI E-Learning
             </div>
           </div>
 
           <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
-            AI-Powered<br />E-Learning Platform
+            AI E-Learning<br />Course System
           </h1>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
             {workContent.elearningIntro}
@@ -271,62 +268,23 @@ export default function Work() {
 
         {/* ── SECTION 2: BROADCASTING & PROMOS ── */}
         <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ marginBottom: '5rem' }}>
-          {/* Section badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(40,75,99,0.1)', border: '1px solid rgba(40,75,99,0.25)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#284b63', fontWeight: 600 }}>
               <Tv size={12} />
-              Broadcasting & Promos
+              Future work
             </div>
           </div>
 
-          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
-            Broadcasting &<br />Promotional Work
-          </h2>
-          <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
-            {workContent.promoIntro}
-          </p>
-
-          {/* Stats */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3rem' }}>
-            {workContent.promoStats.map((s, i) => (
-              <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
-                <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: '#284b63' }}>{s.value}</div>
-                <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Promo Video Grid */}
-          <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #284b63' }}>Promo Reel Gallery</h3>
-          <p style={{ color: '#888884', fontSize: 14, marginBottom: '2rem', paddingLeft: '1rem' }}>Click any video to watch it in full screen.</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-            {promoVideos.map((video, idx) => (
-              <motion.div
-                key={video.id}
-                variants={fadeUp}
-                onClick={() => setPromoLightbox(idx)}
-                style={{ cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
-              >
-                <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
-                  <VideoThumbnail videoId={video.id} title={video.title} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
-                      <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
-                    </div>
-                  </div>
-                  {video.featured && (
-                    <div style={{ position: 'absolute', top: 8, left: 8, background: '#284b63', color: '#fff', fontSize: 10, fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: 4 }}>FEATURED</div>
-                  )}
-                  <div style={{ position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 }}>{video.tag}</div>
-                </div>
-                <div style={{ padding: '0.875rem 1rem' }}>
-                  <p style={{ fontSize: 11, color: '#284b63', fontWeight: 600, marginBottom: '0.25rem' }}>{video.module}</p>
-                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
-                </div>
-              </motion.div>
-            ))}
+          <div className="card" style={{ padding: isMobile ? '1.5rem' : '2rem', background: 'linear-gradient(135deg, #ffffff, #f4f7f6)' }}>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.12, marginBottom: '0.85rem' }}>
+              Broadcast & Promo Work
+            </h2>
+            <p style={{ color: '#777772', fontSize: 15, lineHeight: 1.75, maxWidth: 620, marginBottom: '1.25rem' }}>
+              {workContent.promoIntro}
+            </p>
+            <div style={{ display: 'inline-flex', alignItems: 'center', border: '1px dashed #b8c8c5', borderRadius: 8, padding: '0.6rem 0.85rem', color: '#3c6e71', fontSize: 13, fontWeight: 700 }}>
+              Placeholder for future broadcast, promo, reel, and campaign uploads
+            </div>
           </div>
         </motion.section>
 
@@ -441,45 +399,6 @@ export default function Work() {
       )}
 
       {/* ── PROMO LIGHTBOX ── */}
-      {promoLightbox !== null && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.92)', padding: '1rem' }}>
-          <button onClick={() => setPromoLightbox(null)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
-            <X size={18} />
-          </button>
-          <button onClick={() => setPromoLightbox((promoLightbox - 1 + promoVideos.length) % promoVideos.length)} style={{ position: 'absolute', left: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
-            <ChevronLeft size={22} />
-          </button>
-          <button onClick={() => setPromoLightbox((promoLightbox + 1) % promoVideos.length)} style={{ position: 'absolute', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
-            <ChevronRight size={22} />
-          </button>
-          <motion.div
-            key={promoVideos[promoLightbox].id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.2 }}
-            style={{ width: '100%', maxWidth: 900 }}
-          >
-            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-              <div>
-                <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{promoVideos[promoLightbox].module}</p>
-                <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{promoVideos[promoLightbox].title}</h3>
-              </div>
-              <a href={`https://www.youtube.com/watch?v=${promoVideos[promoLightbox].id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 8, padding: '0.45rem 0.75rem', fontSize: 12.5, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-                Open on YouTube
-              </a>
-            </div>
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', background: '#000' }}>
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${promoVideos[promoLightbox].id}?autoplay=1&rel=0&modestbranding=1`}
-                title={promoVideos[promoLightbox].title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-              />
-            </div>
-          </motion.div>
-        </div>
-      )}
     </div>
   )
 }

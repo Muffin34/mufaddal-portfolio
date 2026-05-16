@@ -26,6 +26,7 @@ const keyMetrics = homeContent.metrics
 const clientsSection = homeContent.clientsSection
 const clientLogos = clientsSection.clients
 const availabilityFor = homeContent.availabilityFor
+const leadershipSection = homeContent.leadershipSection
 const selectedWorks = homeContent.selectedWorks
 const education = homeContent.education
 
@@ -227,7 +228,7 @@ export default function Home() {
                 style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
               />
               <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#888884', background: '#fff', textAlign: 'center', fontWeight: 500 }}>
-                Senior Motion Designer | AI Video | Broadcast
+                Motion Lead | AI E-Learning | Production Systems
               </div>
             </motion.div>
             <Link
@@ -268,6 +269,29 @@ export default function Home() {
               <p style={{ color: '#888884', fontSize: 12.5, lineHeight: 1.45 }}>{m.label}</p>
             </motion.div>
           ))}
+        </motion.div>
+      </section>
+
+      {/* Leadership */}
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ ...card, padding: isMobile ? '1.5rem' : '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'minmax(0, 0.9fr) minmax(0, 1.1fr)', gap: '1.5rem', alignItems: 'start' }}>
+            <div>
+              <span style={{ color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase' }}>{leadershipSection.eyebrow}</span>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: isMobile ? 23 : 30, fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, marginTop: '0.65rem', marginBottom: '0.85rem' }}>
+                {leadershipSection.title}
+              </h2>
+              <p style={{ color: '#666662', fontSize: 14, lineHeight: 1.7 }}>{leadershipSection.description}</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '0.85rem' }}>
+              {leadershipSection.strengths.map((strength) => (
+                <div key={strength.title} style={{ background: '#f7faf9', border: '1px solid #dce5e3', borderRadius: 8, padding: '1rem' }}>
+                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 13.5, color: '#284b63', fontWeight: 800, marginBottom: '0.45rem' }}>{strength.title}</h3>
+                  <p style={{ color: '#666662', fontSize: 12.5, lineHeight: 1.6 }}>{strength.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </section>
 

@@ -11,12 +11,11 @@
     { "id": "FP_-fHxqwRg", "title": "Core Curriculum Module", "module": "JEDU-01291", "category": "E-Learning" },
     { "id": "4xVNb6dyqAc", "title": "Learning Strategies Module", "module": "JEDU-01295", "category": "E-Learning" },
     { "id": "mMzYTpS28TE", "title": "Study Skills & Retention", "module": "JEDU-01296", "category": "E-Learning" },
-    { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" }
+    { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" },
+    { "id": "Aly-VuR2HVo", "title": "AI Course Intro Module", "module": "AIE-INTRO-001", "category": "Course Intro", "featured": true },
+    { "id": "eFreA9l4aW8", "title": "AI Learning Playbook Preview", "module": "AIE-INTRO-002", "category": "Course Intro" }
   ],
-  "promoVideos": [
-    { "id": "Aly-VuR2HVo", "title": "Promotional Showcase 003", "module": "PROMO-003", "tag": "Promo", "featured": true },
-    { "id": "eFreA9l4aW8", "title": "VS School Kid Campaign", "module": "VS-School", "tag": "Campaign" }
-  ],
+  "promoVideos": [],
   "workflowSteps": [
     {
       "step": "01",
@@ -62,43 +61,38 @@
       "color": "#3c6e71"
     }
   ],
-  "elearningCategories": ["All", "E-Learning", "Communication"],
-  "elearningIntro": "A complete end-to-end production of an e-learning course ecosystem spanning 30+ modules, built with a robust Gen AI workflow and professional motion graphics production.",
-  "promoIntro": "High-impact broadcast visuals and promotional campaigns crafted for brands, media networks, and digital channels. From TV-grade motion graphics to social-first promo reels.",
+  "elearningCategories": ["All", "E-Learning", "Communication", "Course Intro"],
+  "elearningIntro": "A complete end-to-end production of an AI e-learning course ecosystem spanning 30+ modules and intro videos, led through a robust Gen AI workflow, motion graphics production, audio treatment, SFX, QA, and stakeholder-ready delivery.",
+  "promoIntro": "Coming soon. Broadcast, promo, reel, and campaign work will be added here once uploaded.",
   "caseStudies": [
     {
       "label": "Case Study 01",
       "title": "AI Learning Playbook Intro",
       "videoId": "QYtqpC3wWi0",
       "problem": "The larger course was built as a six-hour learning module, and learners needed a concise intro video that explained the gist, tone, and value of the module before they started.",
-      "role": "Led the full production pipeline across story understanding, storyboard prep, Gen AI visual development, motion graphics, OST/audio treatment, SFX, final edit, and delivery QA.",
-      "process": "Read the brief, understood the story, prepared the storyboard and audio, generated and mixed still-image assets, built the motion graphics in After Effects, added OST and SFX, then completed the final edit and QA pass before delivery.",
-      "result": "Produced a polished promotional intro for a larger AI e-learning course module, designed to orient learners quickly and make the course feel engaging from the first touchpoint.",
-      "tools": ["Gen AI workflow", "After Effects", "Premiere Pro", "Motion Graphics", "SFX", "QA"]
+      "role": "Owned the production pipeline as creative lead: aligning story, storyboard, visual direction, motion execution, audio treatment, SFX, QA, and final delivery standards.",
+      "process": "Led the workflow from brief review and story understanding through storyboard prep, audio preparation, Gen AI visual development, still-image mixing, After Effects motion graphics, OST treatment, SFX, final edit, and QA before delivery.",
+      "result": "Produced a polished course intro that helped orient learners quickly while demonstrating scalable production leadership for a larger AI e-learning module system.",
+      "tools": ["Creative Direction", "Production Ownership", "Gen AI workflow", "After Effects", "Premiere Pro", "QA"]
     },
     {
       "label": "Case Study 02",
-      "title": "AI Course Promo Module",
+      "title": "AI Course Intro Module",
       "videoId": "Aly-VuR2HVo",
-      "problem": "The course needed an engaging promotional or intro-style video that could preview the learning experience and give learners a clear reason to continue into the full module.",
-      "role": "Handled the creative execution from brief interpretation and story planning through Gen AI-assisted visuals, After Effects motion graphics, audio prep, edit, SFX, and final QA.",
-      "process": "Followed a structured workflow: brief review, story understanding, storyboard prep, audio preparation, image and still generation mix, motion graphics, OST treatment, final edit with SFX, and QA before final delivery.",
-      "result": "Delivered a course intro module that gives learners a fast, polished preview of the six-hour learning experience while keeping the visual system consistent with the broader AI e-learning package.",
-      "tools": ["Gen AI workflow", "After Effects", "Premiere Pro", "Storyboard", "Audio Mix", "Final QA"]
+      "problem": "The course needed an engaging intro-style video that could preview the learning experience and give learners a clear reason to continue into the full module.",
+      "role": "Managed creative execution and delivery across brief interpretation, project planning, visual workflow, motion graphics, audio prep, edit, SFX, and final QA.",
+      "process": "Directed a structured production workflow: brief review, story understanding, storyboard prep, audio preparation, image and still generation mix, motion graphics, OST treatment, final edit with SFX, and QA before final delivery.",
+      "result": "Delivered a polished intro-style course module that previews the six-hour learning experience while keeping the visual system consistent across the broader AI e-learning package.",
+      "tools": ["Project Planning", "Motion Leadership", "Gen AI workflow", "After Effects", "Audio Mix", "Final QA"]
     }
   ],
   "elearningStats": [
-    { "value": "30+", "label": "Modules Delivered" },
-    { "value": "100%", "label": "AI-Generated Assets" },
+    { "value": "30+", "label": "AI e-learning modules delivered" },
+    { "value": "100%", "label": "QA-reviewed outputs" },
     { "value": "7", "label": "Production Stages" },
     { "value": "5+", "label": "Gen AI workflow stages" }
   ],
-  "promoStats": [
-    { "value": "2.6M+", "label": "YouTube Subscribers Reached" },
-    { "value": "65%+", "label": "Average Viewer Retention" },
-    { "value": "300+", "label": "Promos & Broadcasts Delivered" },
-    { "value": "4+", "label": "Years in Broadcast Motion" }
-  ],
+  "promoStats": [],
   "toolGroups": [
     { "label": "Motion & Compositing", "tools": ["After Effects", "Premiere Pro", "Illustrator", "Photoshop"] },
     { "label": "Gen AI Production", "tools": ["Story-led image generation", "Still asset mixing", "Visual consistency passes", "Prompt direction"] },

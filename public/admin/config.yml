@@ -46,6 +46,24 @@ collections:
             fields:
               - { label: "Number / Value", name: "value", widget: "string", hint: "Example: 100M+, 50%, 300+" }
               - { label: "Label", name: "label", widget: "string" }
+          - label: "Leadership & Production Ownership"
+            name: "leadershipSection"
+            widget: "object"
+            summary: "{{fields.title}}"
+            hint: "Use this section to position leadership, project management, production ownership, and team lead strengths."
+            fields:
+              - { label: "Small Label", name: "eyebrow", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Leadership Strengths"
+                name: "strengths"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Strength Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
           - label: "Client Logo Marquee"
             name: "clientsSection"
             widget: "object"
@@ -139,8 +157,8 @@ collections:
         file: "src/content/work.json"
         format: "json"
         fields:
-          - { label: "E-Learning Page Intro", name: "elearningIntro", widget: "text" }
-          - { label: "Broadcast / Promo Page Intro", name: "promoIntro", widget: "text" }
+          - { label: "AI E-Learning Page Intro", name: "elearningIntro", widget: "text" }
+          - { label: "Broadcast / Promo Placeholder Copy", name: "promoIntro", widget: "text", hint: "This is a future-work placeholder until real broadcast/promo videos are uploaded." }
           - label: "Featured Case Studies"
             name: "caseStudies"
             widget: "list"
@@ -164,7 +182,7 @@ collections:
             collapsed: true
             minimize_collapsed: true
             summary: "{{fields.title}}"
-            hint: "To add a new video: click Add, paste the YouTube ID, add a title, module, category, then Save and Publish."
+            hint: "Current uploaded work should live here unless it is truly broadcast, promo, reel, or campaign work. To add a video: click Add, paste the YouTube ID, add a title, module, category, then Save and Publish."
             fields:
               - { label: "YouTube Video ID", name: "id", widget: "string", hint: "Paste only the ID. Example: for https://www.youtube.com/watch?v=QYtqpC3wWi0 paste QYtqpC3wWi0." }
               - { label: "Video Title", name: "title", widget: "string" }
@@ -177,7 +195,7 @@ collections:
             collapsed: true
             minimize_collapsed: true
             summary: "{{fields.title}}"
-            hint: "Use this section for YouTube-hosted promo, broadcast, reel, or campaign videos."
+            hint: "Future section only. Leave empty until you upload true broadcast, promo, reel, or campaign work."
             fields:
               - { label: "YouTube Video ID", name: "id", widget: "string", hint: "Paste only the ID from the YouTube URL." }
               - { label: "Video Title", name: "title", widget: "string" }
@@ -211,6 +229,7 @@ collections:
             collapsed: true
             minimize_collapsed: true
             summary: "{{fields.value}} - {{fields.label}}"
+            hint: "Future section only. Leave empty until public broadcast/promo metrics are ready."
             fields:
               - { label: "Value", name: "value", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
