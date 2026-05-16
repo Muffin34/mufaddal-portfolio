@@ -78,8 +78,8 @@ export default function Work() {
             <ArrowLeft size={16} /> Back to Portfolio
           </Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#3c6e71', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Manrope', sans-serif" }}>MK</div>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 16, color: '#353535' }}>Mufaddal Kachwala</span>
+            <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#3c6e71', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Sora', sans-serif" }}>MK</div>
+            <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 16, color: '#353535' }}>Mufaddal Kachwala</span>
           </div>
         </div>
       </header>
@@ -96,7 +96,7 @@ export default function Work() {
             </div>
           </div>
 
-          <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
+          <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
             AI-Powered<br />E-Learning Platform
           </h1>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
@@ -107,7 +107,7 @@ export default function Work() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3.5rem' }}>
             {workContent.elearningStats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
-                <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71' }}>{s.value}</div>
+                <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function Work() {
 
           {/* Production Workflow */}
           <div style={{ marginBottom: '3.5rem' }}>
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #3c6e71' }}>Production Workflow</h2>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #3c6e71' }}>Production Workflow</h2>
             <p style={{ color: '#888884', fontSize: 14, marginBottom: '2rem', paddingLeft: '1rem' }}>A rigorous 7-stage process from brief to delivery.</p>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
               {workflowSteps.map((step, i) => (
@@ -126,8 +126,8 @@ export default function Work() {
                   style={{ borderTop: `3px solid ${step.color}`, padding: '1.5rem' }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                    <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: 28, fontWeight: 800, color: step.color, opacity: 0.3, lineHeight: 1 }}>{step.step}</span>
-                    <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 15, color: '#353535' }}>{step.title}</h3>
+                    <span style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: step.color, opacity: 0.3, lineHeight: 1 }}>{step.step}</span>
+                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 15, color: '#353535' }}>{step.title}</h3>
                   </div>
                   <p style={{ color: '#888884', fontSize: 13, lineHeight: 1.65 }}>{step.description}</p>
                   {step.badge && (
@@ -142,7 +142,7 @@ export default function Work() {
 
           {/* Video Gallery */}
           <div>
-            <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #3c6e71' }}>Video Gallery</h2>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #3c6e71' }}>Video Gallery</h2>
             <p style={{ color: '#888884', fontSize: 14, marginBottom: '1.5rem', paddingLeft: '1rem' }}>Click any video to watch it in full screen.</p>
 
             {/* Category Filter */}
@@ -194,7 +194,7 @@ export default function Work() {
                   </div>
                   <div style={{ padding: '0.875rem 1rem' }}>
                     <p style={{ fontSize: 11, color: '#3c6e71', fontWeight: 600, marginBottom: '0.25rem' }}>{video.module}</p>
-                    <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
+                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
                   </div>
                 </motion.div>
               ))}
@@ -215,7 +215,7 @@ export default function Work() {
             </div>
           </div>
 
-          <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
+          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1.25rem' }}>
             Broadcasting &<br />Promotional Work
           </h2>
           <p style={{ color: '#888884', fontSize: 16, lineHeight: 1.75, maxWidth: 600, marginBottom: '2rem' }}>
@@ -226,14 +226,14 @@ export default function Work() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: isMobile ? '1rem' : '1.5rem', marginBottom: '3rem' }}>
             {workContent.promoStats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center', flex: isMobile ? '1 1 130px' : '0 1 auto' }}>
-                <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 28, fontWeight: 800, color: '#284b63' }}>{s.value}</div>
+                <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: '#284b63' }}>{s.value}</div>
                 <div style={{ color: '#888884', fontSize: 12 }}>{s.label}</div>
               </div>
             ))}
           </div>
 
           {/* Promo Video Grid */}
-          <h3 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #284b63' }}>Promo Reel Gallery</h3>
+          <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.25rem, 3vw, 1.75rem)', fontWeight: 700, color: '#353535', marginBottom: '0.5rem', paddingLeft: '0.75rem', borderLeft: '3px solid #284b63' }}>Promo Reel Gallery</h3>
           <p style={{ color: '#888884', fontSize: 14, marginBottom: '2rem', paddingLeft: '1rem' }}>Click any video to watch it in full screen.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
@@ -259,7 +259,7 @@ export default function Work() {
                 </div>
                 <div style={{ padding: '0.875rem 1rem' }}>
                   <p style={{ fontSize: 11, color: '#284b63', fontWeight: 600, marginBottom: '0.25rem' }}>{video.module}</p>
-                  <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
+                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
                 </div>
               </motion.div>
             ))}
@@ -268,11 +268,11 @@ export default function Work() {
 
         {/* ── TOOLS USED ── */}
         <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="card" style={{ marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 700, color: '#353535', marginBottom: '1.5rem' }}>Tools & Technologies</h2>
+          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#353535', marginBottom: '1.5rem' }}>Tools & Technologies</h2>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
             {workContent.toolGroups.map((group, i) => (
               <div key={i}>
-                <h4 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 13, color: '#3c6e71', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: 0 }}>{group.label}</h4>
+                <h4 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 13, color: '#3c6e71', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: 0 }}>{group.label}</h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                   {group.tools.map((t, j) => (
                     <span key={j} style={{ background: '#f7f7f5', border: '1px solid #e5e5e3', borderRadius: 6, padding: '0.25rem 0.6rem', fontSize: 12, color: '#353535', fontWeight: 500 }}>{t}</span>
@@ -316,7 +316,7 @@ export default function Work() {
             <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{elearningVideos[elearningLightbox].module}</p>
-                <h3 style={{ fontFamily: "'Manrope', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{elearningVideos[elearningLightbox].title}</h3>
+                <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{elearningVideos[elearningLightbox].title}</h3>
               </div>
               <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>{elearningLightbox + 1} / {elearningVideos.length}</span>
             </div>
@@ -355,7 +355,7 @@ export default function Work() {
             <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{promoVideos[promoLightbox].module}</p>
-                <h3 style={{ fontFamily: "'Manrope', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{promoVideos[promoLightbox].title}</h3>
+                <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{promoVideos[promoLightbox].title}</h3>
               </div>
               <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>{promoLightbox + 1} / {promoVideos.length}</span>
             </div>

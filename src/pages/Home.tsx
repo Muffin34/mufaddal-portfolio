@@ -46,7 +46,7 @@ const card: React.CSSProperties = {
 }
 
 const sectionLabel: React.CSSProperties = {
-  fontFamily: "'Manrope', sans-serif",
+  fontFamily: "'Sora', sans-serif",
   fontSize: 22,
   fontWeight: 700,
   color: '#1a1a1a',
@@ -150,8 +150,8 @@ export default function Home() {
       >
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0.75rem 1rem' : '0 2rem', minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg,#3c6e71,#284b63)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Manrope', sans-serif", letterSpacing: 0 }}>MK</div>
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 16, color: '#1a1a1a', letterSpacing: 0 }}>Mufaddal</span>
+            <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg,#3c6e71,#284b63)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Sora', sans-serif", letterSpacing: 0 }}>MK</div>
+            <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 16, color: '#1a1a1a', letterSpacing: 0 }}>Mufaddal</span>
           </div>
           <nav style={{ display: 'flex', gap: isMobile ? '0.75rem' : '1.75rem', fontSize: isMobile ? 12.5 : 13.5, fontWeight: 500, flexWrap: 'wrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', minWidth: 0 }}>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
@@ -171,7 +171,7 @@ export default function Home() {
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4caf50' }} />
               {homeContent.availabilityText}
             </div>
-            <h1 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, letterSpacing: 0, marginBottom: '1.25rem' }}>
+            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, letterSpacing: 0, marginBottom: '1.25rem' }}>
               {homeContent.hero.line1}<br />
               {homeContent.hero.line2}<br />
               <span style={{ color: '#3c6e71' }}>{homeContent.hero.highlight}</span>
@@ -245,7 +245,7 @@ export default function Home() {
               variants={fadeUp}
               style={{ ...card, padding: '1.5rem 1.25rem', textAlign: 'center' }}
             >
-              <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71', marginBottom: '0.3rem', lineHeight: 1 }}>{m.value}</div>
+              <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71', marginBottom: '0.3rem', lineHeight: 1 }}>{m.value}</div>
               <p style={{ color: '#888884', fontSize: 12.5, lineHeight: 1.45 }}>{m.label}</p>
             </motion.div>
           ))}
@@ -321,7 +321,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div style={{ padding: '1rem' }}>
-                    <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 15, marginBottom: '0.5rem', lineHeight: 1.35 }}>{work.title}</h3>
+                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 15, marginBottom: '0.5rem', lineHeight: 1.35 }}>{work.title}</h3>
                     <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.875rem' }}>{work.result}</p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                       {work.tags.map((tag) => (
@@ -352,7 +352,7 @@ export default function Home() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.625rem', gap: '0.75rem' }}>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 14, marginBottom: '0.2rem', lineHeight: 1.35 }}>{exp.title}</h3>
+                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 14, marginBottom: '0.2rem', lineHeight: 1.35 }}>{exp.title}</h3>
                     <p style={{ color: exp.color, fontSize: 12.5, fontWeight: 600 }}>{exp.company}</p>
                   </div>
                   <span style={{ background: '#f4f4f2', border: '1px solid #e4e4e1', borderRadius: 20, padding: '0.15rem 0.6rem', fontSize: 11.5, color: '#888884', whiteSpace: 'nowrap', flexShrink: 0 }}>{exp.period}</span>
@@ -381,7 +381,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '1rem', alignItems: 'start' }}>
             {/* Core Skills */}
             <div style={{ ...card, padding: '1.5rem' }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Core Skills</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Core Skills</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                 {coreSkills.map((s, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
@@ -394,7 +394,7 @@ export default function Home() {
 
             {/* Software */}
             <div style={{ ...card, padding: '1.5rem' }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Software Proficiency</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Software Proficiency</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
                 {softwareSkills.map((s, i) => (
                   <div key={i}>
@@ -412,7 +412,7 @@ export default function Home() {
 
             {/* AI Tools */}
             <div style={{ background: 'linear-gradient(145deg,#284b63,#1e3a4f)', borderRadius: 14, padding: '1.5rem', boxShadow: '0 4px 16px rgba(40,75,99,0.18)' }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#fff', marginBottom: '0.3rem', fontSize: 13.5 }}>AI & Creative Tools</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#fff', marginBottom: '0.3rem', fontSize: 13.5 }}>AI & Creative Tools</h3>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11.5, marginBottom: '1rem' }}>Cutting-edge generative AI pipeline</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
                 {aiTools.map((t, i) => (
@@ -433,12 +433,12 @@ export default function Home() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
             <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #3c6e71' }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: education[0].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[0].school}</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: education[0].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[0].school}</h3>
               <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[0].program}</p>
               <p style={{ color: '#999996', fontSize: 12.5 }}>{education[0].period}</p>
             </div>
             <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #284b63' }}>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: education[1].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[1].school}</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: education[1].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[1].school}</h3>
               <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[1].program}</p>
               <p style={{ color: '#999996', fontSize: 12.5 }}>{education[1].period}</p>
             </div>
@@ -459,7 +459,7 @@ export default function Home() {
           >
             <div>
               <span style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '0.2rem 0.65rem', fontSize: 10.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: 0, textTransform: 'uppercase' }}>{homeContent.caseStudy.label}</span>
-              <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', marginTop: '0.875rem', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.caseStudy.title}</h2>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', marginTop: '0.875rem', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.caseStudy.title}</h2>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, lineHeight: 1.65 }}>
                 {homeContent.caseStudy.description}
               </p>
@@ -481,7 +481,7 @@ export default function Home() {
             style={{ ...card, padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
           >
             <div>
-              <h2 style={{ fontFamily: "'Manrope', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.contactCard.title}</h2>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.contactCard.title}</h2>
               <p style={{ color: '#888884', fontSize: 13, lineHeight: 1.65 }}>
                 {homeContent.contactCard.description}
               </p>
@@ -540,14 +540,14 @@ export default function Home() {
               >
                 <X size={13} />
               </button>
-              <h3 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff', marginBottom: '0.2rem' }}>Let's Work Together</h3>
+              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 18, color: '#fff', marginBottom: '0.2rem' }}>Let's Work Together</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13 }}>Fill in the form and I'll get back to you soon.</p>
             </div>
             <form onSubmit={handleSubmit} style={{ padding: '1.5rem 1.75rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '1.75rem 0' }}>
                   <div style={{ fontSize: 40, marginBottom: '0.75rem' }}>✅</div>
-                  <h4 style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Message Sent!</h4>
+                  <h4 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#1a1a1a', marginBottom: '0.4rem', fontSize: 16 }}>Message Sent!</h4>
                   <p style={{ color: '#888884', fontSize: 13 }}>I'll get back to you as soon as possible.</p>
                 </div>
               ) : (
