@@ -32,8 +32,8 @@
     },
     {
       "step": "03",
-      "title": "AI-Powered Asset Generation",
-      "description": "Leveraged cutting-edge generative AI tools - Kling 3.0, Runway, Pika, MidJourney, and Flux Pro - to create production-grade, high-quality footage. Every visual asset you see is AI-generated.",
+      "title": "Gen AI Asset Generation",
+      "description": "Used a robust Gen AI workflow to create production-grade stills, image mixes, and visual assets that could be shaped into consistent motion sequences.",
       "color": "#3c6e71",
       "badge": "100% AI Generated"
     },
@@ -63,35 +63,35 @@
     }
   ],
   "elearningCategories": ["All", "E-Learning", "Communication"],
-  "elearningIntro": "A complete end-to-end production of an e-learning platform spanning 30+ modules, built entirely with cutting-edge generative AI tools and professional motion graphics workflows.",
+  "elearningIntro": "A complete end-to-end production of an e-learning course ecosystem spanning 30+ modules, built with a robust Gen AI workflow and professional motion graphics production.",
   "promoIntro": "High-impact broadcast visuals and promotional campaigns crafted for brands, media networks, and digital channels. From TV-grade motion graphics to social-first promo reels.",
   "caseStudies": [
     {
       "label": "Case Study 01",
-      "title": "AI E-Learning Platform",
+      "title": "AI Learning Playbook Intro",
       "videoId": "QYtqpC3wWi0",
-      "problem": "A learning team needed a scalable production system for 30+ modules with consistent visual quality, clear pacing, and fast delivery.",
-      "role": "Led motion design, AI-assisted asset production, animation, sound design, and final delivery QA.",
-      "process": "Built a repeatable pipeline from storyboard and prompt direction to AI footage generation, compositing, motion design, audio polish, and final review.",
-      "result": "30+ production-grade modules delivered. Add final employer-approved impact metric here when available.",
-      "tools": ["After Effects", "Premiere Pro", "Kling", "Runway", "MidJourney", "Flux Pro"]
+      "problem": "The larger course was built as a six-hour learning module, and learners needed a concise intro video that explained the gist, tone, and value of the module before they started.",
+      "role": "Led the full production pipeline across story understanding, storyboard prep, Gen AI visual development, motion graphics, OST/audio treatment, SFX, final edit, and delivery QA.",
+      "process": "Read the brief, understood the story, prepared the storyboard and audio, generated and mixed still-image assets, built the motion graphics in After Effects, added OST and SFX, then completed the final edit and QA pass before delivery.",
+      "result": "Produced a polished promotional intro for a larger AI e-learning course module, designed to orient learners quickly and make the course feel engaging from the first touchpoint.",
+      "tools": ["Gen AI workflow", "After Effects", "Premiere Pro", "Motion Graphics", "SFX", "QA"]
     },
     {
       "label": "Case Study 02",
-      "title": "Broadcast & Promo Motion",
+      "title": "AI Course Promo Module",
       "videoId": "Aly-VuR2HVo",
-      "problem": "Brand and media teams needed promotional visuals that could hold attention across broadcast, YouTube, and social placements.",
-      "role": "Designed motion graphics, edited campaign sequences, refined pacing, and prepared final delivery formats.",
-      "process": "Combined brand-led visual direction, high-energy editing, compositing, title animation, and platform-ready exports.",
-      "result": "Campaign-ready motion assets delivered for multi-channel use. Add campaign-specific result here when available.",
-      "tools": ["After Effects", "Premiere Pro", "Photoshop", "Illustrator"]
+      "problem": "The course needed an engaging promotional or intro-style video that could preview the learning experience and give learners a clear reason to continue into the full module.",
+      "role": "Handled the creative execution from brief interpretation and story planning through Gen AI-assisted visuals, After Effects motion graphics, audio prep, edit, SFX, and final QA.",
+      "process": "Followed a structured workflow: brief review, story understanding, storyboard prep, audio preparation, image and still generation mix, motion graphics, OST treatment, final edit with SFX, and QA before final delivery.",
+      "result": "Delivered a course intro module that gives learners a fast, polished preview of the six-hour learning experience while keeping the visual system consistent with the broader AI e-learning package.",
+      "tools": ["Gen AI workflow", "After Effects", "Premiere Pro", "Storyboard", "Audio Mix", "Final QA"]
     }
   ],
   "elearningStats": [
     { "value": "30+", "label": "Modules Delivered" },
     { "value": "100%", "label": "AI-Generated Assets" },
     { "value": "7", "label": "Production Stages" },
-    { "value": "5+", "label": "AI Tools Used" }
+    { "value": "5+", "label": "Gen AI workflow stages" }
   ],
   "promoStats": [
     { "value": "2.6M+", "label": "YouTube Subscribers Reached" },
@@ -101,7 +101,7 @@
   ],
   "toolGroups": [
     { "label": "Motion & Compositing", "tools": ["After Effects", "Premiere Pro", "Illustrator", "Photoshop"] },
-    { "label": "AI Generation", "tools": ["Kling 3.0", "Runway", "Pika", "MidJourney", "Flux Pro"] },
+    { "label": "Gen AI Production", "tools": ["Story-led image generation", "Still asset mixing", "Visual consistency passes", "Prompt direction"] },
     { "label": "Audio & Delivery", "tools": ["Premiere Pro Audio", "Speakerbox", "Custom SFX Library"] }
   ]
 }

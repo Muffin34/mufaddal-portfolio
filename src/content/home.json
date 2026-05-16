@@ -34,10 +34,10 @@
     {
       "videoId": "QYtqpC3wWi0",
       "title": "AI E-Learning Platform",
-      "result": "30+ modules produced with AI assets, motion design, sound design, and full delivery QA.",
+      "result": "Course intro and module videos produced with Gen AI visuals, motion design, sound design, and full delivery QA.",
       "client": "E-learning platform",
       "role": "Lead motion designer",
-      "tools": "After Effects, Premiere Pro, Kling, Runway",
+      "tools": "After Effects, Premiere Pro, Gen AI workflow",
       "tags": [
         "E-Learning",
         "AI Video",
@@ -46,11 +46,11 @@
     },
     {
       "videoId": "Aly-VuR2HVo",
-      "title": "Broadcast & Promo Reel",
-      "result": "High-impact campaign visuals shaped for social, broadcast, and brand communication.",
-      "client": "Broadcast and digital brands",
+      "title": "AI Course Promo Module",
+      "result": "Intro-style learning video shaped to preview the course story, pacing, and learner value.",
+      "client": "AI e-learning course",
       "role": "Motion designer and editor",
-      "tools": "After Effects, Premiere Pro, Photoshop",
+      "tools": "After Effects, Premiere Pro, Gen AI workflow",
       "tags": [
         "Broadcast",
         "Promo",
@@ -96,7 +96,7 @@
         "Led a cross-functional team of 10 designers and animators",
         "Built end-to-end workflow pipelines reducing production time by 40-50%",
         "Designed motion graphics for SaaS and enterprise clients",
-        "Integrated AI tools (Kling 3.0, Runway, Pika) into team pipelines"
+        "Integrated Gen AI workflows into team production pipelines"
       ]
     },
     {
@@ -169,13 +169,12 @@
   },
   "profileImage": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp",
   "aiTools": [
-    "Kling 3.0",
-    "Runway",
-    "Pika",
-    "MidJourney",
-    "Flux Pro",
-    "Speakerbox",
-    "Prompt Engineering"
+    "Gen AI Video Workflows",
+    "Prompt Direction",
+    "Image Generation Pipelines",
+    "Still Asset Mixing",
+    "Audio Prep",
+    "SFX & Final QA"
   ],
   "linktreeUrl": "https://linktr.ee/MufaddalKach",
   "caseStudy": {
