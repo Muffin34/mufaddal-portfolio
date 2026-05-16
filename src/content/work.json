@@ -13,7 +13,13 @@
     { "id": "mMzYTpS28TE", "title": "Study Skills & Retention", "module": "JEDU-01296", "category": "E-Learning" },
     { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" },
     { "id": "Aly-VuR2HVo", "title": "AI Course Intro Module", "module": "AIE-INTRO-001", "category": "Course Intro", "featured": true },
-    { "id": "eFreA9l4aW8", "title": "AI Learning Playbook Preview", "module": "AIE-INTRO-002", "category": "Course Intro" }
+    { "id": "eFreA9l4aW8", "title": "AI Learning Playbook Preview", "module": "AIE-INTRO-002", "category": "Course Intro" },
+    { "id": "F2FneVvgtk0", "title": "AI Learning Course Module 03", "module": "AIE-COURSE-003", "category": "E-Learning" },
+    { "id": "dpUBnz4o32k", "title": "AI Learning Course Module 04", "module": "AIE-COURSE-004", "category": "E-Learning" },
+    { "id": "ZsqGxnHMx2s", "title": "AI Learning Course Module 05", "module": "AIE-COURSE-005", "category": "E-Learning" },
+    { "id": "zdJZytbp_uo", "title": "AI Learning Course Module 06", "module": "AIE-COURSE-006", "category": "E-Learning" },
+    { "id": "86dfJ8NZTKs", "title": "AI Learning Course Module 07", "module": "AIE-COURSE-007", "category": "E-Learning" },
+    { "id": "ck2poeWEbuM", "title": "AI Learning Course Module 08", "module": "AIE-COURSE-008", "category": "E-Learning" }
   ],
   "promoVideos": [],
   "workflowSteps": [
