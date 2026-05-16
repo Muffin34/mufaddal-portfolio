@@ -65,6 +65,7 @@ export default function Work() {
   // Separate lightbox state for each section
   const [elearningLightbox, setElearningLightbox] = useState<number | null>(null)
   const [promoLightbox, setPromoLightbox] = useState<number | null>(null)
+  const [caseStudyLightbox, setCaseStudyLightbox] = useState<number | null>(null)
 
   const filteredElearning = activeCategory === 'All'
     ? elearningVideos
@@ -101,16 +102,30 @@ export default function Work() {
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1.25rem' }}>
-            {caseStudies.map((study) => (
+            {caseStudies.map((study, index) => (
               <motion.article key={study.title} variants={fadeUp} className="card" style={{ padding: 0, overflow: 'hidden' }}>
                 <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a' }}>
-                  <VideoThumbnail videoId={study.videoId} title={study.title} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62))', display: 'flex', alignItems: 'flex-end', padding: '1rem' }}>
+                  <div
+                    onClick={() => setCaseStudyLightbox(index)}
+                    aria-hidden="true"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', cursor: 'pointer', background: 'transparent' }}
+                  >
+                    <VideoThumbnail videoId={study.videoId} title={study.title} />
+                  </div>
+                  <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.62))', display: 'flex', alignItems: 'flex-end', padding: '1rem' }}>
                     <div>
                       <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: 11.5, fontWeight: 700, marginBottom: '0.35rem' }}>{study.label}</p>
                       <h2 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontSize: 21, fontWeight: 800, lineHeight: 1.2 }}>{study.title}</h2>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => setCaseStudyLightbox(index)}
+                    aria-label={`Play ${study.title}`}
+                    style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 54, height: 54, borderRadius: '50%', border: 0, background: 'rgba(255,255,255,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#353535', cursor: 'pointer', boxShadow: '0 10px 28px rgba(0,0,0,0.28)' }}
+                  >
+                    <Play size={21} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
+                  </button>
                 </div>
                 <div style={{ padding: '1.25rem', display: 'grid', gap: '1rem' }}>
                   {[
@@ -343,6 +358,47 @@ export default function Work() {
         </div>
       </main>
 
+      {/* ── CASE STUDY LIGHTBOX ── */}
+      {caseStudyLightbox !== null && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.92)', padding: '1rem' }}>
+          <button onClick={() => setCaseStudyLightbox(null)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
+            <X size={18} />
+          </button>
+          <button onClick={() => setCaseStudyLightbox((caseStudyLightbox - 1 + caseStudies.length) % caseStudies.length)} style={{ position: 'absolute', left: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
+            <ChevronLeft size={22} />
+          </button>
+          <button onClick={() => setCaseStudyLightbox((caseStudyLightbox + 1) % caseStudies.length)} style={{ position: 'absolute', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', zIndex: 10 }}>
+            <ChevronRight size={22} />
+          </button>
+          <motion.div
+            key={caseStudies[caseStudyLightbox].videoId}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+            style={{ width: '100%', maxWidth: 900 }}
+          >
+            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+              <div>
+                <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 700 }}>{caseStudies[caseStudyLightbox].label}</p>
+                <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{caseStudies[caseStudyLightbox].title}</h3>
+              </div>
+              <a href={`https://www.youtube.com/watch?v=${caseStudies[caseStudyLightbox].videoId}`} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 8, padding: '0.45rem 0.75rem', fontSize: 12.5, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                Open on YouTube
+              </a>
+            </div>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', background: '#000' }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${caseStudies[caseStudyLightbox].videoId}?autoplay=1&rel=0&modestbranding=1`}
+                title={caseStudies[caseStudyLightbox].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       {/* ── E-LEARNING LIGHTBOX ── */}
       {elearningLightbox !== null && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.92)', padding: '1rem' }}>
@@ -362,18 +418,20 @@ export default function Work() {
             transition={{ duration: 0.2 }}
             style={{ width: '100%', maxWidth: 900 }}
           >
-            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
               <div>
                 <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{elearningVideos[elearningLightbox].module}</p>
                 <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{elearningVideos[elearningLightbox].title}</h3>
               </div>
-              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>{elearningLightbox + 1} / {elearningVideos.length}</span>
+              <a href={`https://www.youtube.com/watch?v=${elearningVideos[elearningLightbox].id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 8, padding: '0.45rem 0.75rem', fontSize: 12.5, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                Open on YouTube
+              </a>
             </div>
             <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', background: '#000' }}>
               <iframe
-                src={`https://www.youtube.com/embed/${elearningVideos[elearningLightbox].id}?autoplay=1&rel=0&modestbranding=1`}
+                src={`https://www.youtube-nocookie.com/embed/${elearningVideos[elearningLightbox].id}?autoplay=1&rel=0&modestbranding=1`}
                 title={elearningVideos[elearningLightbox].title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
               />
@@ -401,18 +459,20 @@ export default function Work() {
             transition={{ duration: 0.2 }}
             style={{ width: '100%', maxWidth: 900 }}
           >
-            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ marginBottom: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
               <div>
                 <p style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{promoVideos[promoLightbox].module}</p>
                 <h3 style={{ fontFamily: "'Sora', sans-serif", color: '#fff', fontWeight: 700, fontSize: 18 }}>{promoVideos[promoLightbox].title}</h3>
               </div>
-              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>{promoLightbox + 1} / {promoVideos.length}</span>
+              <a href={`https://www.youtube.com/watch?v=${promoVideos[promoLightbox].id}`} target="_blank" rel="noopener noreferrer" style={{ color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 8, padding: '0.45rem 0.75rem', fontSize: 12.5, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                Open on YouTube
+              </a>
             </div>
             <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: 12, overflow: 'hidden', background: '#000' }}>
               <iframe
-                src={`https://www.youtube.com/embed/${promoVideos[promoLightbox].id}?autoplay=1&rel=0&modestbranding=1`}
+                src={`https://www.youtube-nocookie.com/embed/${promoVideos[promoLightbox].id}?autoplay=1&rel=0&modestbranding=1`}
                 title={promoVideos[promoLightbox].title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
               />
