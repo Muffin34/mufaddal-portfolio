@@ -11,7 +11,7 @@
   --color-border: #e5e5e3;
   --color-muted: #888884;
 
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 .animated-gradient-page {
