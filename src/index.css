@@ -38,6 +38,40 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Syne', sans-serif;
 }
 
+.animated-gradient-page {
+  position: relative;
+  isolation: isolate;
+  background: #f7f7f5;
+}
+
+.animated-gradient-page::before {
+  content: "";
+  position: fixed;
+  inset: -24%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(60, 110, 113, 0.1) 0%, rgba(60, 110, 113, 0) 34%, rgba(213, 176, 89, 0.11) 63%, rgba(213, 176, 89, 0) 100%),
+    linear-gradient(240deg, rgba(40, 75, 99, 0.08) 0%, rgba(40, 75, 99, 0) 42%, rgba(255, 255, 255, 0.55) 76%, rgba(255, 255, 255, 0) 100%);
+  background-size: 220% 220%, 180% 180%;
+  background-position: 0% 35%, 100% 65%;
+  animation: ambient-gradient-drift 28s ease-in-out infinite alternate;
+}
+
+.animated-gradient-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ambient-gradient-drift {
+  from {
+    background-position: 0% 35%, 100% 65%;
+  }
+  to {
+    background-position: 100% 62%, 0% 38%;
+  }
+}
+
 .card {
   background: #ffffff;
   border-radius: 16px;
@@ -198,6 +232,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animated-gradient-page::before {
+    animation: none;
+  }
+
   .client-marquee-track,
   .client-marquee-track.reverse {
     animation-duration: 0.01ms;

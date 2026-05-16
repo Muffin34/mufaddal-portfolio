@@ -135,7 +135,7 @@ export default function Home() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', background: '#f5f5f3', fontFamily: "'Inter', sans-serif", color: '#353535' }}>
+    <div className="animated-gradient-page" style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', fontFamily: "'Inter', sans-serif", color: '#353535' }}>
 
       {/* ── HEADER ── */}
       <motion.header

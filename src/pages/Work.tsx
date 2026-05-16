@@ -70,7 +70,7 @@ export default function Work() {
     : elearningVideos.filter(v => v.category === activeCategory)
 
   return (
-    <div style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', background: '#f7f7f5', fontFamily: "'Inter', sans-serif" }}>
+    <div className="animated-gradient-page" style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', fontFamily: "'Inter', sans-serif" }}>
       {/* Header */}
       <header style={{ position: 'sticky', top: 0, zIndex: 40, background: 'rgba(247,247,245,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #e5e5e3' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '0.875rem 1rem' : '1rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
