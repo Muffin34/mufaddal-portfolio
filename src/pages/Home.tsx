@@ -226,7 +226,7 @@ export default function Home() {
                 alt="Mufaddal Kachwala"
                 style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top center' }}
               />
-              <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#999996', background: '#fff', textAlign: 'right' }}>
+              <div style={{ padding: '0.5rem 0.875rem', fontSize: 11.5, color: '#888884', background: '#fff', textAlign: 'center', fontWeight: 500 }}>
                 Senior Motion Designer | AI Video | Broadcast
               </div>
             </motion.div>
