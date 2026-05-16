@@ -1,50 +1,35 @@
 {
-  "profileImage": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp",
-  "resumeUrl": "https://www.dropbox.com/scl/fi/zzd1m2u1hf30asxbekkoc/Mufaddal_Kachwala_Resume_V3-copy.pdf?rlkey=23bflykqtors7s7ugzl9p09bx&st=6pmg7wyk&dl=1",
-  "contactEmail": "mufaddal244.mk@gmail.com",
-  "linktreeUrl": "https://linktr.ee/MufaddalKach",
-  "availabilityText": "Available for new projects",
-  "hero": {
-    "line1": "Senior Motion Designer",
-    "line2": "building AI-assisted",
-    "highlight": "video systems for brands.",
-    "body": "I help employers and creative teams turn complex products, courses, and campaigns into polished motion systems. 6+ years across e-learning, broadcast, SaaS, and AI video with 300+ videos produced, 100M+ broadcast views, and teams of 10+ led from brief to delivery."
-  },
-  "showreelVideoId": "Aly-VuR2HVo",
-  "availabilityFor": ["Full-time roles", "Contract projects", "Remote or hybrid teams"],
-  "metrics": [
-    { "value": "100M+", "label": "Broadcast views across UK, US and Germany" },
-    { "value": "50%", "label": "Faster production with AI workflows" },
-    { "value": "300+", "label": "Videos Produced" },
-    { "value": "10+", "label": "Creative team members led" }
+  "coreSkills": [
+    "Motion Graphics & Animation",
+    "Brand Motion Systems",
+    "Visual Storytelling",
+    "Typography in Motion",
+    "Color Theory & Grading",
+    "Social & Broadcast Formats",
+    "Product Explainer Videos",
+    "2D / 3D Animation",
+    "Character Animation",
+    "Compositing & VFX"
   ],
-  "clientsSection": {
-    "eyebrow": "Client work",
-    "title": "Brand motion built for teams people already trust.",
-    "description": "A selection of client and brand work across fintech, consumer products, learning, commerce, SaaS, and broadcast-ready campaigns.",
-    "clients": [
-      { "name": "Troovy", "logo": "/uploads/clients/troovy-logo.webp" },
-      { "name": "Dubai Government", "logo": "/uploads/clients/client-logo-a19bfd5c.jpeg" },
-      { "name": "Shop LC", "logo": "/uploads/clients/channels4-profile.jpg" },
-      { "name": "Apsara", "logo": "/uploads/clients/apsara-logo.avif" },
-      { "name": "Duolingo", "logo": "/uploads/clients/duolingo-logo.webp" },
-      { "name": "Groww", "logo": "/uploads/clients/groww-logo.png" },
-      { "name": "Hindustan Pencils", "logo": "/uploads/clients/hindustan-pencils-logo.jpeg" },
-      { "name": "HPPL", "logo": "/uploads/clients/hppl-logo.jpg" },
-      { "name": "Adani", "logo": "/uploads/clients/client-logo-images-1.jpg" },
-      { "name": "Ditto", "logo": "/uploads/clients/client-logo-images-1.png" },
-      { "name": "Osdire", "logo": "/uploads/clients/client-logo-images.png" },
-      { "name": "INDmoney", "logo": "/uploads/clients/indmoney-logo.png" },
-      { "name": "Moneyview", "logo": "/uploads/clients/moneyview-logo.jpg" },
-      { "name": "Odoo", "logo": "/uploads/clients/odoo-logo.png" },
-      { "name": "Parle", "logo": "/uploads/clients/parle-logo.jpg" },
-      { "name": "Pintola", "logo": "/uploads/clients/pintola-logo.webp" },
-      { "name": "Featured Client", "logo": "/uploads/clients/client-logo-pjgljztumsszhsvcgkvk.avif" },
-      { "name": "TJC", "logo": "/uploads/clients/tjc-logo.jpg" },
-      { "name": "Wondershare Filmora", "logo": "/uploads/clients/wondershare-filmora-logo.webp" },
-      { "name": "Zepto", "logo": "/uploads/clients/zepto-logo.png" }
-    ]
-  },
+  "resumeUrl": "https://www.dropbox.com/scl/fi/zzd1m2u1hf30asxbekkoc/Mufaddal_Kachwala_Resume_V3-copy.pdf?rlkey=23bflykqtors7s7ugzl9p09bx&st=6pmg7wyk&dl=1",
+  "metrics": [
+    {
+      "value": "99M+",
+      "label": "Broadcast views across UK, US and Germany"
+    },
+    {
+      "value": "50%",
+      "label": "Faster production with AI workflows"
+    },
+    {
+      "value": "300+",
+      "label": "Videos Produced"
+    },
+    {
+      "value": "10+",
+      "label": "Creative team members led"
+    }
+  ],
   "selectedWorks": [
     {
       "videoId": "QYtqpC3wWi0",
@@ -53,7 +38,11 @@
       "client": "E-learning platform",
       "role": "Lead motion designer",
       "tools": "After Effects, Premiere Pro, Kling, Runway",
-      "tags": ["E-Learning", "AI Video", "After Effects"]
+      "tags": [
+        "E-Learning",
+        "AI Video",
+        "After Effects"
+      ]
     },
     {
       "videoId": "Aly-VuR2HVo",
@@ -62,7 +51,11 @@
       "client": "Broadcast and digital brands",
       "role": "Motion designer and editor",
       "tools": "After Effects, Premiere Pro, Photoshop",
-      "tags": ["Broadcast", "Promo", "Compositing"]
+      "tags": [
+        "Broadcast",
+        "Promo",
+        "Compositing"
+      ]
     },
     {
       "videoId": "eFreA9l4aW8",
@@ -71,7 +64,26 @@
       "client": "Campaign and social teams",
       "role": "Motion graphics designer",
       "tools": "After Effects, Illustrator, Premiere Pro",
-      "tags": ["Campaign", "Motion System", "Editing"]
+      "tags": [
+        "Campaign",
+        "Motion System",
+        "Editing"
+      ]
+    }
+  ],
+  "availabilityText": "Available for new projects",
+  "education": [
+    {
+      "school": "MAAC Institute",
+      "program": "Diploma in 3D Design",
+      "period": "2018 - 2020",
+      "color": "#3c6e71"
+    },
+    {
+      "school": "RCOEM",
+      "program": "Industrial Engineering",
+      "period": "2017 - 2018",
+      "color": "#284b63"
     }
   ],
   "experiences": [
@@ -120,48 +132,150 @@
       ]
     }
   ],
-  "coreSkills": [
-    "Motion Graphics & Animation",
-    "Brand Motion Systems",
-    "Visual Storytelling",
-    "Typography in Motion",
-    "Color Theory & Grading",
-    "Social & Broadcast Formats",
-    "Product Explainer Videos",
-    "2D / 3D Animation",
-    "Character Animation",
-    "Compositing & VFX"
-  ],
   "softwareSkills": [
-    { "name": "After Effects", "level": 95 },
-    { "name": "Premiere Pro", "level": 90 },
-    { "name": "Illustrator", "level": 85 },
-    { "name": "Photoshop", "level": 85 },
-    { "name": "Blender", "level": 80 },
-    { "name": "Figma", "level": 85 }
-  ],
-  "aiTools": ["Kling 3.0", "Runway", "Pika", "MidJourney", "Flux Pro", "Speakerbox", "Prompt Engineering"],
-  "education": [
     {
-      "school": "MAAC Institute",
-      "program": "Diploma in 3D Design",
-      "period": "2018 - 2020",
-      "color": "#3c6e71"
+      "name": "After Effects",
+      "level": 95
     },
     {
-      "school": "RCOEM",
-      "program": "Industrial Engineering",
-      "period": "2017 - 2018",
-      "color": "#284b63"
+      "name": "Premiere Pro",
+      "level": 90
+    },
+    {
+      "name": "Illustrator",
+      "level": 85
+    },
+    {
+      "name": "Photoshop",
+      "level": 85
+    },
+    {
+      "name": "Blender",
+      "level": 80
+    },
+    {
+      "name": "Figma",
+      "level": 85
     }
   ],
+  "availabilityFor": [
+    "Full-time roles",
+    "Contract projects",
+    "Remote or hybrid teams"
+  ],
+  "contactCard": {
+    "title": "Let's Create Something Amazing",
+    "description": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!"
+  },
+  "profileImage": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663337111918/pLuikIytoYbgSzMX.webp",
+  "aiTools": [
+    "Kling 3.0",
+    "Runway",
+    "Pika",
+    "MidJourney",
+    "Flux Pro",
+    "Speakerbox",
+    "Prompt Engineering"
+  ],
+  "linktreeUrl": "https://linktr.ee/MufaddalKach",
   "caseStudy": {
     "label": "Case Study",
     "title": "E-Learning Platform Production",
     "description": "30+ production-grade modules with AI-generated assets, advanced motion graphics, and professional sound design."
   },
-  "contactCard": {
-    "title": "Let's Create Something Amazing",
-    "description": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!"
-  }
+  "hero": {
+    "line1": "Senior Motion Designer",
+    "line2": "building AI-assisted",
+    "highlight": "video systems for brands.",
+    "body": "I help employers and creative teams turn complex products, courses, and campaigns into polished motion systems. 6+ years across e-learning, broadcast, SaaS, and AI video with 300+ videos produced, 100M+ broadcast views, and teams of 10+ led from brief to delivery."
+  },
+  "contactEmail": "mufaddal244.mk@gmail.com",
+  "clientsSection": {
+    "eyebrow": "Client work",
+    "title": "Brand motion built for teams people already trust.",
+    "description": "A selection of client and brand work across fintech, consumer products, learning, commerce, SaaS, and broadcast-ready campaigns.",
+    "clients": [
+      {
+        "name": "Troovy",
+        "logo": "/uploads/clients/troovy-logo.webp"
+      },
+      {
+        "name": "Dubai Government",
+        "logo": "/uploads/clients/client-logo-a19bfd5c.jpeg"
+      },
+      {
+        "name": "Shop LC",
+        "logo": "/uploads/clients/channels4-profile.jpg"
+      },
+      {
+        "name": "Apsara",
+        "logo": "/uploads/clients/apsara-logo.avif"
+      },
+      {
+        "name": "Duolingo",
+        "logo": "/uploads/clients/duolingo-logo.webp"
+      },
+      {
+        "name": "Groww",
+        "logo": "/uploads/clients/groww-logo.png"
+      },
+      {
+        "name": "Hindustan Pencils",
+        "logo": "/uploads/clients/hindustan-pencils-logo.jpeg"
+      },
+      {
+        "name": "HPPL",
+        "logo": "/uploads/clients/hppl-logo.jpg"
+      },
+      {
+        "name": "Adani",
+        "logo": "/uploads/clients/client-logo-images-1.jpg"
+      },
+      {
+        "name": "Ditto",
+        "logo": "/uploads/clients/client-logo-images-1.png"
+      },
+      {
+        "name": "Osdire",
+        "logo": "/uploads/clients/client-logo-images.png"
+      },
+      {
+        "name": "INDmoney",
+        "logo": "/uploads/clients/indmoney-logo.png"
+      },
+      {
+        "name": "Moneyview",
+        "logo": "/uploads/clients/moneyview-logo.jpg"
+      },
+      {
+        "name": "Odoo",
+        "logo": "/uploads/clients/odoo-logo.png"
+      },
+      {
+        "name": "Parle",
+        "logo": "/uploads/clients/parle-logo.jpg"
+      },
+      {
+        "name": "Pintola",
+        "logo": "/uploads/clients/pintola-logo.webp"
+      },
+      {
+        "name": "Featured Client",
+        "logo": "/uploads/clients/client-logo-pjgljztumsszhsvcgkvk.avif"
+      },
+      {
+        "name": "TJC",
+        "logo": "/uploads/clients/tjc-logo.jpg"
+      },
+      {
+        "name": "Wondershare Filmora",
+        "logo": "/uploads/clients/wondershare-filmora-logo.webp"
+      },
+      {
+        "name": "Zepto",
+        "logo": "/uploads/clients/zepto-logo.png"
+      }
+    ]
+  },
+  "showreelVideoId": "Aly-VuR2HVo"
 }
