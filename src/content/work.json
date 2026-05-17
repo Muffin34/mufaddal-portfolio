@@ -1,17 +1,13 @@
 {
   "elearningVideos": [
-    { "id": "QYtqpC3wWi0", "title": "Making the Syllabus Your Secret Weapon", "module": "JEDU-01294", "category": "E-Learning", "featured": true },
-    { "id": "dD0TlmZ9UKU", "title": "Communication Fundamentals", "module": "JCOM-40237", "category": "Communication" },
     { "id": "Ena5dp9hprE", "title": "Professional Communication Skills", "module": "JCOM-40246", "category": "Communication" },
     { "id": "Ek1BW5xXv_I", "title": "E-Learning Module 006", "module": "JEDU-1280_006", "category": "E-Learning" },
-    { "id": "aYoBSNURPIU", "title": "E-Learning Module 010", "module": "JEDU-1297_010", "category": "E-Learning" },
     { "id": "Toj1zjDnqng", "title": "E-Learning Module 003", "module": "JEDU-1300_003", "category": "E-Learning" },
     { "id": "--cSbAXg_zQ", "title": "E-Learning Module 007", "module": "JEDU-1300_007", "category": "E-Learning" },
     { "id": "yguvMEBkhBo", "title": "Advanced Learning Module", "module": "JEDU-01290", "category": "E-Learning" },
     { "id": "FP_-fHxqwRg", "title": "Core Curriculum Module", "module": "JEDU-01291", "category": "E-Learning" },
     { "id": "4xVNb6dyqAc", "title": "Learning Strategies Module", "module": "JEDU-01295", "category": "E-Learning" },
     { "id": "mMzYTpS28TE", "title": "Study Skills & Retention", "module": "JEDU-01296", "category": "E-Learning" },
-    { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" },
     { "id": "Aly-VuR2HVo", "title": "AI Course Intro Module", "module": "AIE-INTRO-001", "category": "Course Intro", "featured": true },
     { "id": "eFreA9l4aW8", "title": "AI Learning Playbook Preview", "module": "AIE-INTRO-002", "category": "Course Intro" },
     { "id": "F2FneVvgtk0", "title": "AI Learning Course Module 03", "module": "AIE-COURSE-003", "category": "E-Learning" },
@@ -19,7 +15,11 @@
     { "id": "ZsqGxnHMx2s", "title": "AI Learning Course Module 05", "module": "AIE-COURSE-005", "category": "E-Learning" },
     { "id": "zdJZytbp_uo", "title": "AI Learning Course Module 06", "module": "AIE-COURSE-006", "category": "E-Learning" },
     { "id": "86dfJ8NZTKs", "title": "AI Learning Course Module 07", "module": "AIE-COURSE-007", "category": "E-Learning" },
-    { "id": "ck2poeWEbuM", "title": "AI Learning Course Module 08", "module": "AIE-COURSE-008", "category": "E-Learning" }
+    { "id": "ck2poeWEbuM", "title": "AI Learning Course Module 08", "module": "AIE-COURSE-008", "category": "E-Learning" },
+    { "id": "QYtqpC3wWi0", "title": "Making the Syllabus Your Secret Weapon", "module": "JEDU-01294", "category": "E-Learning" },
+    { "id": "dD0TlmZ9UKU", "title": "Communication Fundamentals", "module": "JCOM-40237", "category": "Communication" },
+    { "id": "aYoBSNURPIU", "title": "E-Learning Module 010", "module": "JEDU-1297_010", "category": "E-Learning" },
+    { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" }
   ],
   "promoVideos": [
     { "id": "4RgKRv0brd0", "title": "Broadcast and Promo Video 01", "module": "BROADCAST-001", "tag": "Broadcast", "featured": true },
