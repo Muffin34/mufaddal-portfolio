@@ -21,7 +21,13 @@
     { "id": "86dfJ8NZTKs", "title": "AI Learning Course Module 07", "module": "AIE-COURSE-007", "category": "E-Learning" },
     { "id": "ck2poeWEbuM", "title": "AI Learning Course Module 08", "module": "AIE-COURSE-008", "category": "E-Learning" }
   ],
-  "promoVideos": [],
+  "promoVideos": [
+    { "id": "4RgKRv0brd0", "title": "Broadcast and Promo Video 01", "module": "BROADCAST-001", "tag": "Broadcast", "featured": true },
+    { "id": "1szT6WPO-ps", "title": "Broadcast and Promo Video 02", "module": "BROADCAST-002", "tag": "Broadcast" },
+    { "id": "gnSSbWt4cf0", "title": "Broadcast and Promo Video 03", "module": "BROADCAST-003", "tag": "Promo" },
+    { "id": "7rjg9LufPDU", "title": "Broadcast and Promo Video 04", "module": "BROADCAST-004", "tag": "Promo" },
+    { "id": "3TN5_ch-uUw", "title": "Broadcast and Promo Video 05", "module": "BROADCAST-005", "tag": "Campaign" }
+  ],
   "workflowSteps": [
     {
       "step": "01",
@@ -69,7 +75,7 @@
   ],
   "elearningCategories": ["All", "E-Learning", "Communication", "Course Intro"],
   "elearningIntro": "A complete end-to-end production of an AI e-learning course ecosystem spanning 30+ modules and intro videos, led through a robust Gen AI workflow, motion graphics production, audio treatment, SFX, QA, and stakeholder-ready delivery.",
-  "promoIntro": "Coming soon. Broadcast, promo, reel, and campaign work will be added here once uploaded.",
+  "promoIntro": "Broadcast, promo, reel, and campaign video work built for fast-moving media, brand, and social delivery.",
   "caseStudies": [
     {
       "label": "Case Study 01",
