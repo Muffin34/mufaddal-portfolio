@@ -33,41 +33,41 @@
   "selectedWorks": [
     {
       "videoId": "F2FneVvgtk0",
-      "title": "AI Learning Course Module",
-      "result": "Recent AI e-learning module produced with story-led visuals, motion graphics, audio treatment, SFX, and delivery-focused QA.",
-      "client": "AI e-learning course",
-      "role": "Motion lead and production owner",
+      "title": "Scalable AI Learning Motion System",
+      "result": "Built as part of a repeatable course-motion system: brief-to-story development, visual direction, animation, audio treatment, SFX and QA-ready delivery.",
+      "client": "AI learning / training team",
+      "role": "Motion lead, production owner and final QA",
       "tools": "After Effects, Premiere Pro, Gen AI workflow, SFX",
       "tags": [
-        "AI E-Learning",
-        "Course Module",
-        "Production QA"
+        "Learning Systems",
+        "Motion Leadership",
+        "QA Pipeline"
       ]
     },
     {
       "videoId": "Aly-VuR2HVo",
-      "title": "AI Course Intro Module",
-      "result": "Intro-style learning video shaped to preview the course story, pacing, and learner value.",
-      "client": "AI e-learning course",
-      "role": "Motion lead and project owner",
+      "title": "Course Intro for Product-Led Learning",
+      "result": "Intro film designed to clarify the story, set learner expectations and make a larger training module feel easy to enter and continue.",
+      "client": "AI learning / product education",
+      "role": "Motion lead, editor and project owner",
       "tools": "After Effects, Premiere Pro, Gen AI workflow, SFX",
       "tags": [
+        "Product Storytelling",
         "Course Intro",
-        "Motion Lead",
-        "Project Management"
+        "Project Ownership"
       ]
     },
     {
       "videoId": "eFreA9l4aW8",
-      "title": "AI Learning Playbook Preview",
-      "result": "Preview module created to introduce a larger six-hour learning experience with clear story, pacing, audio, and final QA.",
-      "client": "AI e-learning course",
-      "role": "Production pipeline owner",
+      "title": "Learning Playbook Preview",
+      "result": "Preview module created to sell the value of a larger six-hour learning experience through clear pacing, guided narrative, audio polish and final QA.",
+      "client": "AI learning / internal enablement",
+      "role": "Production pipeline owner and motion lead",
       "tools": "After Effects, Premiere Pro, Gen AI workflow, Audio Mix",
       "tags": [
-        "Course Preview",
+        "Enablement Video",
         "Delivery QA",
-        "Workflow Systems"
+        "Workflow System"
       ]
     }
   ],

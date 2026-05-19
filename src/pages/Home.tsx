@@ -337,7 +337,7 @@ export default function Home() {
                 Selected Work
               </div>
               <p style={{ color: '#777772', fontSize: 14, lineHeight: 1.65, maxWidth: 560 }}>
-                A quick employer-friendly snapshot of the work I would want a hiring manager to see first.
+                Three employer-friendly snapshots showing how I turn briefs into motion systems, learning assets and delivery-ready video.
               </p>
             </div>
             <Link
