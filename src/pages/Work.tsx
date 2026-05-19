@@ -7,6 +7,7 @@ import workContent from '../content/work.json'
 const elearningVideos = workContent.elearningVideos
 const promoVideos = workContent.promoVideos
 const elearningCategories = workContent.elearningCategories
+const additionalElearningIds = new Set(['QYtqpC3wWi0', 'dD0TlmZ9UKU', 'aYoBSNURPIU', 'LtEX2U0DSC4'])
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -65,6 +66,8 @@ export default function Work() {
   const filteredElearning = activeCategory === 'All'
     ? elearningVideos
     : elearningVideos.filter(video => video.category === activeCategory)
+  const curatedElearning = filteredElearning.filter(video => !additionalElearningIds.has(video.id))
+  const additionalElearning = filteredElearning.filter(video => additionalElearningIds.has(video.id))
 
   return (
     <div className="animated-gradient-page" style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', fontFamily: "'Inter', sans-serif" }}>
@@ -88,11 +91,24 @@ export default function Work() {
           </div>
 
           <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1rem' }}>
-            AI Learning Videos
+            AI Learning & Course Motion Systems
           </h1>
           <p style={{ color: '#777772', fontSize: 16, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
             {workContent.elearningIntro}
           </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '0.85rem', marginBottom: '2rem' }}>
+            {[
+              ['Role', 'Motion lead, production owner and delivery QA across a larger learning-content system.'],
+              ['Process', 'Brief, story, storyboard, visual direction, Gen AI workflow, animation, audio, SFX and final review.'],
+              ['Employer Value', 'Shows scalable production thinking, not just one-off video execution.'],
+            ].map(([label, value]) => (
+              <div key={label} style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)' }}>
+                <p style={{ color: '#3c6e71', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>{label}</p>
+                <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.55 }}>{value}</p>
+              </div>
+            ))}
+          </div>
 
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
             {elearningCategories.map(category => (
@@ -118,8 +134,15 @@ export default function Work() {
             ))}
           </div>
 
+          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 800, color: '#353535', marginBottom: '0.75rem' }}>
+            Curated AI learning work
+          </h2>
+          <p style={{ color: '#888884', fontSize: 13.5, lineHeight: 1.65, maxWidth: 620, marginBottom: '1.25rem' }}>
+            Start here: the strongest examples for motion leadership, storytelling, production quality and delivery ownership.
+          </p>
+
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-            {filteredElearning.map((video) => (
+            {curatedElearning.map((video) => (
               <motion.div
                 key={video.id}
                 variants={fadeUp}
@@ -146,6 +169,42 @@ export default function Work() {
               </motion.div>
             ))}
           </div>
+
+          {additionalElearning.length > 0 && (
+            <div style={{ marginTop: '3rem' }}>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 800, color: '#353535', marginBottom: '0.75rem' }}>
+                Additional AI learning modules
+              </h2>
+              <p style={{ color: '#888884', fontSize: 13.5, lineHeight: 1.65, maxWidth: 620, marginBottom: '1.25rem' }}>
+                Supporting archive pieces kept lower on the page so the best work leads the employer scan.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
+                {additionalElearning.map((video) => (
+                  <motion.div
+                    key={video.id}
+                    variants={fadeUp}
+                    onClick={() => setElearningLightbox(elearningVideos.indexOf(video))}
+                    style={{ cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' }}
+                    whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
+                  >
+                    <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
+                      <VideoThumbnail videoId={video.id} title={video.title} />
+                      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
+                          <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
+                        </div>
+                      </div>
+                      <div style={{ position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 }}>{video.category}</div>
+                    </div>
+                    <div style={{ padding: '0.875rem 1rem' }}>
+                      <p style={{ fontSize: 11, color: '#3c6e71', fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
+                      <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.section>
 
         <div style={{ borderTop: '2px solid #e5e5e3', marginBottom: '5rem' }} />
@@ -162,6 +221,13 @@ export default function Work() {
           <p style={{ color: '#777772', fontSize: 15, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
             {workContent.promoIntro}
           </p>
+
+          <div style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)', maxWidth: 720, marginBottom: '1.5rem' }}>
+            <p style={{ color: '#284b63', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>Role & value</p>
+            <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.6 }}>
+              Promo and broadcast work showing pacing, attention control, edit rhythm, motion graphics, audio polish and export-ready delivery for fast-moving brand/content teams.
+            </p>
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
             {promoVideos.map((video, index) => (
