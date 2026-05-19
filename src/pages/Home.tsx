@@ -283,7 +283,7 @@ export default function Home() {
               </h2>
               <p style={{ color: '#666662', fontSize: 14, lineHeight: 1.7 }}>{leadershipSection.description}</p>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '0.85rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '0.85rem' }}>
               {leadershipSection.strengths.map((strength) => (
                 <div key={strength.title} style={{ background: '#f7faf9', border: '1px solid #dce5e3', borderRadius: 8, padding: '1rem' }}>
                   <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 13.5, color: '#284b63', fontWeight: 800, marginBottom: '0.45rem' }}>{strength.title}</h3>

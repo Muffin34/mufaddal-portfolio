@@ -74,24 +74,32 @@
   "availabilityText": "Available for new projects",
   "leadershipSection": {
     "eyebrow": "Why teams hire me",
-    "title": "Senior motion ownership for SaaS, AI learning and product storytelling teams.",
-    "description": "I help teams translate complex briefs into clear motion systems, product explainers, learning modules and launch-ready video assets. The value is not just animation output; it is creative direction, production planning, team coordination, QA and stakeholder-ready delivery.",
+    "title": "I reduce creative risk by owning motion from brief to shipped asset.",
+    "description": "For senior motion roles, the value is not only polished animation. I bring the operating layer around the work: translating briefs, planning production, leading people, setting review standards, managing feedback and shipping assets that are ready for product, learning, brand and stakeholder teams.",
     "strengths": [
       {
         "title": "Motion Leadership",
-        "description": "Led and coordinated a 10+ person creative team across design, animation, editing, audio and delivery tasks."
+        "description": "Led and coordinated a 10+ person creative team across design, animation, editing, audio, SFX and delivery tasks."
       },
       {
         "title": "Product Storytelling",
-        "description": "Turned product, learning and brand briefs into clear narratives, visual flows, storyboards and motion-ready execution plans."
+        "description": "Turn product, learning and brand briefs into clear narratives, visual flows, storyboards and motion-ready execution plans."
       },
       {
         "title": "Pipeline Ownership",
-        "description": "Built repeatable workflows for Gen AI visuals, motion graphics, audio prep, SFX, final edit, QA and handoff."
+        "description": "Built repeatable workflows for Gen AI visuals, motion graphics, audio prep, edit reviews, final QA and handoff."
       },
       {
         "title": "Stakeholder Delivery",
         "description": "Managed feedback loops, quality checks, consistency standards and final exports so teams could ship reliably."
+      },
+      {
+        "title": "Production Velocity",
+        "description": "Improved delivery speed by building reusable structures, review checkpoints and AI-assisted production workflows."
+      },
+      {
+        "title": "Quality Control",
+        "description": "Own final checks across pacing, audio sync, visual consistency, export settings and stakeholder-ready delivery."
       }
     ]
   },
@@ -116,10 +124,10 @@
       "period": "2024 - Present",
       "color": "#3c6e71",
       "highlights": [
-        "Led a cross-functional team of 10 designers and animators",
-        "Built end-to-end workflow pipelines reducing production time by 40-50%",
-        "Designed motion graphics for SaaS and enterprise clients",
-        "Integrated Gen AI workflows into team production pipelines"
+        "Lead a 10+ person creative team across motion design, editing, audio, SFX and delivery",
+        "Built repeatable production workflows that improved delivery speed by 40-50%",
+        "Translate SaaS, learning and brand briefs into storyboards, motion systems and stakeholder-ready assets",
+        "Integrated Gen AI workflows into production while keeping creative direction, QA and final delivery human-led"
       ]
     },
     {
@@ -128,10 +136,10 @@
       "period": "2020 - 2024",
       "color": "#284b63",
       "highlights": [
-        "Led motion design for YouTube network with 2.6M+ subscribers",
-        "Delivered 300+ explainer videos with 65%+ viewer retention",
-        "Built internal motion pipelines and animation libraries",
-        "Developed proprietary prompt-engineering methodology"
+        "Led motion design and production for a YouTube network with 2.6M+ subscribers",
+        "Delivered 300+ explainer and branded videos with strong retention-focused pacing",
+        "Built internal motion pipelines, reusable animation structures and review workflows",
+        "Managed creative execution from concept and storyboard through edit, sound, QA and final delivery"
       ]
     },
     {
