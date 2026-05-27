@@ -251,6 +251,11 @@
         "logo": "/uploads/clients/troovy-logo.webp"
       },
       {
+        "name": "Vector Solutions",
+        "logo": "/uploads/clients/vector-solutions-logo.svg",
+        "largerLogo": true
+      },
+      {
         "name": "Dubai Government",
         "logo": "/uploads/clients/client-logo-a19bfd5c.jpeg"
       },

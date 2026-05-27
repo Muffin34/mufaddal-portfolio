@@ -361,7 +361,7 @@ export default function Home() {
               <div className="client-marquee-row" key={rowIndex}>
                 <div className={`client-marquee-track ${rowIndex === 1 ? 'reverse' : ''}`}>
                   {[...row, ...row].map((client, index) => (
-                    <div className="client-logo-card" key={`${client.name}-${rowIndex}-${index}`}>
+                    <div className={`client-logo-card ${'largerLogo' in client && client.largerLogo ? 'client-logo-card--large' : ''}`} key={`${client.name}-${rowIndex}-${index}`}>
                       <img src={client.logo} alt={`${client.name} logo`} loading="lazy" />
                     </div>
                   ))}

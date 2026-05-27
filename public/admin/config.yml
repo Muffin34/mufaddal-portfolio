@@ -104,6 +104,7 @@ collections:
                 fields:
                   - { label: "Brand / Client Name", name: "name", widget: "string" }
                   - { label: "Logo Image", name: "logo", widget: "image", choose_url: true }
+                  - { label: "Slightly Larger Logo", name: "largerLogo", widget: "boolean", required: false, default: false, hint: "Use only for wide logos that need a tiny visual boost in the marquee." }
           - label: "Selected Work Cards"
             name: "selectedWorks"
             widget: "list"
