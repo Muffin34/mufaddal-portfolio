@@ -159,6 +159,7 @@ export default function Home() {
           </div>
           <nav style={{ display: 'flex', gap: isMobile ? '0.75rem' : '1.75rem', fontSize: isMobile ? 12.5 : 13.5, fontWeight: 500, flexWrap: 'wrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', minWidth: 0 }}>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
+            <a href="#awards" className="award-nav-link">Awards</a>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
             <a href="#skills" style={{ color: '#666662', textDecoration: 'none' }}>Skills</a>
             <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#666662', textDecoration: 'none' }}>Resume</a>
@@ -274,7 +275,7 @@ export default function Home() {
       </section>
 
       {/* Award recognition */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
+      <section id="awards" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="award-showcase">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
             <div>

@@ -185,6 +185,24 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+.award-nav-link {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(192, 139, 39, 0.36);
+  border-radius: 999px;
+  padding: 0.18rem 0.62rem;
+  background: linear-gradient(135deg, rgba(255, 248, 225, 0.92), rgba(240, 199, 99, 0.26));
+  color: #7a5516;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 5px 14px rgba(112, 82, 28, 0.1);
+}
+
+.award-nav-link:hover {
+  color: #5f3e09;
+  border-color: rgba(192, 139, 39, 0.62);
+}
+
 .award-showcase::before {
   content: "";
   position: absolute;
