@@ -46,6 +46,27 @@ collections:
             fields:
               - { label: "Number / Value", name: "value", widget: "string", hint: "Example: 100M+, 50%, 300+" }
               - { label: "Label", name: "label", widget: "string" }
+          - label: "Award Recognition"
+            name: "awardsSection"
+            widget: "object"
+            summary: "{{fields.title}}"
+            hint: "Showcase credible third-party recognition near the top of the homepage and work page."
+            fields:
+              - { label: "Small Label", name: "eyebrow", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Awards"
+                name: "awards"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Award / Work Title", name: "title", widget: "string" }
+                  - { label: "Award Year", name: "year", widget: "string" }
+                  - { label: "Category", name: "category", widget: "string" }
+                  - { label: "Brief", name: "brief", widget: "text" }
+                  - { label: "Official Winner Page URL", name: "url", widget: "string" }
           - label: "Leadership & Production Ownership"
             name: "leadershipSection"
             widget: "object"

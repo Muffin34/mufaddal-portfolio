@@ -30,6 +30,27 @@
       "label": "Creative team members led"
     }
   ],
+  "awardsSection": {
+    "eyebrow": "Award recognition",
+    "title": "Two 2026 Telly Award wins for Gen AI-driven education work.",
+    "description": "Recognized in the Telly Awards Non-Broadcast category for Craft - Use of Generative AI, highlighting education-focused motion work built around learner motivation, syllabus strategy, and production-quality delivery.",
+    "awards": [
+      {
+        "title": "Maximizing Your Education: Finding Your Purpose",
+        "year": "2026 Telly Awards",
+        "category": "Non-Broadcast / Craft - Use of Generative AI",
+        "brief": "An education-focused motion piece designed to help learners connect their study journey to purpose, clarity, and personal motivation.",
+        "url": "https://www.tellyawards.com/winners/2026/non-broadcast/craft-use-of-generative-ai/maximizing-your-education-finding-your-purpose/359585/"
+      },
+      {
+        "title": "Maximizing Your Education: Making the Syllabus Your Superpower",
+        "year": "2026 Telly Awards",
+        "category": "Non-Broadcast / Craft - Use of Generative AI",
+        "brief": "A course module built to make syllabus planning feel practical and empowering through Gen AI-assisted visuals, motion graphics, audio, SFX, final edit, and QA.",
+        "url": "https://www.tellyawards.com/winners/2026/non-broadcast/craft-use-of-generative-ai/maximizing-your-education-making-the-syllabus-your-superpower/359533/"
+      }
+    ]
+  },
   "selectedWorks": [
     {
       "videoId": "F2FneVvgtk0",

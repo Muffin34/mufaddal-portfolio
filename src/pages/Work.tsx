@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen } from 'lucide-react'
+import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen, Award, ExternalLink } from 'lucide-react'
 import workContent from '../content/work.json'
+import homeContent from '../content/home.json'
 
 const elearningVideos = workContent.elearningVideos
 const promoVideos = workContent.promoVideos
 const elearningCategories = workContent.elearningCategories
+const awardsSection = homeContent.awardsSection
 const additionalElearningIds = new Set(['QYtqpC3wWi0', 'dD0TlmZ9UKU', 'aYoBSNURPIU', 'LtEX2U0DSC4'])
 
 const fadeUp = {
@@ -96,6 +98,40 @@ export default function Work() {
           <p style={{ color: '#777772', fontSize: 16, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
             {workContent.elearningIntro}
           </p>
+
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.7rem' }}>
+              <Award size={14} />
+              2026 Telly Award recognition
+            </div>
+            <p style={{ color: '#666662', fontSize: 14, lineHeight: 1.7, maxWidth: 760, marginBottom: '1rem' }}>
+              Two pieces from the Maximizing Your Education series were recognized in the Telly Awards Non-Broadcast category for Craft - Use of Generative AI.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
+              {awardsSection.awards.map((award) => (
+                <a
+                  key={award.url}
+                  href={award.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'grid', gridTemplateColumns: '40px minmax(0, 1fr)', gap: '0.85rem', padding: '1rem', background: '#fff', border: '1px solid #dce5e3', borderLeft: '3px solid #3c6e71', borderRadius: 8, color: 'inherit', textDecoration: 'none', boxShadow: '0 1px 3px rgba(0,0,0,0.035)' }}
+                >
+                  <div style={{ width: 40, height: 40, borderRadius: 8, background: '#f1f7f6', display: 'grid', placeItems: 'center', color: '#3c6e71' }}>
+                    <Award size={19} />
+                  </div>
+                  <div>
+                    <p style={{ color: '#3c6e71', fontSize: 10.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.25rem' }}>{award.year}</p>
+                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 14.5, fontWeight: 800, color: '#353535', lineHeight: 1.35, marginBottom: '0.35rem' }}>{award.title}</h3>
+                    <p style={{ color: '#777772', fontSize: 12, fontWeight: 700, marginBottom: '0.45rem' }}>{award.category}</p>
+                    <p style={{ color: '#666662', fontSize: 12.5, lineHeight: 1.55, marginBottom: '0.55rem' }}>{award.brief}</p>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#284b63', fontSize: 12, fontWeight: 800 }}>
+                      Official winner page <ExternalLink size={12} />
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '0.85rem', marginBottom: '2rem' }}>
             {[

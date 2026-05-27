@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
+import { Award, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import homeContent from '../content/home.json'
@@ -23,6 +23,7 @@ const coreSkills = homeContent.coreSkills
 const softwareSkills = homeContent.softwareSkills
 const aiTools = homeContent.aiTools
 const keyMetrics = homeContent.metrics
+const awardsSection = homeContent.awardsSection
 const clientsSection = homeContent.clientsSection
 const clientLogos = clientsSection.clients
 const availabilityFor = homeContent.availabilityFor
@@ -269,6 +270,50 @@ export default function Home() {
               <p style={{ color: '#888884', fontSize: 12.5, lineHeight: 1.45 }}>{m.label}</p>
             </motion.div>
           ))}
+        </motion.div>
+      </section>
+
+      {/* Award recognition */}
+      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.65rem' }}>
+                <Award size={14} />
+                {awardsSection.eyebrow}
+              </div>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: isMobile ? 24 : 32, fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, maxWidth: 680 }}>
+                {awardsSection.title}
+              </h2>
+            </div>
+            <p style={{ color: '#666662', fontSize: 14, lineHeight: 1.7, maxWidth: 430 }}>
+              {awardsSection.description}
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
+            {awardsSection.awards.map((award) => (
+              <a
+                key={award.url}
+                href={award.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ ...card, display: 'grid', gridTemplateColumns: '44px minmax(0, 1fr)', gap: '0.9rem', padding: '1.15rem', color: 'inherit', textDecoration: 'none', borderLeft: '3px solid #3c6e71' }}
+              >
+                <div style={{ width: 44, height: 44, borderRadius: 8, background: '#f1f7f6', border: '1px solid #d5e5e3', display: 'grid', placeItems: 'center', color: '#3c6e71' }}>
+                  <Award size={21} />
+                </div>
+                <div>
+                  <p style={{ color: '#3c6e71', fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.35rem' }}>{award.year}</p>
+                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 15.5, fontWeight: 800, color: '#1a1a1a', lineHeight: 1.35, marginBottom: '0.45rem' }}>{award.title}</h3>
+                  <p style={{ color: '#777772', fontSize: 12.5, fontWeight: 700, marginBottom: '0.5rem' }}>{award.category}</p>
+                  <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.65rem' }}>{award.brief}</p>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#284b63', fontSize: 12.5, fontWeight: 800 }}>
+                    View official winner page <ExternalLink size={13} />
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
         </motion.div>
       </section>
 
