@@ -99,8 +99,8 @@ export default function Work() {
             {workContent.elearningIntro}
           </p>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.7rem' }}>
+          <div className="award-showcase" style={{ marginBottom: '2rem' }}>
+            <div className="award-eyebrow" style={{ marginBottom: '0.7rem' }}>
               <Award size={14} />
               2026 Telly Award recognition
             </div>
@@ -114,17 +114,17 @@ export default function Work() {
                   href={award.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: 'grid', gridTemplateColumns: '40px minmax(0, 1fr)', gap: '0.85rem', padding: '1rem', background: '#fff', border: '1px solid #dce5e3', borderLeft: '3px solid #3c6e71', borderRadius: 8, color: 'inherit', textDecoration: 'none', boxShadow: '0 1px 3px rgba(0,0,0,0.035)' }}
+                  className="award-card"
                 >
-                  <div style={{ width: 40, height: 40, borderRadius: 8, background: '#f1f7f6', display: 'grid', placeItems: 'center', color: '#3c6e71' }}>
+                  <div className="award-icon">
                     <Award size={19} />
                   </div>
                   <div>
-                    <p style={{ color: '#3c6e71', fontSize: 10.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.25rem' }}>{award.year}</p>
+                    <span className="award-pill" style={{ marginBottom: '0.5rem' }}>{award.year}</span>
                     <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 14.5, fontWeight: 800, color: '#353535', lineHeight: 1.35, marginBottom: '0.35rem' }}>{award.title}</h3>
-                    <p style={{ color: '#777772', fontSize: 12, fontWeight: 700, marginBottom: '0.45rem' }}>{award.category}</p>
+                    <p style={{ color: '#8a6119', fontSize: 12, fontWeight: 800, marginBottom: '0.45rem' }}>{award.category}</p>
                     <p style={{ color: '#666662', fontSize: 12.5, lineHeight: 1.55, marginBottom: '0.55rem' }}>{award.brief}</p>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#284b63', fontSize: 12, fontWeight: 800 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#7a5516', fontSize: 12, fontWeight: 900 }}>
                       Official winner page <ExternalLink size={12} />
                     </span>
                   </div>

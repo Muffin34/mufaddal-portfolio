@@ -275,10 +275,10 @@ export default function Home() {
 
       {/* Award recognition */}
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="award-showcase">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.65rem' }}>
+              <div className="award-eyebrow" style={{ marginBottom: '0.65rem' }}>
                 <Award size={14} />
                 {awardsSection.eyebrow}
               </div>
@@ -297,17 +297,17 @@ export default function Home() {
                 href={award.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ ...card, display: 'grid', gridTemplateColumns: '44px minmax(0, 1fr)', gap: '0.9rem', padding: '1.15rem', color: 'inherit', textDecoration: 'none', borderLeft: '3px solid #3c6e71' }}
+                className="award-card"
               >
-                <div style={{ width: 44, height: 44, borderRadius: 8, background: '#f1f7f6', border: '1px solid #d5e5e3', display: 'grid', placeItems: 'center', color: '#3c6e71' }}>
+                <div className="award-icon">
                   <Award size={21} />
                 </div>
                 <div>
-                  <p style={{ color: '#3c6e71', fontSize: 11, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.35rem' }}>{award.year}</p>
+                  <span className="award-pill" style={{ marginBottom: '0.55rem' }}>{award.year}</span>
                   <h3 style={{ fontFamily: "'Sora', sans-serif", fontSize: 15.5, fontWeight: 800, color: '#1a1a1a', lineHeight: 1.35, marginBottom: '0.45rem' }}>{award.title}</h3>
-                  <p style={{ color: '#777772', fontSize: 12.5, fontWeight: 700, marginBottom: '0.5rem' }}>{award.category}</p>
+                  <p style={{ color: '#8a6119', fontSize: 12.5, fontWeight: 800, marginBottom: '0.5rem' }}>{award.category}</p>
                   <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.65rem' }}>{award.brief}</p>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#284b63', fontSize: 12.5, fontWeight: 800 }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#7a5516', fontSize: 12.5, fontWeight: 900 }}>
                     View official winner page <ExternalLink size={13} />
                   </span>
                 </div>
