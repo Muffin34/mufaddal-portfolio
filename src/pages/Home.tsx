@@ -396,7 +396,7 @@ export default function Home() {
 
           <div className="cgi-employer-fit">
             <div>
-              <span>Employer fit</span>
+              <span>Production fit</span>
               <p>{cgiSection.employerPitch}</p>
             </div>
             <div className="cgi-highlight-list">
@@ -419,7 +419,7 @@ export default function Home() {
                       <span className="cgi-case-type">{item.type}</span>
                       <span className="cgi-case-title">{item.title}</span>
                     </span>
-                    {isRetailCgi && <span className="cgi-priority-badge">Sleep brand relevant</span>}
+                    {isRetailCgi && <span className="cgi-priority-badge">Retail CGI proof</span>}
                     <span className="cgi-case-client">{item.client}</span>
                     <ChevronDown className="cgi-case-chevron" size={18} />
                   </button>
