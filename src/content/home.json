@@ -109,11 +109,15 @@
         "summary": "Product-rendering work for ecommerce furniture presentation, created to support clean catalogue visuals, consistent angles and shopper-friendly product clarity.",
         "caseStudy": "The ecommerce case focused on turning sofa product requirements into clean, listing-ready rendered visuals that help shoppers understand shape, material, scale and finish without relying only on photography.",
         "workflow": [
-          "Set up furniture models, materials, lighting and camera framing for catalogue-style clarity",
-          "Render product views in 3ds Max with V-Ray, then refine surfaces, shadows and presentation consistency",
-          "Prepare final ecommerce-ready outputs for repeatable use across product listings"
+          "Blueprint: reviewed product dimensions, references and required catalogue views",
+          "Modeling: built clean sofa geometry in 3ds Max for ecommerce presentation",
+          "Texturing: created fabric, cushion, wood and surface material treatments",
+          "Look dev: refined lighting, camera angles, scale and product readability",
+          "Rendering: produced V-Ray outputs with consistent shadows and product clarity",
+          "Post process: polished color, contrast and final catalogue presentation",
+          "QA: checked angles, material consistency and ecommerce-ready delivery"
         ],
-        "pipeline": "A catalogue CGI pipeline from model setup to material treatment, V-Ray lighting, render passes, final polish and output checks for retail-scale product imagery.",
+        "pipeline": "Brief retail CGI pipeline: blueprint, modeling, texturing, look dev, rendering, post process and QA for consistent ecommerce product imagery.",
         "role": "3D product rendering in 3ds Max using V-Ray, with focus on furniture materials, lighting, camera setup and ecommerce-ready output.",
         "tools": "3ds Max, V-Ray, material setup, lighting, ecommerce rendering",
         "proofPoints": [
