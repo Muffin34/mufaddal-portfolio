@@ -127,6 +127,9 @@ collections:
                   - { label: "Case Image", name: "image", widget: "image", choose_url: true, required: false }
                   - { label: "Source URL", name: "sourceUrl", widget: "string" }
                   - { label: "Summary", name: "summary", widget: "text" }
+                  - { label: "Case Study Detail", name: "caseStudy", widget: "text" }
+                  - { label: "Workflow Steps", name: "workflow", widget: "list", collapsed: true, field: { label: "Workflow Step", name: "step", widget: "string" } }
+                  - { label: "Pipeline Detail", name: "pipeline", widget: "text" }
                   - { label: "Role", name: "role", widget: "text" }
                   - { label: "Tools", name: "tools", widget: "string" }
                   - { label: "Proof Points", name: "proofPoints", widget: "list", collapsed: true, field: { label: "Proof Point", name: "proofPoint", widget: "string" } }

@@ -432,6 +432,22 @@ export default function Home() {
                           </div>
                           <div className="cgi-case-copy">
                             <p className="cgi-summary">{item.summary}</p>
+                            <div className="cgi-detail-block">
+                              <span>Case study</span>
+                              <p>{item.caseStudy}</p>
+                            </div>
+                            <div className="cgi-workflow-block">
+                              <span>Workflow</span>
+                              <ol>
+                                {item.workflow.map((step) => (
+                                  <li key={step}>{step}</li>
+                                ))}
+                              </ol>
+                            </div>
+                            <div className="cgi-detail-block">
+                              <span>Pipeline</span>
+                              <p>{item.pipeline}</p>
+                            </div>
                             <div className="cgi-meta-grid">
                               <div>
                                 <span>Role</span>

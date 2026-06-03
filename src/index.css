@@ -350,6 +350,42 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
+.cgi-detail-block,
+.cgi-workflow-block {
+  border-left: 3px solid rgba(60, 110, 113, 0.32);
+  padding-left: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.cgi-detail-block span,
+.cgi-workflow-block span {
+  display: block;
+  color: #3c6e71;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.cgi-detail-block p,
+.cgi-workflow-block li {
+  color: #555552;
+  font-size: 12.8px;
+  line-height: 1.65;
+}
+
+.cgi-workflow-block ol {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.cgi-workflow-block li::marker {
+  color: #3c6e71;
+  font-weight: 900;
+}
+
 .cgi-meta-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -63,6 +63,13 @@
         "image": "/uploads/cgi-luxury-watchmaker.webp",
         "sourceUrl": "https://www.clxeurope.com/portfolio/3d-content-production-for-a-prestigious-luxury-watchmaker/",
         "summary": "CGI and 3D workflows helped transform luxury watch content production with scalable asset creation, faster market delivery and consistent premium product visuals.",
+        "caseStudy": "The project focused on replacing slower, shoot-dependent luxury product content with a CGI-first approach that could support repeatable visual production while preserving premium product detail, material accuracy and brand consistency.",
+        "workflow": [
+          "Understand product references, visual standards and market-delivery requirements",
+          "Prepare 3D assets, materials, lighting setups and camera angles for luxury product presentation",
+          "Render review-ready visuals, refine surfaces and highlights, then complete final QA before delivery"
+        ],
+        "pipeline": "A structured CGI pipeline from asset preparation to lighting, rendering, review, retouching coordination and final delivery, built to support scalable product content without losing luxury-grade consistency.",
         "role": "3D content production support, asset preparation, lighting/render consistency and CGI pipeline execution.",
         "tools": "3ds Max, V-Ray, product rendering, CGI workflow, visual QA",
         "proofPoints": [
@@ -78,6 +85,13 @@
         "image": "/uploads/cgi-italian-motor-company.webp",
         "sourceUrl": "https://www.clxeurope.com/portfolio/media-library-for-a-leading-italian-motor-company/",
         "summary": "A centralized visual asset library for a leading Italian motor brand, built to improve content delivery, streamline workflows and support global collaboration.",
+        "caseStudy": "The case centered on organizing automotive visuals into a reusable media-library system so brand, marketing and regional teams could access consistent assets faster and reduce duplicate production effort.",
+        "workflow": [
+          "Audit asset needs across vehicle imagery, campaign usage and regional delivery requirements",
+          "Prepare, classify and quality-check media assets for library-ready use",
+          "Support a delivery workflow that made visuals easier to find, review, reuse and distribute"
+        ],
+        "pipeline": "A media-production pipeline built around asset intake, organization, visual QA, metadata-ready delivery and stakeholder handoff for high-volume automotive content.",
         "role": "CGI/media asset workflow support with emphasis on organized delivery, visual consistency and stakeholder-ready content.",
         "tools": "3D production workflow, media-library systems, rendering QA, asset delivery",
         "proofPoints": [
@@ -93,6 +107,13 @@
         "image": "",
         "sourceUrl": "https://www.argos.co.uk/search/sofa/?clickOrigin=searchbar:search:term:sofa",
         "summary": "Product-rendering work for ecommerce furniture presentation, created to support clean catalogue visuals, consistent angles and shopper-friendly product clarity.",
+        "caseStudy": "The ecommerce case focused on turning sofa product requirements into clean, listing-ready rendered visuals that help shoppers understand shape, material, scale and finish without relying only on photography.",
+        "workflow": [
+          "Set up furniture models, materials, lighting and camera framing for catalogue-style clarity",
+          "Render product views in 3ds Max with V-Ray, then refine surfaces, shadows and presentation consistency",
+          "Prepare final ecommerce-ready outputs for repeatable use across product listings"
+        ],
+        "pipeline": "A catalogue CGI pipeline from model setup to material treatment, V-Ray lighting, render passes, final polish and output checks for retail-scale product imagery.",
         "role": "3D product rendering in 3ds Max using V-Ray, with focus on furniture materials, lighting, camera setup and ecommerce-ready output.",
         "tools": "3ds Max, V-Ray, material setup, lighting, ecommerce rendering",
         "proofPoints": [
