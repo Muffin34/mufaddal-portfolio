@@ -51,6 +51,58 @@
       }
     ]
   },
+  "cgiSection": {
+    "eyebrow": "CGI & 3D production",
+    "title": "Product CGI built for luxury, automotive and ecommerce scale.",
+    "description": "A focused look at 3D content systems, product rendering and media-library work where visual consistency, production speed and asset scalability matter as much as craft.",
+    "cases": [
+      {
+        "title": "Luxury Watch CGI & 3D Content Production",
+        "client": "Prestigious luxury watchmaker via CLX Europe",
+        "type": "Luxury product CGI",
+        "image": "/uploads/cgi-luxury-watchmaker.webp",
+        "sourceUrl": "https://www.clxeurope.com/portfolio/3d-content-production-for-a-prestigious-luxury-watchmaker/",
+        "summary": "CGI and 3D workflows helped transform luxury watch content production with scalable asset creation, faster market delivery and consistent premium product visuals.",
+        "role": "3D content production support, asset preparation, lighting/render consistency and CGI pipeline execution.",
+        "tools": "3ds Max, V-Ray, product rendering, CGI workflow, visual QA",
+        "proofPoints": [
+          "Premium product visuals for global market use",
+          "Scalable 3D workflow for repeated asset production",
+          "Consistency-focused rendering and review process"
+        ]
+      },
+      {
+        "title": "Automotive Media Library & CGI Asset System",
+        "client": "Leading Italian motor company via CLX Europe",
+        "type": "Automotive media library",
+        "image": "/uploads/cgi-italian-motor-company.webp",
+        "sourceUrl": "https://www.clxeurope.com/portfolio/media-library-for-a-leading-italian-motor-company/",
+        "summary": "A centralized visual asset library for a leading Italian motor brand, built to improve content delivery, streamline workflows and support global collaboration.",
+        "role": "CGI/media asset workflow support with emphasis on organized delivery, visual consistency and stakeholder-ready content.",
+        "tools": "3D production workflow, media-library systems, rendering QA, asset delivery",
+        "proofPoints": [
+          "Structured media library for high-volume brand assets",
+          "Improved delivery workflow for distributed teams",
+          "Automotive-grade consistency across reusable visuals"
+        ]
+      },
+      {
+        "title": "Ecommerce Furniture Product Renderings",
+        "client": "Argos ecommerce sofa category",
+        "type": "Retail product CGI",
+        "image": "",
+        "sourceUrl": "https://www.argos.co.uk/search/sofa/?clickOrigin=searchbar:search:term:sofa",
+        "summary": "Product-rendering work for ecommerce furniture presentation, created to support clean catalogue visuals, consistent angles and shopper-friendly product clarity.",
+        "role": "3D product rendering in 3ds Max using V-Ray, with focus on furniture materials, lighting, camera setup and ecommerce-ready output.",
+        "tools": "3ds Max, V-Ray, material setup, lighting, ecommerce rendering",
+        "proofPoints": [
+          "Retail-focused product imagery for sofa listings",
+          "Consistent lighting, materials and viewing angles",
+          "Render workflow designed for catalogue-scale production"
+        ]
+      }
+    ]
+  },
   "selectedWorks": [
     {
       "videoId": "F2FneVvgtk0",

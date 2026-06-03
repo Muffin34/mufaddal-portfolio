@@ -105,6 +105,31 @@ collections:
                   - { label: "Brand / Client Name", name: "name", widget: "string" }
                   - { label: "Logo Image", name: "logo", widget: "image", choose_url: true }
                   - { label: "Slightly Larger Logo", name: "largerLogo", widget: "boolean", required: false, default: false, hint: "Use only for wide logos that need a tiny visual boost in the marquee." }
+          - label: "CGI Case Studies"
+            name: "cgiSection"
+            widget: "object"
+            summary: "{{fields.title}}"
+            hint: "Expandable CGI / 3D production case-study section on the home page."
+            fields:
+              - { label: "Small Label", name: "eyebrow", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "CGI Cases"
+                name: "cases"
+                widget: "list"
+                collapsed: true
+                minimize_collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Case Title", name: "title", widget: "string" }
+                  - { label: "Client / Context", name: "client", widget: "string" }
+                  - { label: "Type Label", name: "type", widget: "string" }
+                  - { label: "Case Image", name: "image", widget: "image", choose_url: true, required: false }
+                  - { label: "Source URL", name: "sourceUrl", widget: "string" }
+                  - { label: "Summary", name: "summary", widget: "text" }
+                  - { label: "Role", name: "role", widget: "text" }
+                  - { label: "Tools", name: "tools", widget: "string" }
+                  - { label: "Proof Points", name: "proofPoints", widget: "list", collapsed: true, field: { label: "Proof Point", name: "proofPoint", widget: "string" } }
           - label: "Selected Work Cards"
             name: "selectedWorks"
             widget: "list"

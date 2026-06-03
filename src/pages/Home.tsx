@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Award, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import homeContent from '../content/home.json'
@@ -24,6 +24,7 @@ const softwareSkills = homeContent.softwareSkills
 const aiTools = homeContent.aiTools
 const keyMetrics = homeContent.metrics
 const awardsSection = homeContent.awardsSection
+const cgiSection = homeContent.cgiSection
 const clientsSection = homeContent.clientsSection
 const clientLogos = clientsSection.clients
 const availabilityFor = homeContent.availabilityFor
@@ -96,6 +97,7 @@ export default function Home() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
   const [sendError, setSendError] = useState('')
+  const [openCgiCase, setOpenCgiCase] = useState<string | null>(null)
 
   function validate() {
     const errors: typeof formErrors = {}
@@ -160,6 +162,7 @@ export default function Home() {
           <nav style={{ display: 'flex', gap: isMobile ? '0.75rem' : '1.75rem', fontSize: isMobile ? 12.5 : 13.5, fontWeight: 500, flexWrap: 'wrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', minWidth: 0 }}>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
             <a href="#awards" className="award-nav-link">Awards</a>
+            <a href="#cgi" style={{ color: '#666662', textDecoration: 'none' }}>CGI</a>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
             <a href="#skills" style={{ color: '#666662', textDecoration: 'none' }}>Skills</a>
             <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#666662', textDecoration: 'none' }}>Resume</a>
@@ -369,6 +372,92 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* CGI */}
+      <section id="cgi" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.65rem' }}>
+                <Box size={14} />
+                {cgiSection.eyebrow}
+              </div>
+              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: isMobile ? 24 : 32, fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, maxWidth: 720 }}>
+                {cgiSection.title}
+              </h2>
+            </div>
+            <p style={{ color: '#666662', fontSize: 14, lineHeight: 1.7, maxWidth: 430 }}>
+              {cgiSection.description}
+            </p>
+          </div>
+
+          <div className="cgi-case-list">
+            {cgiSection.cases.map((item, index) => {
+              const isOpen = openCgiCase === item.title
+              const panelId = `cgi-case-${index + 1}`
+              return (
+                <article className={`cgi-case ${isOpen ? 'is-open' : ''}`} key={item.title}>
+                  <button className="cgi-case-trigger" onClick={() => setOpenCgiCase(isOpen ? null : item.title)} aria-expanded={isOpen} aria-controls={panelId}>
+                    <span className="cgi-case-index">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="cgi-case-title-group">
+                      <span className="cgi-case-type">{item.type}</span>
+                      <span className="cgi-case-title">{item.title}</span>
+                    </span>
+                    <span className="cgi-case-client">{item.client}</span>
+                    <ChevronDown className="cgi-case-chevron" size={18} />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={panelId}
+                        className="cgi-case-body"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: 'easeOut' }}
+                      >
+                        <div className="cgi-case-content">
+                          <div className="cgi-case-media">
+                            {item.image ? (
+                              <img src={item.image} alt={item.title} loading="lazy" />
+                            ) : (
+                              <div className="cgi-placeholder">
+                                <Box size={34} />
+                                <span>3D product renderings</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="cgi-case-copy">
+                            <p className="cgi-summary">{item.summary}</p>
+                            <div className="cgi-meta-grid">
+                              <div>
+                                <span>Role</span>
+                                <p>{item.role}</p>
+                              </div>
+                              <div>
+                                <span>Tools</span>
+                                <p>{item.tools}</p>
+                              </div>
+                            </div>
+                            <div className="cgi-proof-list">
+                              {item.proofPoints.map((point) => (
+                                <span key={point}>{point}</span>
+                              ))}
+                            </div>
+                            <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" className="cgi-source-link">
+                              View source project <ExternalLink size={13} />
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              )
+            })}
           </div>
         </motion.div>
       </section>
