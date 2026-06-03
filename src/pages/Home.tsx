@@ -378,7 +378,7 @@ export default function Home() {
 
       {/* CGI */}
       <section id="cgi" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="cgi-showcase">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.65rem' }}>
@@ -394,18 +394,32 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="cgi-employer-fit">
+            <div>
+              <span>Employer fit</span>
+              <p>{cgiSection.employerPitch}</p>
+            </div>
+            <div className="cgi-highlight-list">
+              {cgiSection.productionHighlights.map((highlight) => (
+                <span key={highlight}>{highlight}</span>
+              ))}
+            </div>
+          </div>
+
           <div className="cgi-case-list">
             {cgiSection.cases.map((item, index) => {
               const isOpen = openCgiCase === item.title
               const panelId = `cgi-case-${index + 1}`
+              const isRetailCgi = item.title.includes('Furniture')
               return (
-                <article className={`cgi-case ${isOpen ? 'is-open' : ''}`} key={item.title}>
+                <article className={`cgi-case ${isOpen ? 'is-open' : ''} ${isRetailCgi ? 'cgi-case--priority' : ''}`} key={item.title}>
                   <button className="cgi-case-trigger" onClick={() => setOpenCgiCase(isOpen ? null : item.title)} aria-expanded={isOpen} aria-controls={panelId}>
                     <span className="cgi-case-index">{String(index + 1).padStart(2, '0')}</span>
                     <span className="cgi-case-title-group">
                       <span className="cgi-case-type">{item.type}</span>
                       <span className="cgi-case-title">{item.title}</span>
                     </span>
+                    {isRetailCgi && <span className="cgi-priority-badge">Sleep brand relevant</span>}
                     <span className="cgi-case-client">{item.client}</span>
                     <ChevronDown className="cgi-case-chevron" size={18} />
                   </button>

@@ -114,6 +114,8 @@ collections:
               - { label: "Small Label", name: "eyebrow", widget: "string" }
               - { label: "Section Title", name: "title", widget: "string" }
               - { label: "Section Description", name: "description", widget: "text" }
+              - { label: "Employer Fit Pitch", name: "employerPitch", widget: "text", hint: "Use this to connect CGI work to the exact employer or industry you are targeting." }
+              - { label: "Production Highlights", name: "productionHighlights", widget: "list", collapsed: true, field: { label: "Highlight", name: "highlight", widget: "string" } }
               - label: "CGI Cases"
                 name: "cases"
                 widget: "list"

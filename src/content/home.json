@@ -53,8 +53,14 @@
   },
   "cgiSection": {
     "eyebrow": "CGI & 3D production",
-    "title": "Product CGI built for luxury, automotive and ecommerce scale.",
-    "description": "A focused look at 3D content systems, product rendering and media-library work where visual consistency, production speed and asset scalability matter as much as craft.",
+    "title": "CGI systems for brands building in-house product media.",
+    "description": "Directly relevant to sleep, mattress, furniture and lifestyle brands that need repeatable product visuals, faster campaign assets and a stronger internal media-production pipeline.",
+    "employerPitch": "For a sleep company building its own in-house media engine, this CGI work shows the practical bridge between craft and production: product modeling, material accuracy, look development, rendering, post-processing, QA and reusable asset systems for ecommerce, launch campaigns and brand storytelling.",
+    "productionHighlights": [
+      "Furniture and soft-material rendering experience that maps naturally to mattresses, sofas, bedding and sleep accessories",
+      "Pipeline thinking for repeated product launches, color/material variants and catalogue-scale ecommerce visuals",
+      "Media-library discipline for organizing assets so internal brand, performance and marketplace teams can reuse them faster"
+    ],
     "cases": [
       {
         "title": "Luxury Watch CGI & 3D Content Production",
@@ -123,7 +129,7 @@
         "proofPoints": [
           "Retail-focused product imagery for sofa listings",
           "Consistent lighting, materials and viewing angles",
-          "Render workflow designed for catalogue-scale production"
+          "Closest proof point for sleep, mattress and furniture-product CGI"
         ]
       }
     ]
