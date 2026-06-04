@@ -446,7 +446,7 @@ export default function Home() {
                             )}
                           </div>
                           {galleryImages.length > 0 && (
-                            <div className="cgi-watch-gallery" aria-label={`${item.title} preview images`}>
+                            <div className="cgi-preview-gallery" aria-label={`${item.title} preview images`}>
                               {galleryImages.map((image) => (
                                 <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />
                               ))}

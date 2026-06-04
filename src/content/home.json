@@ -111,6 +111,28 @@
         "client": "Leading Italian motor company via CLX Europe",
         "type": "Automotive media library",
         "image": "/uploads/cgi-italian-motor-company.webp",
+        "galleryImages": [
+          {
+            "src": "/uploads/cgi-automotive-1.webp",
+            "alt": "Ducati automotive media library hero visual preview"
+          },
+          {
+            "src": "/uploads/cgi-automotive-2.jpg",
+            "alt": "Ducati motorcycle studio product preview"
+          },
+          {
+            "src": "/uploads/cgi-automotive-3.jpg",
+            "alt": "Ducati motorcycle detail asset preview"
+          },
+          {
+            "src": "/uploads/cgi-automotive-4.jpg",
+            "alt": "Ducati motorcycle campaign asset preview"
+          },
+          {
+            "src": "/uploads/cgi-automotive-5.jpg",
+            "alt": "Ducati motorcycle riding visual asset preview"
+          }
+        ],
         "sourceUrl": "https://www.clxeurope.com/portfolio/media-library-for-a-leading-italian-motor-company/",
         "summary": "A centralized visual asset library for a leading Italian motor brand, built to improve content delivery, streamline workflows and support global collaboration.",
         "caseStudy": "The case centered on organizing automotive visuals into a reusable media-library system so brand, marketing and regional teams could access consistent assets faster and reduce duplicate production effort.",
@@ -133,6 +155,28 @@
         "client": "Argos ecommerce sofa category",
         "type": "Retail product CGI",
         "image": "/uploads/cgi-ecommerce-sofa-render.png",
+        "galleryImages": [
+          {
+            "src": "/uploads/cgi-furniture-1.jpg",
+            "alt": "Argos sofa product render catalogue preview"
+          },
+          {
+            "src": "/uploads/cgi-furniture-2.jpg",
+            "alt": "Argos fabric sofa ecommerce product preview"
+          },
+          {
+            "src": "/uploads/cgi-furniture-3.jpg",
+            "alt": "Argos corner sofa product imagery preview"
+          },
+          {
+            "src": "/uploads/cgi-furniture-4.jpg",
+            "alt": "Argos living room sofa listing preview"
+          },
+          {
+            "src": "/uploads/cgi-furniture-5.jpg",
+            "alt": "Argos sofa product angle preview"
+          }
+        ],
         "sourceUrl": "https://www.argos.co.uk/search/sofa/?clickOrigin=searchbar:search:term:sofa",
         "summary": "Product-rendering work for ecommerce furniture presentation, created to support clean catalogue visuals, consistent angles and shopper-friendly product clarity.",
         "caseStudy": "The ecommerce case focused on turning sofa product requirements into clean, listing-ready rendered visuals that help shoppers understand shape, material, scale and finish without relying only on photography.",
