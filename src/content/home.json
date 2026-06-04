@@ -77,7 +77,7 @@
         ],
         "pipeline": "A structured CGI pipeline from asset preparation to lighting, rendering, review, retouching coordination and final delivery, built to support scalable product content without losing luxury-grade consistency.",
         "role": "3D content production support, asset preparation, lighting/render consistency and CGI pipeline execution.",
-        "tools": "3ds Max, V-Ray, product rendering, CGI workflow, visual QA",
+        "tools": "3ds Max, Photoshop, PlayCanvas, Substance Painter, Blender",
         "proofPoints": [
           "Premium product visuals for global market use",
           "Scalable 3D workflow for repeated asset production",
