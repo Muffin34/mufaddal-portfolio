@@ -411,6 +411,7 @@ export default function Home() {
               const isOpen = openCgiCase === item.title
               const panelId = `cgi-case-${index + 1}`
               const isRetailCgi = item.title.includes('Furniture')
+              const galleryImages = 'galleryImages' in item && Array.isArray(item.galleryImages) ? item.galleryImages : []
               return (
                 <article className={`cgi-case ${isOpen ? 'is-open' : ''} ${isRetailCgi ? 'cgi-case--priority' : ''}`} key={item.title}>
                   <button className="cgi-case-trigger" onClick={() => setOpenCgiCase(isOpen ? null : item.title)} aria-expanded={isOpen} aria-controls={panelId}>
@@ -444,6 +445,13 @@ export default function Home() {
                               </div>
                             )}
                           </div>
+                          {galleryImages.length > 0 && (
+                            <div className="cgi-watch-gallery" aria-label={`${item.title} preview images`}>
+                              {galleryImages.map((image) => (
+                                <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />
+                              ))}
+                            </div>
+                          )}
                           <div className="cgi-case-copy">
                             <p className="cgi-summary">{item.summary}</p>
                             <div className="cgi-detail-block">

@@ -127,6 +127,14 @@ collections:
                   - { label: "Client / Context", name: "client", widget: "string" }
                   - { label: "Type Label", name: "type", widget: "string" }
                   - { label: "Case Image", name: "image", widget: "image", choose_url: true, required: false }
+                  - label: "Gallery Images"
+                    name: "galleryImages"
+                    widget: "list"
+                    required: false
+                    collapsed: true
+                    fields:
+                      - { label: "Image", name: "src", widget: "image", choose_url: true }
+                      - { label: "Alt Text", name: "alt", widget: "string" }
                   - { label: "Source URL", name: "sourceUrl", widget: "string" }
                   - { label: "Summary", name: "summary", widget: "text" }
                   - { label: "Case Study Detail", name: "caseStudy", widget: "text" }

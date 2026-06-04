@@ -67,6 +67,28 @@
         "client": "Prestigious luxury watchmaker via CLX Europe",
         "type": "Luxury product CGI",
         "image": "/uploads/cgi-luxury-watchmaker.webp",
+        "galleryImages": [
+          {
+            "src": "/uploads/cgi-watch-tagheuer-1.webp",
+            "alt": "TAG Heuer Carrera chronograph watch side detail CGI preview"
+          },
+          {
+            "src": "/uploads/cgi-watch-tagheuer-2.webp",
+            "alt": "TAG Heuer Carrera chronograph watch back detail CGI preview"
+          },
+          {
+            "src": "/uploads/cgi-watch-tagheuer-3.webp",
+            "alt": "TAG Heuer Carrera automatic watch front CGI preview"
+          },
+          {
+            "src": "/uploads/cgi-watch-tagheuer-4.webp",
+            "alt": "TAG Heuer Carrera automatic watch bracelet CGI preview"
+          },
+          {
+            "src": "/uploads/cgi-watch-tagheuer-5.webp",
+            "alt": "TAG Heuer Formula 1 watch black strap CGI preview"
+          }
+        ],
         "sourceUrl": "https://www.clxeurope.com/portfolio/3d-content-production-for-a-prestigious-luxury-watchmaker/",
         "summary": "CGI and 3D workflows helped transform luxury watch content production with scalable asset creation, faster market delivery and consistent premium product visuals.",
         "caseStudy": "The project focused on replacing slower, shoot-dependent luxury product content with a CGI-first approach that could support repeatable visual production while preserving premium product detail, material accuracy and brand consistency.",
