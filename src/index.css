@@ -38,6 +38,54 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Sora', sans-serif;
 }
 
+.brand-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 999px;
+  outline-offset: 5px;
+}
+
+.brand-home-link:hover span {
+  color: #284b63 !important;
+}
+
+.home-nav-pill,
+.work-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(60, 110, 113, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #2f696d;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(26, 26, 26, 0.05);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.home-nav-pill {
+  padding: 0.34rem 0.64rem;
+  margin: -0.34rem -0.45rem;
+  font-weight: 800;
+}
+
+.work-home-link {
+  padding: 0.48rem 0.72rem;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.home-nav-pill:hover,
+.work-home-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(60, 110, 113, 0.38);
+  background: #ffffff;
+  color: #1f2930;
+}
+
 .animated-gradient-page {
   position: relative;
   isolation: isolate;

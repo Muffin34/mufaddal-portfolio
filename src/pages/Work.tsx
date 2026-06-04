@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen, Award, ExternalLink } from 'lucide-react'
+import { ArrowLeft, X, ChevronLeft, ChevronRight, Play, Tv, BookOpen, Award, ExternalLink, Home as HomeIcon } from 'lucide-react'
 import workContent from '../content/work.json'
 import homeContent from '../content/home.json'
 
@@ -75,8 +75,10 @@ export default function Work() {
     <div className="animated-gradient-page" style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', fontFamily: "'Inter', sans-serif" }}>
       <header style={{ position: 'sticky', top: 0, zIndex: 40, background: 'rgba(247,247,245,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #e5e5e3' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '0.875rem 1rem' : '1rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#888884', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
-            <ArrowLeft size={16} /> Back to Portfolio
+          <Link to="/" className="work-home-link">
+            <ArrowLeft size={15} />
+            <HomeIcon size={14} />
+            Home
           </Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#3c6e71', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Sora', sans-serif" }}>MK</div>

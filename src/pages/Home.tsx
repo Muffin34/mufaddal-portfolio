@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle } from 'lucide-react'
+import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle, Home as HomeIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import homeContent from '../content/home.json'
@@ -155,11 +155,14 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0.75rem 1rem' : '0 2rem', minHeight: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+          <Link to="/" className="brand-home-link" aria-label="Go to homepage">
             <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg,#3c6e71,#284b63)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 11, fontFamily: "'Sora', sans-serif", letterSpacing: 0 }}>MK</div>
             <span style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 16, color: '#1a1a1a', letterSpacing: 0 }}>Mufaddal</span>
-          </div>
+          </Link>
           <nav style={{ display: 'flex', gap: isMobile ? '0.75rem' : '1.75rem', fontSize: isMobile ? 12.5 : 13.5, fontWeight: 500, flexWrap: 'wrap', justifyContent: isMobile ? 'flex-start' : 'flex-end', minWidth: 0 }}>
+            <Link to="/" className="home-nav-pill" aria-current="page">
+              <HomeIcon size={13} /> Home
+            </Link>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
             <a href="#awards" className="award-nav-link">Awards</a>
             <a href="#cgi" style={{ color: '#666662', textDecoration: 'none' }}>CGI</a>
