@@ -86,6 +86,58 @@ h1, h2, h3, h4, h5, h6 {
   color: #1f2930;
 }
 
+.global-home-shortcut {
+  position: fixed;
+  right: max(1rem, calc((100vw - 1100px) / 2 + 1rem));
+  bottom: 1rem;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 44px;
+  padding: 0.72rem 0.88rem;
+  border: 1px solid rgba(60, 110, 113, 0.28);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(242, 247, 246, 0.9)),
+    radial-gradient(circle at 20% 20%, rgba(213, 176, 89, 0.18), transparent 42%);
+  color: #1f2930;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 16px 34px rgba(26, 26, 26, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.global-home-shortcut svg {
+  color: #3c6e71;
+}
+
+.global-home-shortcut:hover {
+  transform: translateY(-2px);
+  border-color: rgba(60, 110, 113, 0.48);
+  box-shadow: 0 20px 42px rgba(26, 26, 26, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.global-home-shortcut:focus-visible,
+.brand-home-link:focus-visible,
+.home-nav-pill:focus-visible,
+.work-home-link:focus-visible {
+  outline: 3px solid rgba(213, 176, 89, 0.52);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .global-home-shortcut {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    min-height: 42px;
+    padding: 0.66rem 0.78rem;
+    font-size: 12.5px;
+  }
+}
+
 .animated-gradient-page {
   position: relative;
   isolation: isolate;
