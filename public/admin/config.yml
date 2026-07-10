@@ -46,6 +46,18 @@ collections:
             fields:
               - { label: "Number / Value", name: "value", widget: "string", hint: "Example: 100M+, 50%, 300+" }
               - { label: "Label", name: "label", widget: "string" }
+          - label: "Premium SaaS Spotlight"
+            name: "saasSpotlight"
+            widget: "object"
+            summary: "{{fields.title}}"
+            hint: "Use this for a high-end product / SaaS motion piece that should be featured near the top of the homepage."
+            fields:
+              - { label: "Small Label", name: "eyebrow", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "YouTube Video ID", name: "videoId", widget: "string", hint: "From youtube.com/watch?v=_0aeCMkb_dk, paste only _0aeCMkb_dk." }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Role & Ownership", name: "role", widget: "text" }
+              - { label: "Highlight Chips", name: "highlights", widget: "list", collapsed: true, field: { label: "Highlight", name: "highlight", widget: "string" } }
           - label: "Award Recognition"
             name: "awardsSection"
             widget: "object"

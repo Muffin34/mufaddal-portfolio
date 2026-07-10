@@ -250,11 +250,11 @@ export default function Work() {
         <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ marginBottom: '5rem' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(40,75,99,0.1)', border: '1px solid rgba(40,75,99,0.25)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#284b63', fontWeight: 700, marginBottom: '1.25rem' }}>
             <Tv size={12} />
-            Broadcast and promo videos
+            Product, broadcast and promo videos
           </div>
 
           <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.12, marginBottom: '0.85rem' }}>
-            Broadcast and Promo Videos
+            Product, Broadcast and Promo Videos
           </h2>
           <p style={{ color: '#777772', fontSize: 15, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
             {workContent.promoIntro}
@@ -263,7 +263,7 @@ export default function Work() {
           <div style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)', maxWidth: 720, marginBottom: '1.5rem' }}>
             <p style={{ color: '#284b63', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>Role & value</p>
             <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.6 }}>
-              Promo and broadcast work showing pacing, attention control, edit rhythm, motion graphics, audio polish and export-ready delivery for fast-moving brand/content teams.
+              Product, promo and broadcast work showing platform storytelling, pacing, attention control, edit rhythm, motion graphics, audio polish and export-ready delivery for fast-moving product, brand and content teams.
             </p>
           </div>
 

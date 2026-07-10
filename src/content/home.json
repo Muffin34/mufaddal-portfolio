@@ -30,6 +30,20 @@
       "label": "Creative team members led"
     }
   ],
+  "saasSpotlight": {
+    "eyebrow": "Premium SaaS motion spotlight",
+    "title": "TB365 product motion film built for high-trust SaaS storytelling.",
+    "videoId": "_0aeCMkb_dk",
+    "description": "A polished, high-end product motion piece designed to make a SaaS platform feel sharp, credible, and boardroom-ready through clean interface rhythm, premium pacing, confident transitions, and executive-friendly visual storytelling.",
+    "role": "Owned the motion design, edit rhythm, product-story framing, visual polish, audio pacing, final export and delivery QA.",
+    "highlights": [
+      "SaaS-style product storytelling",
+      "Premium interface-led motion",
+      "Launch-ready visual polish",
+      "High-trust B2B presentation",
+      "Edit, pacing and final QA ownership"
+    ]
+  },
   "awardsSection": {
     "eyebrow": "Award recognition",
     "title": "Two 2026 Telly Award wins for Gen AI-driven education work.",
@@ -180,16 +194,16 @@
   },
   "selectedWorks": [
     {
-      "videoId": "F2FneVvgtk0",
-      "title": "Scalable AI Learning Motion System",
-      "result": "Built as part of a repeatable course-motion system: brief-to-story development, visual direction, animation, audio treatment, SFX and QA-ready delivery.",
-      "client": "AI learning / training team",
-      "role": "Motion lead, production owner and final QA",
-      "tools": "After Effects, Premiere Pro, Gen AI workflow, SFX",
+      "videoId": "_0aeCMkb_dk",
+      "title": "TB365 SaaS Product Motion Film",
+      "result": "Premium SaaS-style product film built to make a platform feel high-trust, polished and executive-ready through interface-led motion, clean pacing and sharp visual storytelling.",
+      "client": "TB365 / product SaaS motion",
+      "role": "Motion lead, edit owner and final QA",
+      "tools": "After Effects, Premiere Pro, Product Motion, Audio Polish",
       "tags": [
-        "Learning Systems",
-        "Motion Leadership",
-        "QA Pipeline"
+        "SaaS Motion",
+        "Premium Product Film",
+        "B2B Storytelling"
       ]
     },
     {

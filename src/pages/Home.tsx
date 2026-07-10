@@ -23,6 +23,7 @@ const coreSkills = homeContent.coreSkills
 const softwareSkills = homeContent.softwareSkills
 const aiTools = homeContent.aiTools
 const keyMetrics = homeContent.metrics
+const saasSpotlight = homeContent.saasSpotlight
 const awardsSection = homeContent.awardsSection
 const cgiSection = homeContent.cgiSection
 const clientsSection = homeContent.clientsSection
@@ -164,6 +165,7 @@ export default function Home() {
               <HomeIcon size={13} /> Home
             </Link>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
+            <a href="#product-motion" style={{ color: '#666662', textDecoration: 'none' }}>Product Motion</a>
             <a href="#awards" className="award-nav-link">Awards</a>
             <a href="#cgi" style={{ color: '#666662', textDecoration: 'none' }}>CGI</a>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
@@ -256,6 +258,45 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Premium SaaS/product motion spotlight */}
+      <section id="product-motion" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="saas-spotlight">
+          <div className="saas-spotlight-copy">
+            <div className="saas-eyebrow">
+              <PlayCircle size={14} />
+              {saasSpotlight.eyebrow}
+            </div>
+            <h2>{saasSpotlight.title}</h2>
+            <p>{saasSpotlight.description}</p>
+            <div className="saas-role-card">
+              <span>Role & ownership</span>
+              <p>{saasSpotlight.role}</p>
+            </div>
+            <div className="saas-chip-list">
+              {saasSpotlight.highlights.map((highlight) => (
+                <span key={highlight}>{highlight}</span>
+              ))}
+            </div>
+          </div>
+          <div className="saas-video-stage">
+            <div className="saas-video-topline">
+              <span>Featured product film</span>
+              <a href={`https://www.youtube.com/watch?v=${saasSpotlight.videoId}`} target="_blank" rel="noopener noreferrer">
+                Open on YouTube <ExternalLink size={12} />
+              </a>
+            </div>
+            <div className="saas-video-frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${saasSpotlight.videoId}?rel=0&modestbranding=1`}
+                title={saasSpotlight.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ── METRICS ── */}

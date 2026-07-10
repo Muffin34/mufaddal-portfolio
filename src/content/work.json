@@ -22,7 +22,8 @@
     { "id": "LtEX2U0DSC4", "title": "Academic Excellence Module", "module": "JEDU-01298", "category": "E-Learning" }
   ],
   "promoVideos": [
-    { "id": "4RgKRv0brd0", "title": "Broadcast and Promo Video 01", "module": "BROADCAST-001", "tag": "Broadcast", "featured": true },
+    { "id": "_0aeCMkb_dk", "title": "TB365 SaaS Product Motion Film", "module": "TB365-PRODUCT-001", "tag": "SaaS Motion", "featured": true },
+    { "id": "4RgKRv0brd0", "title": "Broadcast and Promo Video 01", "module": "BROADCAST-001", "tag": "Broadcast" },
     { "id": "1szT6WPO-ps", "title": "Broadcast and Promo Video 02", "module": "BROADCAST-002", "tag": "Broadcast" },
     { "id": "gnSSbWt4cf0", "title": "Broadcast and Promo Video 03", "module": "BROADCAST-003", "tag": "Promo" },
     { "id": "7rjg9LufPDU", "title": "Broadcast and Promo Video 04", "module": "BROADCAST-004", "tag": "Promo" },
@@ -75,7 +76,7 @@
   ],
   "elearningCategories": ["All", "E-Learning", "Communication", "Course Intro"],
   "elearningIntro": "A complete end-to-end production of an AI e-learning course ecosystem spanning 30+ modules and intro videos, led through a robust Gen AI workflow, motion graphics production, audio treatment, SFX, QA, and stakeholder-ready delivery.",
-  "promoIntro": "Broadcast, promo, reel, and campaign video work built for fast-moving media, brand, and social delivery.",
+  "promoIntro": "SaaS product motion, broadcast, promo, reel, and campaign video work built for fast-moving product, brand, media, and social delivery.",
   "caseStudies": [
     {
       "label": "Case Study 01",
