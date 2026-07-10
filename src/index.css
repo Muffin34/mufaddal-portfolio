@@ -154,8 +154,12 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.46) 0%, rgba(247, 247, 245, 0.28) 24%, rgba(247, 247, 245, 0.64) 100%),
-    linear-gradient(115deg, rgba(60, 110, 113, 0.08) 0%, transparent 26%, rgba(213, 176, 89, 0.08) 54%, transparent 78%),
+    linear-gradient(115deg, rgba(60, 110, 113, 0.12) 0%, transparent 25%, rgba(213, 176, 89, 0.12) 54%, transparent 79%),
+    linear-gradient(245deg, transparent 8%, rgba(40, 75, 99, 0.07) 36%, rgba(255, 255, 255, 0.34) 52%, transparent 76%),
     #f7f7f5;
+  background-size: auto, 180% 180%, 220% 220%, auto;
+  background-position: center, 0% 42%, 100% 58%, center;
+  animation: page-gradient-flow 20s ease-in-out infinite alternate;
 }
 
 .animated-gradient-page::before {
@@ -165,13 +169,15 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(118deg, rgba(60, 110, 113, 0.16) 0%, rgba(60, 110, 113, 0) 24%, rgba(255, 255, 255, 0.45) 39%, rgba(213, 176, 89, 0.16) 58%, rgba(213, 176, 89, 0) 76%),
-    linear-gradient(242deg, rgba(40, 75, 99, 0.12) 0%, rgba(40, 75, 99, 0) 31%, rgba(60, 110, 113, 0.1) 52%, rgba(255, 255, 255, 0.54) 84%),
+    linear-gradient(102deg, transparent 12%, rgba(255, 255, 255, 0.42) 36%, transparent 57%),
+    linear-gradient(118deg, rgba(60, 110, 113, 0.18) 0%, rgba(60, 110, 113, 0) 24%, rgba(255, 255, 255, 0.48) 39%, rgba(213, 176, 89, 0.18) 58%, rgba(213, 176, 89, 0) 76%),
+    linear-gradient(242deg, rgba(40, 75, 99, 0.14) 0%, rgba(40, 75, 99, 0) 31%, rgba(60, 110, 113, 0.12) 52%, rgba(255, 255, 255, 0.56) 84%),
     conic-gradient(from 140deg at 50% 50%, rgba(255, 255, 255, 0.42), rgba(60, 110, 113, 0.08), rgba(213, 176, 89, 0.1), rgba(40, 75, 99, 0.07), rgba(255, 255, 255, 0.42));
-  background-size: 190% 190%, 210% 210%, 160% 160%;
-  background-position: 4% 26%, 96% 74%, 50% 50%;
-  filter: saturate(1.05);
-  animation: ambient-gradient-drift 34s ease-in-out infinite alternate;
+  background-size: 260% 260%, 190% 190%, 210% 210%, 160% 160%;
+  background-position: 12% 34%, 4% 26%, 96% 74%, 50% 50%;
+  filter: saturate(1.08);
+  transform: translate3d(0, 0, 0) rotate(0.001deg);
+  animation: ambient-gradient-drift 18s ease-in-out infinite alternate;
 }
 
 .animated-gradient-page::after {
@@ -186,7 +192,9 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(90deg, rgba(40, 75, 99, 0.028) 1px, transparent 1px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0.28) 100%);
   background-size: 72px 72px, 72px 72px, auto;
+  background-position: 0 0, 0 0, center;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.62) 100%);
+  animation: ambient-texture-glide 26s linear infinite;
 }
 
 .animated-gradient-page > * {
@@ -194,12 +202,32 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-@keyframes ambient-gradient-drift {
+@keyframes page-gradient-flow {
   from {
-    background-position: 4% 26%, 96% 74%, 50% 50%;
+    background-position: center, 0% 42%, 100% 58%, center;
   }
   to {
-    background-position: 96% 54%, 8% 36%, 58% 48%;
+    background-position: center, 100% 54%, 0% 44%, center;
+  }
+}
+
+@keyframes ambient-gradient-drift {
+  from {
+    background-position: 12% 34%, 4% 26%, 96% 74%, 50% 50%;
+    transform: translate3d(-1.5%, -1%, 0) scale(1.01) rotate(0.001deg);
+  }
+  to {
+    background-position: 88% 46%, 96% 54%, 8% 36%, 58% 48%;
+    transform: translate3d(1.5%, 1%, 0) scale(1.03) rotate(0.001deg);
+  }
+}
+
+@keyframes ambient-texture-glide {
+  from {
+    background-position: 0 0, 0 0, center;
+  }
+  to {
+    background-position: 72px 36px, 36px 72px, center;
   }
 }
 
@@ -1079,6 +1107,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animated-gradient-page,
+  .animated-gradient-page::after,
   .animated-gradient-page::before {
     animation: none;
   }
