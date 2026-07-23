@@ -299,96 +299,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
 }
 
-.saas-spotlight {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-  gap: 1.25rem;
-  align-items: stretch;
-  border: 1px solid rgba(40, 75, 99, 0.18);
-  border-radius: 8px;
-  padding: 1rem;
-  background:
-    linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(31, 41, 48, 0.96) 46%, rgba(43, 67, 73, 0.94) 100%);
-  box-shadow: 0 24px 60px rgba(26, 26, 26, 0.18);
-  overflow: hidden;
-}
-
-.saas-spotlight-copy {
-  padding: clamp(1.15rem, 2.4vw, 1.9rem);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
-}
-
-.saas-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
-  margin-bottom: 1rem;
-  color: #f0cf79;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.saas-spotlight h2 {
-  max-width: 520px;
-  color: #ffffff;
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
-  font-weight: 900;
-  line-height: 1.04;
-  margin-bottom: 1rem;
-}
-
-.saas-spotlight-copy > p {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 14px;
-  line-height: 1.75;
-  margin-bottom: 1rem;
-}
-
-.saas-role-card {
-  margin: 1rem 0;
-  padding: 0.85rem 0.95rem;
-  border-left: 3px solid #d5b059;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.saas-role-card span {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: #f0cf79;
-  font-size: 10.5px;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.saas-role-card p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.saas-chip-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.saas-chip-list span {
-  border: 1px solid rgba(240, 207, 121, 0.26);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 11.5px;
-  font-weight: 800;
-  padding: 0.36rem 0.58rem;
-}
-
 .saas-video-stage {
   display: flex;
   flex-direction: column;
@@ -396,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 8px;
   background: #07090c;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(26, 26, 26, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
@@ -424,8 +334,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .saas-video-frame {
   position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
-  min-height: 100%;
   background: #000;
 }
 
@@ -1009,15 +919,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 760px) {
-  .saas-spotlight {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 0.75rem;
-  }
-
-  .saas-spotlight-copy {
-    padding: 1rem;
-  }
-
   .saas-video-topline {
     align-items: flex-start;
     flex-direction: column;

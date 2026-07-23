@@ -262,39 +262,20 @@ export default function Home() {
 
       {/* Premium SaaS/product motion spotlight */}
       <section id="product-motion" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="saas-spotlight">
-          <div className="saas-spotlight-copy">
-            <div className="saas-eyebrow">
-              <PlayCircle size={14} />
-              {saasSpotlight.eyebrow}
-            </div>
-            <h2>{saasSpotlight.title}</h2>
-            <p>{saasSpotlight.description}</p>
-            <div className="saas-role-card">
-              <span>Role & ownership</span>
-              <p>{saasSpotlight.role}</p>
-            </div>
-            <div className="saas-chip-list">
-              {saasSpotlight.highlights.map((highlight) => (
-                <span key={highlight}>{highlight}</span>
-              ))}
-            </div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="saas-video-stage">
+          <div className="saas-video-topline">
+            <span>Featured product film</span>
+            <a href={`https://www.youtube.com/watch?v=${saasSpotlight.videoId}`} target="_blank" rel="noopener noreferrer">
+              Open on YouTube <ExternalLink size={12} />
+            </a>
           </div>
-          <div className="saas-video-stage">
-            <div className="saas-video-topline">
-              <span>Featured product film</span>
-              <a href={`https://www.youtube.com/watch?v=${saasSpotlight.videoId}`} target="_blank" rel="noopener noreferrer">
-                Open on YouTube <ExternalLink size={12} />
-              </a>
-            </div>
-            <div className="saas-video-frame">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${saasSpotlight.videoId}?rel=0&modestbranding=1`}
-                title={saasSpotlight.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
+          <div className="saas-video-frame">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${saasSpotlight.videoId}?rel=0&modestbranding=1`}
+              title={saasSpotlight.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </motion.div>
       </section>
