@@ -7,9 +7,7 @@ import homeContent from '../content/home.json'
 
 const elearningVideos = workContent.elearningVideos
 const promoVideos = workContent.promoVideos
-const elearningCategories = workContent.elearningCategories
 const awardsSection = homeContent.awardsSection
-const additionalElearningIds = new Set(['QYtqpC3wWi0', 'dD0TlmZ9UKU', 'aYoBSNURPIU', 'LtEX2U0DSC4'])
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -59,17 +57,23 @@ function VideoThumbnail({ videoId, title }: { videoId: string; title: string }) 
   )
 }
 
+// Shared card styling reused across both gallery tabs
+const galleryCardStyle = { cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' } as const
+const galleryThumbStyle = { position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' } as const
+const galleryOverlayStyle = { position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' } as const
+const galleryPlayButtonStyle = { width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' } as const
+const galleryTagStyle = { position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 } as const
+const galleryMetaStyle = { padding: '0.875rem 1rem' } as const
+const galleryTitleStyle = { fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 } as const
+
 export default function Work() {
   const isMobile = useIsMobile()
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeTab, setActiveTab] = useState<'elearning' | 'promos'>('elearning')
   const [elearningLightbox, setElearningLightbox] = useState<number | null>(null)
   const [promoLightbox, setPromoLightbox] = useState<number | null>(null)
 
-  const filteredElearning = activeCategory === 'All'
-    ? elearningVideos
-    : elearningVideos.filter(video => video.category === activeCategory)
-  const curatedElearning = filteredElearning.filter(video => !additionalElearningIds.has(video.id))
-  const additionalElearning = filteredElearning.filter(video => additionalElearningIds.has(video.id))
+  const accent = activeTab === 'elearning' ? '#3c6e71' : '#284b63'
+  const gridStyle = { display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }
 
   return (
     <div className="animated-gradient-page" style={{ minHeight: '100vh', width: '100%', overflowX: 'hidden', fontFamily: "'Inter', sans-serif" }}>
@@ -88,20 +92,124 @@ export default function Work() {
       </header>
 
       <main style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '2rem 1rem' : '3rem 1.5rem' }}>
-        <motion.section variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '5rem' }}>
+        <motion.section variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '2rem' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(60,110,113,0.1)', border: '1px solid rgba(60,110,113,0.25)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#3c6e71', fontWeight: 700, marginBottom: '1.25rem' }}>
             <BookOpen size={12} />
-            AI learning videos
+            Selected work
           </div>
 
           <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.1, marginBottom: '1rem' }}>
-            AI Learning & Course Motion Systems
+            Work
           </h1>
-          <p style={{ color: '#777772', fontSize: 16, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
-            {workContent.elearningIntro}
+          <p style={{ color: '#777772', fontSize: 16, lineHeight: 1.75, maxWidth: 680, marginBottom: 0 }}>
+            E-learning modules and broadcast-ready promos, grouped so you can jump straight to what's relevant. Click any thumbnail to watch.
           </p>
+        </motion.section>
 
-          <div className="award-showcase" style={{ marginBottom: '2rem' }}>
+        {/* Tabs */}
+        <div role="tablist" aria-label="Work categories" style={{ display: 'inline-flex', gap: '0.4rem', padding: '0.3rem', background: '#fff', border: '1px solid #e5e5e3', borderRadius: 12, marginBottom: '2rem' }}>
+          <button
+            role="tab"
+            aria-selected={activeTab === 'elearning'}
+            onClick={() => setActiveTab('elearning')}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              padding: '0.55rem 1.1rem', borderRadius: 8, border: 'none', cursor: 'pointer',
+              background: activeTab === 'elearning' ? '#3c6e71' : 'transparent',
+              color: activeTab === 'elearning' ? '#fff' : '#666662',
+              fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 13.5, transition: 'all 0.15s',
+            }}
+          >
+            <BookOpen size={14} /> E-Learning
+            <span style={{ fontSize: 11, fontWeight: 800, opacity: 0.75 }}>{elearningVideos.length}</span>
+          </button>
+          <button
+            role="tab"
+            aria-selected={activeTab === 'promos'}
+            onClick={() => setActiveTab('promos')}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              padding: '0.55rem 1.1rem', borderRadius: 8, border: 'none', cursor: 'pointer',
+              background: activeTab === 'promos' ? '#284b63' : 'transparent',
+              color: activeTab === 'promos' ? '#fff' : '#666662',
+              fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: 13.5, transition: 'all 0.15s',
+            }}
+          >
+            <Tv size={14} /> Broadcast & Promos
+            <span style={{ fontSize: 11, fontWeight: 800, opacity: 0.75 }}>{promoVideos.length}</span>
+          </button>
+        </div>
+
+        {/* Gallery */}
+        {activeTab === 'elearning' ? (
+          <div style={{ ...gridStyle, marginBottom: '4rem' }}>
+            {elearningVideos.map((video) => (
+              <motion.div
+                key={video.id}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                onClick={() => setElearningLightbox(elearningVideos.indexOf(video))}
+                style={galleryCardStyle}
+                whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
+              >
+                <div style={galleryThumbStyle}>
+                  <VideoThumbnail videoId={video.id} title={video.title} />
+                  <div style={galleryOverlayStyle}>
+                    <div style={galleryPlayButtonStyle}>
+                      <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
+                    </div>
+                  </div>
+                  {video.featured && (
+                    <div style={{ position: 'absolute', top: 8, left: 8, background: accent, color: '#fff', fontSize: 10, fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: 4 }}>FEATURED</div>
+                  )}
+                  <div style={galleryTagStyle}>{video.category}</div>
+                </div>
+                <div style={galleryMetaStyle}>
+                  <p style={{ fontSize: 11, color: accent, fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
+                  <h3 style={galleryTitleStyle}>{video.title}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ ...gridStyle, marginBottom: '4rem' }}>
+            {promoVideos.map((video, index) => (
+              <motion.div
+                key={video.id}
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                onClick={() => setPromoLightbox(index)}
+                style={galleryCardStyle}
+                whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
+              >
+                <div style={galleryThumbStyle}>
+                  <VideoThumbnail videoId={video.id} title={video.title} />
+                  <div style={galleryOverlayStyle}>
+                    <div style={galleryPlayButtonStyle}>
+                      <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
+                    </div>
+                  </div>
+                  {video.featured && (
+                    <div style={{ position: 'absolute', top: 8, left: 8, background: accent, color: '#fff', fontSize: 10, fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: 4 }}>FEATURED</div>
+                  )}
+                  <div style={galleryTagStyle}>{video.tag}</div>
+                </div>
+                <div style={galleryMetaStyle}>
+                  <p style={{ fontSize: 11, color: accent, fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
+                  <h3 style={galleryTitleStyle}>{video.title}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        <div style={{ borderTop: '2px solid #e5e5e3', marginBottom: '3rem' }} />
+
+        {/* Recognition */}
+        <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
+          <div className="award-showcase">
             <div className="award-eyebrow" style={{ marginBottom: '0.7rem' }}>
               <Award size={14} />
               2026 Telly Award recognition
@@ -134,166 +242,15 @@ export default function Work() {
               ))}
             </div>
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '0.85rem', marginBottom: '2rem' }}>
-            {[
-              ['Role', 'Motion lead, production owner and delivery QA across a larger learning-content system.'],
-              ['Process', 'Brief, story, storyboard, visual direction, Gen AI workflow, animation, audio, SFX and final review.'],
-              ['Employer Value', 'Shows scalable production thinking, not just one-off video execution.'],
-            ].map(([label, value]) => (
-              <div key={label} style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)' }}>
-                <p style={{ color: '#3c6e71', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>{label}</p>
-                <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.55 }}>{value}</p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-            {elearningCategories.map(category => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                style={{
-                  padding: '0.4rem 1rem',
-                  borderRadius: 20,
-                  border: '1.5px solid',
-                  borderColor: activeCategory === category ? '#3c6e71' : '#e5e5e3',
-                  background: activeCategory === category ? '#3c6e71' : '#fff',
-                  color: activeCategory === category ? '#fff' : '#888884',
-                  fontSize: 13,
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  fontFamily: "'Inter', sans-serif",
-                  transition: 'all 0.15s',
-                }}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 800, color: '#353535', marginBottom: '0.75rem' }}>
-            Curated AI learning work
-          </h2>
-          <p style={{ color: '#888884', fontSize: 13.5, lineHeight: 1.65, maxWidth: 620, marginBottom: '1.25rem' }}>
-            Start here: the strongest examples for motion leadership, storytelling, production quality and delivery ownership.
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-            {curatedElearning.map((video) => (
-              <motion.div
-                key={video.id}
-                variants={fadeUp}
-                onClick={() => setElearningLightbox(elearningVideos.indexOf(video))}
-                style={{ cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
-              >
-                <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
-                  <VideoThumbnail videoId={video.id} title={video.title} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
-                      <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
-                    </div>
-                  </div>
-                  {video.featured && (
-                    <div style={{ position: 'absolute', top: 8, left: 8, background: '#3c6e71', color: '#fff', fontSize: 10, fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: 4 }}>FEATURED</div>
-                  )}
-                  <div style={{ position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 }}>{video.category}</div>
-                </div>
-                <div style={{ padding: '0.875rem 1rem' }}>
-                  <p style={{ fontSize: 11, color: '#3c6e71', fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
-                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {additionalElearning.length > 0 && (
-            <div style={{ marginTop: '3rem' }}>
-              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 800, color: '#353535', marginBottom: '0.75rem' }}>
-                Additional AI learning modules
-              </h2>
-              <p style={{ color: '#888884', fontSize: 13.5, lineHeight: 1.65, maxWidth: 620, marginBottom: '1.25rem' }}>
-                Supporting archive pieces kept lower on the page so the best work leads the employer scan.
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-                {additionalElearning.map((video) => (
-                  <motion.div
-                    key={video.id}
-                    variants={fadeUp}
-                    onClick={() => setElearningLightbox(elearningVideos.indexOf(video))}
-                    style={{ cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                    whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
-                  >
-                    <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
-                      <VideoThumbnail videoId={video.id} title={video.title} />
-                      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
-                          <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
-                        </div>
-                      </div>
-                      <div style={{ position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 }}>{video.category}</div>
-                    </div>
-                    <div style={{ padding: '0.875rem 1rem' }}>
-                      <p style={{ fontSize: 11, color: '#3c6e71', fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
-                      <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
         </motion.section>
 
-        <div style={{ borderTop: '2px solid #e5e5e3', marginBottom: '5rem' }} />
-
-        <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(40,75,99,0.1)', border: '1px solid rgba(40,75,99,0.25)', borderRadius: 20, padding: '0.3rem 0.875rem', fontSize: 12, color: '#284b63', fontWeight: 700, marginBottom: '1.25rem' }}>
-            <Tv size={12} />
-            Product, broadcast and promo videos
-          </div>
-
-          <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 800, color: '#353535', lineHeight: 1.12, marginBottom: '0.85rem' }}>
-            Product, Broadcast and Promo Videos
-          </h2>
-          <p style={{ color: '#777772', fontSize: 15, lineHeight: 1.75, maxWidth: 680, marginBottom: '2rem' }}>
-            {workContent.promoIntro}
-          </p>
-
-          <div style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)', maxWidth: 720, marginBottom: '1.5rem' }}>
-            <p style={{ color: '#284b63', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>Role & value</p>
+        {/* Role summary */}
+        <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
+          <div style={{ background: '#fff', border: '1px solid #e5e5e3', borderRadius: 8, padding: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.035)', maxWidth: 720 }}>
+            <p style={{ color: '#3c6e71', fontSize: 11.5, fontWeight: 800, marginBottom: '0.35rem', textTransform: 'uppercase' }}>Role & value</p>
             <p style={{ color: '#555552', fontSize: 13, lineHeight: 1.6 }}>
-              Product, promo and broadcast work showing platform storytelling, pacing, attention control, edit rhythm, motion graphics, audio polish and export-ready delivery for fast-moving product, brand and content teams.
+              On every project here I'm the one turning the brief into a finished video - storyboard, motion, audio, and the final QA pass before it ships - whether it's a course module or a broadcast promo.
             </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
-            {promoVideos.map((video, index) => (
-              <motion.div
-                key={video.id}
-                variants={fadeUp}
-                onClick={() => setPromoLightbox(index)}
-                style={{ cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' }}
-                whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
-              >
-                <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
-                  <VideoThumbnail videoId={video.id} title={video.title} />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
-                      <Play size={18} fill="#353535" color="#353535" style={{ marginLeft: 3 }} />
-                    </div>
-                  </div>
-                  {video.featured && (
-                    <div style={{ position: 'absolute', top: 8, left: 8, background: '#284b63', color: '#fff', fontSize: 10, fontWeight: 700, padding: '0.2rem 0.5rem', borderRadius: 4 }}>FEATURED</div>
-                  )}
-                  <div style={{ position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 }}>{video.tag}</div>
-                </div>
-                <div style={{ padding: '0.875rem 1rem' }}>
-                  <p style={{ fontSize: 11, color: '#284b63', fontWeight: 700, marginBottom: '0.25rem' }}>{video.module}</p>
-                  <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 }}>{video.title}</h3>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </motion.section>
 
