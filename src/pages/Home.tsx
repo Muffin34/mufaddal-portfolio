@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, ChevronRight, FileText, PlayCircle, Home as HomeIcon } from 'lucide-react'
+import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, FileText, PlayCircle, Home as HomeIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import homeContent from '../content/home.json'
@@ -19,28 +19,16 @@ const EMAILJS_TEMPLATE_ID = 'template_qf9rl2p'
 const EMAILJS_PUBLIC_KEY  = 'qB6pPJC1goNLaEeLb'
 
 const experiences = homeContent.experiences
-const coreSkills = homeContent.coreSkills
-const softwareSkills = homeContent.softwareSkills
-const aiTools = homeContent.aiTools
-const keyMetrics = homeContent.metrics
-const saasSpotlight = homeContent.saasSpotlight
 const awardsSection = homeContent.awardsSection
 const cgiSection = homeContent.cgiSection
 const clientsSection = homeContent.clientsSection
 const clientLogos = clientsSection.clients
 const availabilityFor = homeContent.availabilityFor
 const leadershipSection = homeContent.leadershipSection
-const selectedWorks = homeContent.selectedWorks
-const education = homeContent.education
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
 }
 
 // Shared styles
@@ -165,11 +153,9 @@ export default function Home() {
               <HomeIcon size={13} /> Home
             </Link>
             <Link to="/work" style={{ color: '#666662', textDecoration: 'none' }}>Work</Link>
-            <a href="#product-motion" style={{ color: '#666662', textDecoration: 'none' }}>Product Motion</a>
             <a href="#awards" className="award-nav-link">Awards</a>
             <a href="#cgi" style={{ color: '#666662', textDecoration: 'none' }}>CGI</a>
             <a href="#experience" style={{ color: '#666662', textDecoration: 'none' }}>Experience</a>
-            <a href="#skills" style={{ color: '#666662', textDecoration: 'none' }}>Skills</a>
             <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#666662', textDecoration: 'none' }}>Resume</a>
             <a href="#contact" style={{ color: '#666662', textDecoration: 'none' }}>Contact</a>
           </nav>
@@ -258,48 +244,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* Premium SaaS/product motion spotlight */}
-      <section id="product-motion" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem', scrollMarginTop: 86 }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="saas-video-stage">
-          <div className="saas-video-topline">
-            <span>Featured product film</span>
-            <a href={`https://www.youtube.com/watch?v=${saasSpotlight.videoId}`} target="_blank" rel="noopener noreferrer">
-              Open on YouTube <ExternalLink size={12} />
-            </a>
-          </div>
-          <div className="saas-video-frame">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${saasSpotlight.videoId}?rel=0&modestbranding=1`}
-              title={saasSpotlight.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ── METRICS ── */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))', gap: '1rem' }}
-        >
-          {keyMetrics.map((m, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              style={{ ...card, padding: '1.5rem 1.25rem', textAlign: 'center' }}
-            >
-              <div style={{ fontFamily: "'Sora', sans-serif", fontSize: 28, fontWeight: 800, color: '#3c6e71', marginBottom: '0.3rem', lineHeight: 1 }}>{m.value}</div>
-              <p style={{ color: '#888884', fontSize: 12.5, lineHeight: 1.45 }}>{m.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </section>
 
       {/* Award recognition */}
@@ -525,63 +469,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Selected work */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-            <div>
-              <div style={sectionLabel}>
-                <span style={accentBar} />
-                Selected Work
-              </div>
-              <p style={{ color: '#777772', fontSize: 14, lineHeight: 1.65, maxWidth: 560 }}>
-                Three employer-friendly snapshots showing how I turn briefs into motion systems, learning assets and delivery-ready video.
-              </p>
-            </div>
-            <Link
-              to="/work"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1rem', background: '#1f2930', color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
-            >
-              View All Work <ChevronRight size={14} />
-            </Link>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(auto-fit, minmax(245px, 1fr))', gap: '1rem' }}>
-            {selectedWorks.map((work) => (
-              <motion.div key={work.videoId} variants={fadeUp} style={{ ...card, overflow: 'hidden', padding: 0 }}>
-                <Link to="/work" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
-                  <div style={{ position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' }}>
-                    <img
-                      src={`https://img.youtube.com/vi/${work.videoId}/hqdefault.jpg`}
-                      alt={work.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.42))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#284b63', boxShadow: '0 8px 18px rgba(0,0,0,0.2)' }}>
-                        <PlayCircle size={22} />
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{ padding: '1rem' }}>
-                    <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#1a1a1a', fontSize: 15, marginBottom: '0.5rem', lineHeight: 1.35 }}>{work.title}</h3>
-                    <div style={{ display: 'grid', gap: '0.25rem', marginBottom: '0.75rem', color: '#777772', fontSize: 12.5, lineHeight: 1.45 }}>
-                      <span><strong style={{ color: '#353535' }}>Client:</strong> {work.client}</span>
-                      <span><strong style={{ color: '#353535' }}>Role:</strong> {work.role}</span>
-                      <span><strong style={{ color: '#353535' }}>Tools:</strong> {work.tools}</span>
-                    </div>
-                    <p style={{ color: '#666662', fontSize: 13, lineHeight: 1.6, marginBottom: '0.875rem' }}>{work.result}</p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                      {work.tags.map((tag) => (
-                        <span key={tag} style={{ background: '#f3f6f5', border: '1px solid #dce5e3', borderRadius: 6, padding: '0.22rem 0.5rem', color: '#3c6e71', fontSize: 11.5, fontWeight: 600 }}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
       {/* Experience */}
       <section id="experience" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -617,139 +504,38 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ── SKILLS ── */}
-      <section id="skills" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <div style={sectionLabel}>
-            <span style={accentBar} />
-            Skills & Expertise
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(3, minmax(0, 1fr))', gap: '1rem', alignItems: 'start' }}>
-            {/* Core Skills */}
-            <div style={{ ...card, padding: '1.5rem' }}>
-              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Core Skills</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-                {coreSkills.map((s, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#3c6e71', flexShrink: 0 }} />
-                    <span style={{ color: '#555552', fontSize: 13 }}>{s}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Software */}
-            <div style={{ ...card, padding: '1.5rem' }}>
-              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#3c6e71', marginBottom: '1rem', fontSize: 13.5 }}>Software Proficiency</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-                {softwareSkills.map((s, i) => (
-                  <div key={i}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem' }}>
-                      <span style={{ color: '#353535', fontSize: 13, fontWeight: 500 }}>{s.name}</span>
-                      <span style={{ color: '#3c6e71', fontSize: 12, fontWeight: 600 }}>{s.level}%</span>
-                    </div>
-                    <div style={{ height: 5, background: '#eeeeec', borderRadius: 3, overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${s.level}%`, background: 'linear-gradient(90deg,#3c6e71,#284b63)', borderRadius: 3 }} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* AI Tools */}
-            <div style={{ background: 'linear-gradient(145deg,#284b63,#1e3a4f)', borderRadius: 14, padding: '1.5rem', boxShadow: '0 4px 16px rgba(40,75,99,0.18)' }}>
-              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: '#fff', marginBottom: '0.3rem', fontSize: 13.5 }}>AI & Creative Tools</h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11.5, marginBottom: '1rem' }}>Cutting-edge generative AI pipeline</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
-                {aiTools.map((t, i) => (
-                  <span key={i} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 20, padding: '0.25rem 0.65rem', fontSize: 12, color: '#fff', fontWeight: 500 }}>{t}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ── EDUCATION ── */}
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 2.5rem' : '0 2rem 3.5rem' }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <div style={sectionLabel}>
-            <span style={accentBar} />
-            Education
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
-            <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #3c6e71' }}>
-              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: education[0].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[0].school}</h3>
-              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[0].program}</p>
-              <p style={{ color: '#999996', fontSize: 12.5 }}>{education[0].period}</p>
-            </div>
-            <div style={{ ...card, padding: '1.5rem', borderLeft: '3px solid #284b63' }}>
-              <h3 style={{ fontFamily: "'Sora', sans-serif", fontWeight: 700, color: education[1].color, fontSize: 15, marginBottom: '0.3rem' }}>{education[1].school}</h3>
-              <p style={{ color: '#353535', fontSize: 13.5, fontWeight: 500, marginBottom: '0.2rem' }}>{education[1].program}</p>
-              <p style={{ color: '#999996', fontSize: 12.5 }}>{education[1].period}</p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ── FEATURED WORK + CONTACT ── */}
+      {/* ── CONTACT ── */}
       <section id="contact" style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 1rem 3rem' : '0 2rem 5rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: '1rem' }}>
-          {/* Featured Work */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            style={{ background: 'linear-gradient(145deg,#284b63,#1e3a4f)', borderRadius: 14, padding: '2rem', boxShadow: '0 6px 24px rgba(40,75,99,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
-          >
-            <div>
-              <span style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 20, padding: '0.2rem 0.65rem', fontSize: 10.5, color: 'rgba(255,255,255,0.65)', fontWeight: 600, letterSpacing: 0, textTransform: 'uppercase' }}>{homeContent.caseStudy.label}</span>
-              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', marginTop: '0.875rem', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.caseStudy.title}</h2>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 13, lineHeight: 1.65 }}>
-                {homeContent.caseStudy.description}
-              </p>
-            </div>
-            <Link
-              to="/work"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '1.5rem', padding: '0.6rem 1.2rem', background: '#fff', color: '#284b63', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          style={{ ...card, padding: '2rem', maxWidth: 620, margin: '0 auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
+        >
+          <div>
+            <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.contactCard.title}</h2>
+            <p style={{ color: '#888884', fontSize: 13, lineHeight: 1.65 }}>
+              {homeContent.contactCard.description}
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+            <button
+              onClick={() => setContactOpen(true)}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
             >
-              View Case Study <ChevronRight size={13} />
-            </Link>
-          </motion.div>
-
-          {/* Contact */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            style={{ ...card, padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 220 }}
-          >
-            <div>
-              <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: 20, fontWeight: 700, color: '#1a1a1a', marginBottom: '0.625rem', lineHeight: 1.3, letterSpacing: 0 }}>{homeContent.contactCard.title}</h2>
-              <p style={{ color: '#888884', fontSize: 13, lineHeight: 1.65 }}>
-                {homeContent.contactCard.description}
-              </p>
-            </div>
-            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
-              <button
-                onClick={() => setContactOpen(true)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: '#3c6e71', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: "'Inter', sans-serif" }}
-              >
-                <Mail size={13} /> Get In Touch
-              </button>
-              <a
-                href={LINKTREE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
-              >
-                Connect
-              </a>
-            </div>
-          </motion.div>
-        </div>
+              <Mail size={13} /> Get In Touch
+            </button>
+            <a
+              href={LINKTREE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.6rem 1.2rem', background: 'transparent', color: '#3c6e71', border: '1.5px solid #3c6e71', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none', fontFamily: "'Inter', sans-serif" }}
+            >
+              Connect
+            </a>
+          </div>
+        </motion.div>
       </section>
 
       {/* ── FOOTER ── */}
