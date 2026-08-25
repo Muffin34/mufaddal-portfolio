@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Award, Box, ChevronDown, Mail, ExternalLink, X, Send, Loader2, FileText, PlayCircle, Home as HomeIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
@@ -29,6 +29,31 @@ const leadershipSection = homeContent.leadershipSection
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+}
+
+// Signature kinetic-type hero entrance: each headline line slides up out of
+// a clipping mask, staggered. Collapses to a plain fade under reduced motion.
+const kineticLineWrapFull = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.15 } },
+}
+const kineticLineWrapReduced = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+}
+const kineticLineFull = {
+  hidden: { y: '115%' },
+  visible: { y: '0%', transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] as const } },
+}
+const kineticLineReduced = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
+}
+
+function heroFadeProps(reduce: boolean, delay: number) {
+  return reduce
+    ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, delay } }
+    : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const, delay } }
 }
 
 // Shared styles
@@ -76,6 +101,7 @@ function useIsMobile() {
 
 export default function Home() {
   const isMobile = useIsMobile()
+  const prefersReducedMotion = useReducedMotion() ?? false
   const clientRows = [
     clientLogos.filter((_, index) => index % 2 === 0),
     clientLogos.filter((_, index) => index % 2 !== 0),
@@ -166,20 +192,56 @@ export default function Home() {
       <section style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '2.5rem 1rem 2rem' : '4rem 2rem 3rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) 380px', gap: isMobile ? '2rem' : '3.5rem', alignItems: 'center' }}>
           {/* Left */}
-          <motion.div variants={fadeUp} initial="hidden" animate="visible">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: '#edf7ed', border: '1px solid #c8e6c9', borderRadius: 20, padding: '0.25rem 0.75rem', fontSize: 12, color: '#2e7d32', fontWeight: 600, marginBottom: '1.25rem' }}>
+          <div>
+            <motion.div
+              {...heroFadeProps(prefersReducedMotion, 0)}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: '#edf7ed', border: '1px solid #c8e6c9', borderRadius: 20, padding: '0.25rem 0.75rem', fontSize: 12, color: '#2e7d32', fontWeight: 600, marginBottom: '1.25rem' }}
+            >
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4caf50' }} />
               {homeContent.availabilityText}
-            </div>
-            <h1 style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.15, letterSpacing: 0, marginBottom: '1.25rem' }}>
-              {homeContent.hero.line1}<br />
-              {homeContent.hero.line2}<br />
-              <span style={{ color: '#3c6e71' }}>{homeContent.hero.highlight}</span>
-            </h1>
-            <p style={{ color: '#666662', lineHeight: 1.7, fontSize: 15, maxWidth: 480, marginBottom: '2rem' }}>
+            </motion.div>
+
+            <motion.h1
+              variants={prefersReducedMotion ? kineticLineWrapReduced : kineticLineWrapFull}
+              initial="hidden"
+              animate="visible"
+              style={{ fontFamily: "'Sora', sans-serif", fontSize: 'clamp(2.25rem, 4.4vw, 3.75rem)', fontWeight: 800, color: '#1a1a1a', lineHeight: 1.14, letterSpacing: '-0.02em', marginBottom: 0 }}
+            >
+              <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.08em' }}>
+                <motion.span variants={prefersReducedMotion ? kineticLineReduced : kineticLineFull} style={{ display: 'block' }}>
+                  {homeContent.hero.line1}
+                </motion.span>
+              </span>
+              <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.08em' }}>
+                <motion.span variants={prefersReducedMotion ? kineticLineReduced : kineticLineFull} style={{ display: 'block' }}>
+                  {homeContent.hero.line2}
+                </motion.span>
+              </span>
+              <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.08em' }}>
+                <motion.span variants={prefersReducedMotion ? kineticLineReduced : kineticLineFull} style={{ display: 'block', color: '#3c6e71' }}>
+                  {homeContent.hero.highlight}
+                </motion.span>
+              </span>
+            </motion.h1>
+
+            <motion.span
+              {...(prefersReducedMotion
+                ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, delay: 0.5 } }
+                : { initial: { scaleX: 0 }, animate: { scaleX: 1 }, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const, delay: 1.0 } })}
+              style={{ transformOrigin: 'left', display: 'block', height: 3, width: 64, borderRadius: 2, background: 'linear-gradient(90deg,#3c6e71,#284b63)', marginTop: '1rem', marginBottom: '1.35rem' }}
+            />
+
+            <motion.p
+              {...heroFadeProps(prefersReducedMotion, prefersReducedMotion ? 0.15 : 1.05)}
+              style={{ color: '#666662', lineHeight: 1.7, fontSize: 15, maxWidth: 480, marginBottom: '2rem' }}
+            >
               {homeContent.hero.body}
-            </p>
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            </motion.p>
+
+            <motion.div
+              {...heroFadeProps(prefersReducedMotion, prefersReducedMotion ? 0.2 : 1.18)}
+              style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}
+            >
               <Link
                 to="/work"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.65rem 1.25rem', background: '#284b63', color: '#fff', borderRadius: 8, fontWeight: 700, fontSize: 13.5, textDecoration: 'none', fontFamily: "'Inter', sans-serif", boxShadow: '0 2px 8px rgba(40,75,99,0.25)' }}
@@ -200,15 +262,19 @@ export default function Home() {
               >
                 <Mail size={14} /> Contact
               </button>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginTop: '1.25rem' }}>
+            </motion.div>
+
+            <motion.div
+              {...heroFadeProps(prefersReducedMotion, prefersReducedMotion ? 0.25 : 1.3)}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginTop: '1.25rem' }}
+            >
               {availabilityFor.map((item) => (
                 <span key={item} style={{ background: 'rgba(255,255,255,0.72)', border: '1px solid #e4e4e1', borderRadius: 6, padding: '0.32rem 0.55rem', color: '#5f6560', fontSize: 12, fontWeight: 600 }}>
                   {item}
                 </span>
               ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Right: photo */}
           <div>
