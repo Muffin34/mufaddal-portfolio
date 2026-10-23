@@ -33,9 +33,9 @@ collections:
             widget: "object"
             summary: "{{fields.line1}}"
             fields:
-              - { label: "Headline Line 1", name: "line1", widget: "string" }
-              - { label: "Headline Line 2", name: "line2", widget: "string" }
-              - { label: "Highlighted Headline Line", name: "highlight", widget: "string" }
+              - { label: "First Name", name: "line1", widget: "string" }
+              - { label: "Last Name", name: "line2", widget: "string" }
+              - { label: "Professional Role", name: "highlight", widget: "string" }
               - { label: "Intro Paragraph", name: "body", widget: "text", hint: "This is the main employer-facing pitch below the headline." }
           - label: "Quick Metrics"
             name: "metrics"
