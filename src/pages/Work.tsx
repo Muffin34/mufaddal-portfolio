@@ -11,6 +11,15 @@ import {
   TextLink,
 } from "../components/Portfolio";
 
+// Shared card styling reused across both gallery tabs
+const galleryCardStyle = { cursor: 'pointer', borderRadius: 12, overflow: 'hidden', background: '#fff', border: '1px solid #e5e5e3', boxShadow: '0 1px 3px rgba(0,0,0,0.04)', transition: 'transform 0.2s, box-shadow 0.2s' } as const
+const galleryThumbStyle = { position: 'relative', aspectRatio: '16/9', background: '#1a1a1a', overflow: 'hidden' } as const
+const galleryOverlayStyle = { position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center' } as const
+const galleryPlayButtonStyle = { width: 48, height: 48, borderRadius: '50%', background: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' } as const
+const galleryTagStyle = { position: 'absolute', top: 8, right: 8, background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: 10, fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: 4 } as const
+const galleryMetaStyle = { padding: '0.875rem 1rem' } as const
+const galleryTitleStyle = { fontFamily: "'Sora', sans-serif", fontWeight: 700, fontSize: 14, color: '#353535', lineHeight: 1.4 } as const
+
 export default function Work() {
   const [category, setCategory] = useState("All");
   const [query, setQuery] = useState("");
