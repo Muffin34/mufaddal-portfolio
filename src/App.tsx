@@ -7,7 +7,6 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Home from "./pages/Home";
 import Work from "./pages/Work";
 
 function RoutePosition() {
@@ -47,13 +46,23 @@ function GlobalHomeShortcut() {
   );
 }
 
+// The home page is now the static motion site in public/index.html.
+// Any in-app link to "/" (or "/#section") does a full page load so it reaches that page.
+function NewHome() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    window.location.assign("/" + hash);
+  }, [hash]);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <RoutePosition />
       <GlobalHomeShortcut />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<NewHome />} />
         <Route path="/work" element={<Work />} />
       </Routes>
     </BrowserRouter>

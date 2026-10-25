@@ -1,4 +1,6 @@
+# "/" is served by public/index.html (the motion home page).
+# Every other route falls back to the React app (film library at /work).
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/app.html"
   status = 200

@@ -7,4 +7,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // React app (film library at /work) lives in app.html; the home page is public/index.html.
+  build: {
+    rollupOptions: { input: 'app.html' },
+  },
 })
